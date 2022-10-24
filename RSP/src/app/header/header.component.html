@@ -5,8 +5,7 @@
             <form class="d-flex" role="search">
                 <div class="d-flex align-items-center">
                     <input type="text" class="form-control me-2 rounded-5 p-2 px-3 shadow-sm"
-                        placeholder="Start your search" autocomplete="off" aria-label="Search" size="42"
-                        #search>
+                        placeholder="Start your search" autocomplete="off" aria-label="Search" size="42" #search>
 
                     <i class="bi bi-search text-secondary" style="margin-left: -40px;"></i>
                 </div>
@@ -18,8 +17,11 @@
                     <div><i class="bi bi-person-circle fs-4 text-secondary"></i></div>
                 </div>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Log in</a></li>
-                    <li><a class="dropdown-item text-secondary" href="#">Sign up</a></li>
+                    <!-- Button trigger modal -->
+                    <li><a class="dropdown-item" type="button" data-bs-toggle="modal" data-bs-target="#login">Log in</a>
+                    </li>
+                    <li><a class="dropdown-item text-secondary" type="button" data-bs-toggle="modal"
+                            data-bs-target="#signup">Sign up</a></li>
                     <li><a class="dropdown-item text-secondary" href="#">Something else</a></li>
                     <li>
                         <hr class="dropdown-divider">
@@ -30,3 +32,70 @@
         </div>
     </nav>
 </header>
+
+<!-- Modal Log In -->
+<div class="modal fade" id="login" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="loginLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="loginLabel">Log In</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h5 class="pt-3 pb-3 pe-3">Welcome to Airbnb</h5>
+                <div class="form-floating mb-2">
+                    <input type="text" class="form-control" id="usernameLogIn" placeholder="Enter your username">
+                    <label for="usernameLogIn">Username</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="passwordLogIn" placeholder="Enter your password">
+                    <label for="passwordLogIn">Password</label>
+                </div>
+                <div class="d-grid gap-2">
+                    <button class="btn btn-primary" type="button">Log In</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Sign Up -->
+<div class="modal fade" id="signup" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="signupLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="signupLabel">Sign Up</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h5 class="pt-3 pb-3 pe-3">Welcome to Airbnb</h5>
+                <form>
+                    <div class="form-floating mb-2">
+                        <input type="text" class="form-control" id="usernameSignUp" placeholder="Enter your username" autocomplete="off">
+                        <label for="usernameSignUp">Username</label>
+                    </div>
+                    <div class="form-floating mb-2">
+                        <input type="password" class="form-control" id="passwordSignUp" placeholder="Enter your password" autocomplete="off"
+                        >
+                        <label for="passwordSignUp">Password</label>
+                    </div>
+                    <div class="form-floating mb-2">
+                        <input type="password" class="form-control" id="passwordConfirmation"
+                            placeholder="Enter your confirmation password" autocomplete="off">
+                        <label for="passwordConfirmation">Confirn Password</label>
+                    </div>
+                    <div class="form-check form-switch mb-3">
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" (change)="onChange()" #switch>
+                        <label class="form-check-label" for="flexSwitchCheckDefault">I agree the conditions</label>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary" [disabled]="switch.checked === false" type="button">Sign
+                            Up</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
