@@ -1,0 +1,32 @@
+<header class="sticky-top bg-white">
+    <nav class="container-fluid navbar shadow-sm py-3">
+        <div class="container">
+            <a class="navbar-brand" style="color: rgb(235, 76, 96);"><strong>Airbnb</strong></a>
+            <form class="d-flex" role="search">
+                <div class="d-flex align-items-center">
+                    <input type="text" class="form-control me-2 rounded-5 p-2 px-3 shadow-sm"
+                        placeholder="Start your search" autocomplete="off" aria-label="Search" size="42"
+                        #search>
+
+                    <i class="bi bi-search text-secondary" style="margin-left: -40px;"></i>
+                </div>
+            </form>
+            <a class="btn-group dropstart">
+                <div id="profile-menu" type="button" data-bs-toggle="dropdown" aria-expanded="false"
+                    class="d-flex align-items-baseline gap-2 border rounded rounded-5 p-1 px-3 shadow-sm">
+                    <div><i class="bi bi-list fs-5 text-secondary"></i></div>
+                    <div><i class="bi bi-person-circle fs-4 text-secondary"></i></div>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Log in</a></li>
+                    <li><a class="dropdown-item text-secondary" href="#">Sign up</a></li>
+                    <li><a class="dropdown-item text-secondary" href="#">Something else</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item text-secondary" href="#">Separated link</a></li>
+                </ul>
+            </a>
+        </div>
+    </nav>
+</header>

@@ -1,0 +1,8 @@
+@media only screen and (max-width: 800px) {
+    .navbar-brand {
+        display: none;
+    }
+}
+#profile-menu {
+    cursor: pointer;
+}
