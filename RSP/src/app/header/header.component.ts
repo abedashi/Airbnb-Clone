@@ -1,4 +1,5 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-header',
@@ -6,13 +7,21 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  @ViewChild('switch') switch!: ElementRef;
+  @ViewChild('f1') logInForm!: NgForm;
+  @ViewChild('f2') signUpForm!: NgForm;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  onChange() {
-    console.log(this.switch.nativeElement.checked);
+  onSubmitF1(form: NgForm) {
+    console.log(form);
+    // console.log(this.logInForm.value.usernameLogIn);
+    this.logInForm.reset();
+  }
+  onSubmitF2(form: NgForm) {
+    console.log(form);
+    this.signUpForm.reset();
   }
 }

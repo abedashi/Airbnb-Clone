@@ -43,18 +43,25 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <h5 class="pt-3 pb-3 pe-3">Welcome to Airbnb</h5>
-                <div class="form-floating mb-2">
-                    <input type="text" class="form-control" id="usernameLogIn" placeholder="Enter your username">
-                    <label for="usernameLogIn">Username</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="password" class="form-control" id="passwordLogIn" placeholder="Enter your password">
-                    <label for="passwordLogIn">Password</label>
-                </div>
-                <div class="d-grid gap-2">
-                    <button class="btn btn-primary" type="button">Log In</button>
-                </div>
+                <form (ngSubmit)="onSubmitF1(f1)" #f1="ngForm">
+                    <h5 class="pt-3 pb-3 pe-3">Welcome to Airbnb</h5>
+                    <div class="form-floating mb-2">
+                        <input type="text" class="form-control" name="usernameLogIn" id="usernameLogIn"
+                            placeholder="Enter your username" required ngModel #usernameLogIn>
+                        <label for="usernameLogIn">Username</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control" name="passLogIn" id="passwordLogIn"
+                            placeholder="Enter your password" required ngModel #passLogIn>
+                        <label for="passwordLogIn">Password</label>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-primary" type="submit" [disabled]="!f1.valid">Log In</button>
+                    </div>
+                </form>
+                <span class="d-flex align-items-center justify-content-center mt-2">or</span>
+                <hr class="text-secondary m-0"/>
+                <span class="d-flex align-items-center justify-content-center mt-2">To Be Continued</span>
             </div>
         </div>
     </div>
@@ -71,30 +78,36 @@
             </div>
             <div class="modal-body">
                 <h5 class="pt-3 pb-3 pe-3">Welcome to Airbnb</h5>
-                <form>
+                <form (ngSubmit)="onSubmitF2(f2)" #f2="ngForm">
                     <div class="form-floating mb-2">
-                        <input type="text" class="form-control" id="usernameSignUp" placeholder="Enter your username" autocomplete="off">
+                        <input type="text" class="form-control" name="usernameSignUp" id="usernameSignUp"
+                            placeholder="Enter your username" autocomplete="off" ngModel required #usernameSignUp>
                         <label for="usernameSignUp">Username</label>
                     </div>
                     <div class="form-floating mb-2">
-                        <input type="password" class="form-control" id="passwordSignUp" placeholder="Enter your password" autocomplete="off"
-                        >
+                        <input type="password" class="form-control" name="passSignUp" id="passwordSignUp"
+                            placeholder="Enter your password" autocomplete="off" ngModel required #passSignUp>
                         <label for="passwordSignUp">Password</label>
                     </div>
                     <div class="form-floating mb-2">
-                        <input type="password" class="form-control" id="passwordConfirmation"
-                            placeholder="Enter your confirmation password" autocomplete="off">
+                        <input type="password" class="form-control" name="passsConfrim" id="passwordConfirmation"
+                            placeholder="Enter your confirmation password" autocomplete="off" ngModel required
+                            #passConfirm>
                         <label for="passwordConfirmation">Confirn Password</label>
                     </div>
                     <div class="form-check form-switch mb-3">
-                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" (change)="onChange()" #switch>
-                        <label class="form-check-label" for="flexSwitchCheckDefault">I agree the conditions</label>
+                        <input class="form-check-input" type="checkbox" name="switch" role="switch"
+                            id="flexSwitchCheckDefault" #switch ngModel required>
+                        <label class="form-check-label" for="flexSwitchCheckDefault">Agree to terms and conditions</label>
                     </div>
                     <div class="d-grid gap-2">
-                        <button type="submit" class="btn btn-primary" [disabled]="switch.checked === false" type="button">Sign
-                            Up</button>
+                        <button type="submit" class="btn btn-primary" [disabled]="!f2.valid">
+                            Sign Up</button>
                     </div>
                 </form>
+                <span class="d-flex align-items-center justify-content-center mt-2">or</span>
+                <hr class="text-secondary m-0"/>
+                <span class="d-flex align-items-center justify-content-center mt-2">To Be Continued</span>
             </div>
         </div>
     </div>
