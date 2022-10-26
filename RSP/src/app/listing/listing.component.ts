@@ -8,17 +8,16 @@ import { List } from './listing.module';
 })
 export class ListingComponent implements OnInit {
   listing: List[] = [
-    new List('Qatar', '185 Kilometers away', new Date(), 180, 4.1, 
-      'https://a0.muscache.com/im/pictures/63befe3b-264a-4082-ab8d-7b0681b91955.jpg?im_w=320'),
-    new List('Cyprus', '285 Kilometers away', new Date(), 100, 4.4,
-      'https://a0.muscache.com/im/pictures/63befe3b-264a-4082-ab8d-7b0681b91955.jpg?im_w=320'
-    ),
-    new List('Cyprus', '285 Kilometers away', new Date(), 100, 4.4,
-      'https://a0.muscache.com/im/pictures/63befe3b-264a-4082-ab8d-7b0681b91955.jpg?im_w=320'),
-    new List('Cyprus', '285 Kilometers away', new Date(), 100, 4.4, 
-      'https://a0.muscache.com/im/pictures/63befe3b-264a-4082-ab8d-7b0681b91955.jpg?im_w=320'),
-    new List('Cyprus', '285 Kilometers away', new Date(), 100, 4.4,
-      'https://a0.muscache.com/im/pictures/63befe3b-264a-4082-ab8d-7b0681b91955.jpg?im_w=320')
+    new List('Qatar', '195 Kilometers away', new Date(), 170, 4.1,
+      'https://images.pexels.com/photos/13415959/pexels-photo-13415959.jpeg?auto=compress&cs=tinysrgb&w=800&lazy=load'),
+    new List('Cyprus', '185 Kilometers away', new Date(), 180, 3.9,
+      'https://images.pexels.com/photos/6091193/pexels-photo-6091193.jpeg?auto=compress&cs=tinysrgb&w=800'),
+    new List('Lebanon', '185 Kilometers away', new Date(), 180, 5.0,
+      'https://images.pexels.com/photos/136739/pexels-photo-136739.jpeg?auto=compress&cs=tinysrgb&w=800'),
+    new List('Italy', '185 Kilometers away', new Date(), 180, 4.5,
+      'https://images.pexels.com/photos/996954/pexels-photo-996954.jpeg?auto=compress&cs=tinysrgb&w=800'),
+    new List('Spain', '185 Kilometers away', new Date(), 180, 4.2,
+      'https://images.pexels.com/photos/1382734/pexels-photo-1382734.jpeg?auto=compress&cs=tinysrgb&w=800'),
   ]
 
   constructor() { }
