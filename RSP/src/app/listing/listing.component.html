@@ -4,41 +4,9 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3" style="margin-top: 40px;"
                     *ngFor="let list of listing; let i = index">
-                    <div class="row">
-                        <div id="carouselExampleIndicators" class="carousel slide" data-bs-touch="false">
-                            <div class="carousel-indicators">
-                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
-                                    class="active" aria-current="true" aria-label="Slide 1"></button>
-                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                                    aria-label="Slide 2"></button>
-                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                                    aria-label="Slide 3"></button>
-                            </div>
-                            <div class="carousel-inner rounded-3">
-                                <div class="carousel-item active">
-                                    <img style="height: 283px;" src="{{ list.image[0] }}" class="d-block w-100"
+                    <div>
+                        <img style="height: 283px;" src="{{ list.image }}" class="d-block w-100 rounded-4"
                                         alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img style="height: 283px;" src="{{ list.image[1] }}" class="d-block w-100"
-                                        alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img style="height: 283px;" src="{{ list.image[2] }}" class="d-block w-100"
-                                        alt="...">
-                                </div>
-                            </div>
-                            <button class="carousel-control-prev" type="button"
-                                data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button"
-                                data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
-                        </div>
                     </div>
                     <div class="row mt-2">
                         <div class="col-6" style="text-align: start;">
