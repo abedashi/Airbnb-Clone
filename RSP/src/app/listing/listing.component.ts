@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { List } from './listing.module';
 
 @Component({
@@ -20,9 +21,13 @@ export class ListingComponent implements OnInit {
       'https://images.pexels.com/photos/1382734/pexels-photo-1382734.jpeg?auto=compress&cs=tinysrgb&w=800'),
   ]
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  onListingView() {
+    this.router.navigate(['/id'])
   }
 
 }
