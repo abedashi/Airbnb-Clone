@@ -2,18 +2,16 @@
     height="90vh"
     width="100vw"
     [center]="center"
-    [zoom]="zoom"
-    (mapClick)="addMarker($event)">
-    <map-marker *ngFor="let markerPosition of markerPositions; let i = index"
-        [position]="markerPosition"
+    [zoom]="zoom">
+    <map-marker *ngFor="let markerPosition of markerPositions"
+        [position]="markerPosition.coordinates"
         [options]="markerOptions"
-        (mapDblclick)="deleteMarker(i)"
+        [label]="'$'+markerPosition.price"
         #marker="mapMarker">
     </map-marker>
-    <map-info-window>Info Window content</map-info-window>
 </google-map>
 
 <div class="fixed-bottom d-flex align-items-center justify-content-center mb-5">
-    <button class="btn btn-dark rounded-5" style="padding: 10px 15px 10px;"><span class="me-2">Show
+    <button (click)="onClick()" class="btn btn-dark rounded-5" style="padding: 10px 15px 10px;"><span class="me-2">Show
             Lists</span> <i class="bi bi-list-ul"></i></button>
 </div>
