@@ -6,10 +6,10 @@
                 <img style="height: 283px;" src="{{ list.image }}" class="d-block w-100 rounded-4" alt="...">
             </div>
             <div class="row mt-2">
-                <div class="col-6" style="text-align: start;">
+                <div class="col-9" style="text-align: start;">
                     <strong>{{ list.name }}</strong>
                 </div>
-                <div class="col-6" style="text-align: end;">
+                <div class="col-3" style="text-align: end;">
                     <i class="bi bi-star-fill" style="font-size: 13px;"></i>
                     <span class="ms-1">{{ list.rate }}</span>
                 </div>
@@ -25,7 +25,7 @@
             </div>
         </div>
         <div class="fixed-bottom d-flex align-items-center justify-content-center mb-5">
-            <button class="btn btn-dark rounded-5" style="padding: 10px 15px 10px;"><span class="me-2">Show
+            <button (click)="onClick()" class="btn btn-dark rounded-5" style="padding: 10px 15px 10px;"><span class="me-2">Show
                     maps</span> <i class="bi bi-map"></i></button>
         </div>
     </div>
