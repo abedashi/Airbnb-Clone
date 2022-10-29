@@ -9,6 +9,7 @@ import { HeaderComponent } from './header/header.component';
 import { ListingViewComponent } from './listing/listing-view/listing-view.component';
 import { ListingComponent } from './listing/listing.component';
 import { MapsComponent } from './maps/maps.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { MapsComponent } from './maps/maps.component';
     HeaderComponent,
     ListingComponent,
     MapsComponent,
-    ListingViewComponent
+    ListingViewComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MapInfoWindow, MapMarker } from '@angular/google-maps';
+import { ActivatedRoute, Route, Router } from '@angular/router';
+import { List } from '../listing/listing.module';
+import { ServiceService } from '../service.service';
 
 @Component({
   selector: 'app-maps',
@@ -12,30 +15,28 @@ export class MapsComponent implements OnInit {
   center: google.maps.LatLngLiteral = {lat: 33.8938, lng: 35.5018};
   zoom = 14;
   markerOptions: google.maps.MarkerOptions = {draggable: false};
-  markerPositions: google.maps.LatLngLiteral[] = [
-    {lat: 33.8955282474581, lng: 35.49712222747803},
-    {lat: 33.897349558489125, lng: 35.47030448913574},
-  ];
+  markerPositions: List[] = [];
 
-  constructor() { }
+  lists!: List[];
+  label!: string;
+
+  constructor(
+    private service: ServiceService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
+    this.lists = this.service.getList();
+    this.lists.forEach(list => {
+      return this.markerPositions.push(list);
+    });
   }
 
-  addMarker(event: google.maps.MapMouseEvent) {
-    if (event.latLng != null)
-      this.markerPositions.push(event.latLng.toJSON());
-      console.log(event.latLng?.toJSON());
-  }
-  deleteMarker(index: number) {
-    this.markerPositions.splice(index, 1);
-  }
   goTo(index: number) {
 
   }
-  openInfoWindow(marker: MapMarker) {
-    if (this.infoWindow != undefined)
-      this.infoWindow.open(marker);
-      console.log(marker);
+
+  onClick() {
+    this.router.navigate(['/listing']);
   }
 }
