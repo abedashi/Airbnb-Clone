@@ -10,6 +10,7 @@ import { ListingViewComponent } from './listing/listing-view/listing-view.compon
 import { ListingComponent } from './listing/listing.component';
 import { MapsComponent } from './maps/maps.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AddListComponent } from './add-list/add-list.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     ListingComponent,
     MapsComponent,
     ListingViewComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    AddListComponent
   ],
   imports: [
     BrowserModule,
