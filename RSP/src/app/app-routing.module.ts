@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
+import { AddListComponent } from "./add-list/add-list.component";
 import { ListingViewComponent } from "./listing/listing-view/listing-view.component";
 import { ListingComponent } from "./listing/listing.component";
 import { MapsComponent } from "./maps/maps.component";
@@ -10,6 +11,7 @@ const appRoutes: Routes = [
     { path: 'listing', component: ListingComponent, children: [
         // { path: ':id', component: ListingViewComponent }
     ]},
+    { path: 'add-list', component: AddListComponent },
     { path: 'maps', component: MapsComponent },
     { path: 'not-found', component: PageNotFoundComponent },
     { path: '**', redirectTo: '/not-found' }
