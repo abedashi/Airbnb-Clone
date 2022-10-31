@@ -1,20 +1,41 @@
 export class List {
     name: string;
-    distance: string;
     date: Date;
     price: number;
     rate: number;
     image: string;
     coordinates: Coordinates;
+    images: string[];
+    guests: number;
+    bedrooms: number;
+    beds: number;
+    bath: number;
 
-    constructor(name: string, dis: string, date: Date, price: number, rate: number, image: string, coordinates: Coordinates) {
+
+    constructor(name: string,
+        date: Date,
+        price: number,
+        rate: number,
+        image: string,
+        coordinates: Coordinates,
+        images: string[],
+        guests: number,
+        bedrooms: number,
+        beds: number,
+        bath: number,
+
+    ) {
         this.name = name;
-        this.distance = dis;
         this.date = date;
-        this.price= price;
+        this.price = price;
         this.rate = rate;
         this.image = image;
         this.coordinates = coordinates;
+        this.images = images;
+        this.guests = guests;
+        this.bedrooms = bedrooms;
+        this.beds = beds;
+        this.bath = bath;
     }
 }
 
