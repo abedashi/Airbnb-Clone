@@ -5,11 +5,13 @@ import { ListingViewComponent } from "./listing/listing-view/listing-view.compon
 import { ListingComponent } from "./listing/listing.component";
 import { MapsComponent } from "./maps/maps.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
+import { ListComponent } from "./listing/list/list.component"; 
 
 const appRoutes: Routes = [
     { path: '', redirectTo: 'listing', pathMatch: 'full' },
     { path: 'listing', component: ListingComponent, children: [
-        // { path: ':id', component: ListingViewComponent }
+        { path: '', component: ListComponent },
+        { path: ':id', component: ListingViewComponent }
     ]},
     { path: 'add-list', component: AddListComponent },
     { path: 'maps', component: MapsComponent },

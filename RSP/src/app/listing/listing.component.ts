@@ -13,18 +13,19 @@ export class ListingComponent implements OnInit {
 
   constructor(
     private service: ServiceService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
     this.listing = this.service.getList();
   }
 
-  onListingView() {
-    // this.router.navigate(['/id'])
-  }
+  // onListingView(i: number) {
+  //   this.router.navigate([i], { relativeTo: this.route})
+  // }
 
-  onClick() {
-    this.router.navigate(['/maps']);
-  }
+  // onClick() {
+  //   this.router.navigate(['/maps']);
+  // }
 }

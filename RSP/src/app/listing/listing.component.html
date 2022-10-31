@@ -1,32 +1,13 @@
 <div class="container-fluid" style="padding-left: 40px; padding-right: 40px">
     <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3" style="margin-top: 40px; cursor: pointer;"
-            *ngFor="let list of listing; let i = index" (click)="onListingView()">
-            <div>
-                <img style="height: 283px;" src="{{ list.image }}" class="d-block w-100 rounded-4" alt="...">
-            </div>
-            <div class="row mt-2">
-                <div class="col-9" style="text-align: start;">
-                    <strong>{{ list.name }}</strong>
-                </div>
-                <div class="col-3" style="text-align: end;">
-                    <i class="bi bi-star-fill" style="font-size: 13px;"></i>
-                    <span class="ms-1">{{ list.rate }}</span>
-                </div>
-            </div>
-            <div class="row ">
-                <span>{{ list.distance }}</span>
-            </div>
-            <div class="row">
-                <span>{{ list.date | date }}</span>
-            </div>
-            <div class="row">
-                <strong>${{ list.price }} Night</strong>
-            </div>
-        </div>
-        <div class="fixed-bottom d-flex align-items-center justify-content-center mb-5">
+        <router-outlet></router-outlet>
+        <!-- <app-list-items
+        class="col-xs-12 col-sm-6 col-md-4 col-lg-3" 
+        style="margin-top: 40px; cursor: pointer;"
+        *ngFor="let list of listing; let i = index" [index]="i" [listItem]='list'></app-list-items> -->
+        <!-- <div class="fixed-bottom d-flex align-items-center justify-content-center mb-5">
             <button (click)="onClick()" class="btn btn-dark rounded-5" style="padding: 10px 15px 10px;"><span class="me-2">Show
                     maps</span> <i class="bi bi-map"></i></button>
-        </div>
+        </div> -->
     </div>
 </div>

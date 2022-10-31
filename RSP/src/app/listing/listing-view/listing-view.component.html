@@ -4,34 +4,58 @@
         <h3>Cozy bungalow with amazing seaview, secret garden</h3>
     </div>
     <div class="row">
-        <div class="col" style="text-align: start;">
+        <div class="col-8">
             <i class="bi bi-star-fill" style="font-size: 13px;"></i>
             <span class="ms-1">4.9</span>
             <span><strong> ·</strong> Beirut, Mount Lebanon Governorate, Lebanon</span>
+        </div>
+        <div class="col-4 text-end ">
+            <button type="button" class="btn btn-light">
+                <i class="bi bi-heart" style="font-size: 16px;"> save</i>
+            </button>
         </div>
     </div>
 
     <div class="row mt-4">
         <div class="col-6 p-1">
-            <a target="_blank" href="https://images.pexels.com/photos/136739/pexels-photo-136739.jpeg?auto=compress&cs=tinysrgb&w=800"><img class="img-fluid rounded-start" style="max-height: 390px; width: 100%;" src="https://images.pexels.com/photos/136739/pexels-photo-136739.jpeg?auto=compress&cs=tinysrgb&w=800"></a>
+            <a target="_blank"
+                href="https://images.pexels.com/photos/136739/pexels-photo-136739.jpeg?auto=compress&cs=tinysrgb&w=800"><img
+                    class="img-fluid" style="max-height: 390px; width: 100%; border-radius: 20px 0 0 20px;"
+                    src="https://images.pexels.com/photos/136739/pexels-photo-136739.jpeg?auto=compress&cs=tinysrgb&w=800"></a>
         </div>
 
         <div class="col-6">
             <div class="row">
                 <div class="col-6 p-1 pb-0">
-                    <a target="_blank" href="https://images.pexels.com/photos/996954/pexels-photo-996954.jpeg?auto=compress&cs=tinysrgb&w=800"><img style="max-height: 195px; width: 280px;" src="https://images.pexels.com/photos/996954/pexels-photo-996954.jpeg?auto=compress&cs=tinysrgb&w=800" class="img-fluid"></a>
+                    <a target="_blank"
+                        href="https://images.pexels.com/photos/996954/pexels-photo-996954.jpeg?auto=compress&cs=tinysrgb&w=800"><img
+                            style="max-height: 195px; width: 280px;"
+                            src="https://images.pexels.com/photos/996954/pexels-photo-996954.jpeg?auto=compress&cs=tinysrgb&w=800"
+                            class="img-fluid"></a>
                 </div>
                 <div class="col-6 p-1 pb-0">
-                    <a target="_blank" href="https://images.pexels.com/photos/136739/pexels-photo-136739.jpeg?auto=compress&cs=tinysrgb&w=800"><img style="max-height: 195px; width: 280px;" src="https://images.pexels.com/photos/136739/pexels-photo-136739.jpeg?auto=compress&cs=tinysrgb&w=800" class="img-fluid"></a>
+                    <a target="_blank"
+                        href="https://images.pexels.com/photos/136739/pexels-photo-136739.jpeg?auto=compress&cs=tinysrgb&w=800"><img
+                            style="max-height: 195px; width: 280px; border-radius: 0 20px 0 0;"
+                            src="https://images.pexels.com/photos/136739/pexels-photo-136739.jpeg?auto=compress&cs=tinysrgb&w=800"
+                            class="img-fluid"></a>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-6 p-1">
-                    <a target="_blank" href="https://images.pexels.com/photos/1632790/pexels-photo-1632790.jpeg?auto=compress&cs=tinysrgb&w=600"><img style="max-height: 184px; width: 280px;" src="https://images.pexels.com/photos/1632790/pexels-photo-1632790.jpeg?auto=compress&cs=tinysrgb&w=600" class="img-fluid d-block"></a>
+                    <a target="_blank"
+                        href="https://images.pexels.com/photos/1632790/pexels-photo-1632790.jpeg?auto=compress&cs=tinysrgb&w=600"><img
+                            style="max-height: 184px; width: 280px;"
+                            src="https://images.pexels.com/photos/1632790/pexels-photo-1632790.jpeg?auto=compress&cs=tinysrgb&w=600"
+                            class="img-fluid d-block"></a>
                 </div>
                 <div class="col-6 p-1">
-                    <a target="_blank" href="https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&w=600"><img style="max-height: 184px; width: 280px;" src="https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&w=600" class="img-fluid"></a>
+                    <a target="_blank"
+                        href="https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&w=600"><img
+                            style="max-height: 184px; width: 280px; border-radius: 0 0 20px 0;"
+                            src="https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&w=600"
+                            class="img-fluid"></a>
                 </div>
             </div>
         </div>
@@ -103,7 +127,7 @@
                     <div class="border rounded-4 shadow p-4 d-none d-xl-block">
                         <div class="row mb-4">
                             <div class="col-6">
-                                <span><strong>$1200</strong> night</span>
+                                <span><strong>${{ listView.price }}</strong> night</span>
                             </div>
                             <div class="col-6 text-end">
                                 <i class="bi bi-star-fill" style="font-size: 13px;"></i>
@@ -134,7 +158,7 @@
             </div>
         </div>
     </div>
-    
+
     <hr class="my-5">
 
     <div class="row">
@@ -180,7 +204,21 @@
     </div>
     <div class="row mt-4">
         <div class="col">
-            <button type="button" class="btn btn-outline-secondary" style="padding: 13px 30px 13px 30px;">Contact Host</button>
+            <h3><strong>Still have questions? Message the Host</strong></h3>
+        </div>
+    </div>
+    <div class="row my-5">
+        <div class="col">
+            <div class="form-floating">
+                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                    style="height: 100px"></textarea>
+                <label for="floatingTextarea2">Comment Host</label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button type="button" class="btn btn-outline-secondary" style="padding: 13px 30px 13px 30px;">send message</button>
         </div>
     </div>
 
