@@ -19,25 +19,25 @@
     <div class="row mt-4">
         <div class="col-6 p-1">
             <a target="_blank"
-                href="https://images.pexels.com/photos/136739/pexels-photo-136739.jpeg?auto=compress&cs=tinysrgb&w=800"><img
+                href="{{ listView.images[0] }}"><img
                     class="img-fluid" style="max-height: 390px; width: 100%; border-radius: 20px 0 0 20px;"
-                    src="https://images.pexels.com/photos/136739/pexels-photo-136739.jpeg?auto=compress&cs=tinysrgb&w=800"></a>
+                    src="{{ listView.images[0] }}"></a>
         </div>
 
         <div class="col-6">
             <div class="row">
                 <div class="col-6 p-1 pb-0">
                     <a target="_blank"
-                        href="https://images.pexels.com/photos/996954/pexels-photo-996954.jpeg?auto=compress&cs=tinysrgb&w=800"><img
+                        href="{{ listView.images[1] }}"><img
                             style="max-height: 195px; width: 280px;"
-                            src="https://images.pexels.com/photos/996954/pexels-photo-996954.jpeg?auto=compress&cs=tinysrgb&w=800"
+                            src="{{ listView.images[1] }}"
                             class="img-fluid"></a>
                 </div>
                 <div class="col-6 p-1 pb-0">
                     <a target="_blank"
-                        href="https://images.pexels.com/photos/136739/pexels-photo-136739.jpeg?auto=compress&cs=tinysrgb&w=800"><img
+                        href="{{ listView.images[2] }}"><img
                             style="max-height: 195px; width: 280px; border-radius: 0 20px 0 0;"
-                            src="https://images.pexels.com/photos/136739/pexels-photo-136739.jpeg?auto=compress&cs=tinysrgb&w=800"
+                            src="{{ listView.images[2] }}"
                             class="img-fluid"></a>
                 </div>
             </div>
@@ -45,16 +45,16 @@
             <div class="row">
                 <div class="col-6 p-1">
                     <a target="_blank"
-                        href="https://images.pexels.com/photos/1632790/pexels-photo-1632790.jpeg?auto=compress&cs=tinysrgb&w=600"><img
+                        href="{{ listView.images[3] }}"><img
                             style="max-height: 184px; width: 280px;"
-                            src="https://images.pexels.com/photos/1632790/pexels-photo-1632790.jpeg?auto=compress&cs=tinysrgb&w=600"
+                            src="{{ listView.images[3] }}"
                             class="img-fluid d-block"></a>
                 </div>
                 <div class="col-6 p-1">
                     <a target="_blank"
-                        href="https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&w=600"><img
+                        href="{{ listView.images[4] }}"><img
                             style="max-height: 184px; width: 280px; border-radius: 0 0 20px 0;"
-                            src="https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&w=600"
+                            src="{{ listView.images[4] }}"
                             class="img-fluid"></a>
                 </div>
             </div>
@@ -66,7 +66,7 @@
             <div class="row">
                 <div class="col-9 ">
                     <h4>Tiny home hosted by Eren</h4>
-                    <span>4 guests1 · bedroom1 · bed1 · bath</span>
+                    <span>{{ listView.guests }} guests · {{ listView.bedrooms }} bedroom · {{ listView.beds }} bed · {{ listView.bath }} bath</span>
                 </div>
                 <div class="col-3  ">
                     <span><img class="rounded-5"
@@ -131,7 +131,7 @@
                             </div>
                             <div class="col-6 text-end">
                                 <i class="bi bi-star-fill" style="font-size: 13px;"></i>
-                                <span class="ms-1">4.9</span>
+                                <span class="ms-1">{{ listView.rate }}</span>
                             </div>
                         </div>
                         <div class="row">
@@ -173,7 +173,18 @@
     </div>
     <div class="row mt-3">
         <div class="col">
-            <div class="border p-5 text-center">Google maps</div>
+            <div>
+                <google-map
+                    height="50vh"
+                    [center]="center"
+                    [zoom]="zoom"
+                    width="100%">
+                    <map-marker
+                        [position]="markerPositions"
+                        [options]="markerOptions">
+                    </map-marker>
+                </google-map>
+            </div>
         </div>
     </div>
     <hr class="mt-5">
