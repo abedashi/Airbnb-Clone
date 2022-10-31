@@ -11,6 +11,10 @@ import { ListingComponent } from './listing/listing.component';
 import { MapsComponent } from './maps/maps.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AddListComponent } from './add-list/add-list.component';
+import { Form1Component } from './add-list/form1/form1.component';
+import { Form2Component } from './add-list/form2/form2.component';
+import { Form3Component } from './add-list/form3/form3.component';
+import { Form4Component } from './add-list/form4/form4.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,11 @@ import { AddListComponent } from './add-list/add-list.component';
     MapsComponent,
     ListingViewComponent,
     PageNotFoundComponent,
-    AddListComponent
+    AddListComponent,
+    Form1Component,
+    Form2Component,
+    Form3Component,
+    Form4Component
   ],
   imports: [
     BrowserModule,
