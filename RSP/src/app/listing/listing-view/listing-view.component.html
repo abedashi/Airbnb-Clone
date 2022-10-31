@@ -176,11 +176,11 @@
             <div>
                 <google-map
                     height="50vh"
-                    [center]="center"
+                    [center]="coordinates"
                     [zoom]="zoom"
                     width="100%">
                     <map-marker
-                        [position]="markerPositions"
+                        [position]="coordinates"
                         [options]="markerOptions">
                     </map-marker>
                 </google-map>

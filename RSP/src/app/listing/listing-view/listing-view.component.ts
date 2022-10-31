@@ -11,9 +11,7 @@ import { List } from '../listing.module';
 export class ListingViewComponent implements OnInit {
   coordinates!: google.maps.LatLngLiteral;
   
-  zoom!: 15;
-  center: google.maps.LatLngLiteral = this.coordinates;
-  markerPositions: google.maps.LatLngLiteral = this.coordinates;
+  zoom!: 12;
   markerOptions: google.maps.MarkerOptions = { draggable: false }
   listView!: List;
   id!: number;
@@ -28,6 +26,5 @@ export class ListingViewComponent implements OnInit {
         this.coordinates = this.listView.coordinates;
       }
     );
-    console.log(this.coordinates);
   }
 }
