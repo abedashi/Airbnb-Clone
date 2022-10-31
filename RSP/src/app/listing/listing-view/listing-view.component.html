@@ -1,13 +1,13 @@
 <div class="container pt-4">
     <!-- Description -->
     <div class="row">
-        <h3>Cozy bungalow with amazing seaview, secret garden</h3>
+        <h3>{{ listView.apartmentName }}</h3>
     </div>
     <div class="row">
         <div class="col-8">
             <i class="bi bi-star-fill" style="font-size: 13px;"></i>
             <span class="ms-1">4.9</span>
-            <span><strong> ·</strong> Beirut, Mount Lebanon Governorate, Lebanon</span>
+            <span><strong> ·</strong> {{ listView.address }}</span>
         </div>
         <div class="col-4 text-end ">
             <button type="button" class="btn btn-light">
@@ -19,7 +19,7 @@
     <div class="row mt-4">
         <div class="col-6 p-1">
             <a target="_blank"
-                href="{{ listView.images[0] }}"><img
+                href="{{ listView.images[0] }}"><img id="myImg"
                     class="img-fluid" style="max-height: 390px; width: 100%; border-radius: 20px 0 0 20px;"
                     src="{{ listView.images[0] }}"></a>
         </div>
@@ -28,15 +28,15 @@
             <div class="row">
                 <div class="col-6 p-1 pb-0">
                     <a target="_blank"
-                        href="{{ listView.images[1] }}"><img
-                            style="max-height: 195px; width: 280px;"
+                        href="{{ listView.images[1] }}"><img id="myImg"
+                            style="max-height: 198px; width: 280px;"
                             src="{{ listView.images[1] }}"
                             class="img-fluid"></a>
                 </div>
                 <div class="col-6 p-1 pb-0">
                     <a target="_blank"
-                        href="{{ listView.images[2] }}"><img
-                            style="max-height: 195px; width: 280px; border-radius: 0 20px 0 0;"
+                        href="{{ listView.images[2] }}"><img id="myImg"
+                            style="max-height: 198px; width: 280px; border-radius: 0 20px 0 0;"
                             src="{{ listView.images[2] }}"
                             class="img-fluid"></a>
                 </div>
@@ -45,15 +45,15 @@
             <div class="row">
                 <div class="col-6 p-1">
                     <a target="_blank"
-                        href="{{ listView.images[3] }}"><img
-                            style="max-height: 184px; width: 280px;"
+                        href="{{ listView.images[3] }}"><img id="myImg"
+                            style="max-height: 187px; width: 280px;"
                             src="{{ listView.images[3] }}"
                             class="img-fluid d-block"></a>
                 </div>
                 <div class="col-6 p-1">
                     <a target="_blank"
-                        href="{{ listView.images[4] }}"><img
-                            style="max-height: 184px; width: 280px; border-radius: 0 0 20px 0;"
+                        href="{{ listView.images[4] }}"><img id="myImg"
+                            style="max-height: 187px; width: 280px; border-radius: 0 0 20px 0;"
                             src="{{ listView.images[4] }}"
                             class="img-fluid"></a>
                 </div>
@@ -258,10 +258,10 @@
 
 </div>
 <div class="sticky-bottom bg-white d-xl-none">
-    <nav class="container-fluid shadow py-3">
+    <nav class="container-fluid shadow py-3"> 
         <div class="row ">
             <div class="col-6 d-flex align-items-center">
-                <strong class="ps-3">$33 night</strong>
+                <strong class="ps-3">${{listView.price}} night</strong>
             </div>
             <div class="col-6 text-end">
                 <button class="btn btn-danger">Reserve</button>

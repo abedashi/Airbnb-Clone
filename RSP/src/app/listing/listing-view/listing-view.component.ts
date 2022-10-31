@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { ServiceService } from 'src/app/service.service';
 import { List } from '../listing.module';
@@ -10,7 +10,6 @@ import { List } from '../listing.module';
 })
 export class ListingViewComponent implements OnInit {
   coordinates!: google.maps.LatLngLiteral;
-  
   zoom!: 12;
   markerOptions: google.maps.MarkerOptions = { draggable: false }
   listView!: List;
