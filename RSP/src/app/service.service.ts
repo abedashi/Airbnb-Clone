@@ -44,4 +44,8 @@ export class ServiceService {
   getList() {
     return this.listing;
   }
+
+  getListId(index: number) {
+    return this.listing[index];
+  }
 }
