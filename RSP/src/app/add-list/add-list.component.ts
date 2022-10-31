@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-add-list',
@@ -6,6 +7,8 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
   styleUrls: ['./add-list.component.css']
 })
 export class AddListComponent implements OnInit {
+  @ViewChild('form') form!: NgForm;
+  
   center: google.maps.LatLngLiteral = {lat: 33.8938, lng: 35.5018};
   zoom = 14;
   location!: google.maps.LatLngLiteral;
@@ -69,5 +72,10 @@ export class AddListComponent implements OnInit {
       this.images = !this.images;
       this.question = 'images?'
     }
+  }
+
+  onSubmit(form: NgForm) {
+    // console.log(form);
+    console.log(this.form.value);
   }
 }
