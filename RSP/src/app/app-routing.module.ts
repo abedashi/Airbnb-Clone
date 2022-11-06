@@ -6,6 +6,7 @@ import { ListingComponent } from "./listing/listing.component";
 import { MapsComponent } from "./maps/maps.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 import { ListComponent } from "./listing/list/list.component"; 
+import { ProfileComponent } from "./profile/profile.component";
 
 const appRoutes: Routes = [
     { path: '', redirectTo: 'listing', pathMatch: 'full' },
@@ -14,6 +15,7 @@ const appRoutes: Routes = [
         { path: ':id', component: ListingViewComponent }
     ]},
     { path: 'add-list', component: AddListComponent },
+    { path: 'profile', component: ProfileComponent },
     { path: 'maps', component: MapsComponent },
     { path: 'not-found', component: PageNotFoundComponent },
     { path: '**', redirectTo: '/not-found' }
