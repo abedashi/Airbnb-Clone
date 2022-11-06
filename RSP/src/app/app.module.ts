@@ -16,6 +16,9 @@ import { Form2Component } from './add-list/form2/form2.component';
 import { Form3Component } from './add-list/form3/form3.component';
 import { Form4Component } from './add-list/form4/form4.component';
 import { ListComponent } from './listing/list/list.component';
+import { ProfileComponent } from './profile/profile.component';
+import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
+import { EditProfileFormComponent } from './profile/edit-profile-form/edit-profile-form.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,10 @@ import { ListComponent } from './listing/list/list.component';
     Form2Component,
     Form3Component,
     Form4Component,
-    ListComponent
+    ListComponent,
+    ProfileComponent,
+    EditProfileComponent,
+    EditProfileFormComponent
   ],
   imports: [
     BrowserModule,
