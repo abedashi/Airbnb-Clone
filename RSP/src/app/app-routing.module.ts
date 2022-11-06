@@ -7,6 +7,8 @@ import { MapsComponent } from "./maps/maps.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 import { ListComponent } from "./listing/list/list.component"; 
 import { ProfileComponent } from "./profile/profile.component";
+import { EditProfileComponent } from "./profile/edit-profile/edit-profile.component";
+import { EditProfileFormComponent } from "./profile/edit-profile-form/edit-profile-form.component";
 
 const appRoutes: Routes = [
     { path: '', redirectTo: 'listing', pathMatch: 'full' },
@@ -15,7 +17,10 @@ const appRoutes: Routes = [
         { path: ':id', component: ListingViewComponent }
     ]},
     { path: 'add-list', component: AddListComponent },
-    { path: 'profile', component: ProfileComponent },
+    { path: 'profile', component: ProfileComponent , children: [
+        { path: ':id', component: EditProfileComponent },
+        { path: ':id/edit', component: EditProfileFormComponent }
+    ]},
     { path: 'maps', component: MapsComponent },
     { path: 'not-found', component: PageNotFoundComponent },
     { path: '**', redirectTo: '/not-found' }
