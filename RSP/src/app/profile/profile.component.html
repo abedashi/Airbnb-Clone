@@ -29,11 +29,12 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <button class="btn btn-danger">Edit profile</button>
+                        <button class="btn btn-danger" (click)="onclick()">Edit profile</button>
                     </div>
                 </div>
-                <!-- <app-edit-profile-form></app-edit-profile-form> -->
-                <app-edit-profile></app-edit-profile>
+                <!-- <app-edit-profile [hidden]="editProfile"></app-edit-profile>
+                <app-edit-profile-form [hidden]="editProfileForm"></app-edit-profile-form> -->
+                <router-outlet></router-outlet>
             </div>
             <hr>
 
