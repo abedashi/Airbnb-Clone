@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ServiceService } from 'src/app/service.service';
 import { List } from '../listing.module';
@@ -20,6 +20,6 @@ export class ListComponent implements OnInit {
     this.router.navigate(['/maps']);
   }
   onListingView(i: number) {
-    this.router.navigate([i], { relativeTo: this.route})
+    this.router.navigate([i], { relativeTo: this.route});
   }
 }

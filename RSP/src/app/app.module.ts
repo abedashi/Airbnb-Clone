@@ -12,6 +12,10 @@ import { MapsComponent } from './maps/maps.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AddListComponent } from './add-list/add-list.component';
 import { ListComponent } from './listing/list/list.component';
+import { ProfileComponent } from './profile/profile.component';
+import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
+import { EditProfileFormComponent } from './profile/edit-profile-form/edit-profile-form.component';
+import { WatshListComponent } from './watsh-list/watsh-list.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +26,11 @@ import { ListComponent } from './listing/list/list.component';
     ListingViewComponent,
     PageNotFoundComponent,
     AddListComponent,
-    ListComponent
+    ListComponent,
+    ProfileComponent,
+    EditProfileComponent,
+    EditProfileFormComponent,
+    WatshListComponent
   ],
   imports: [
     BrowserModule,
