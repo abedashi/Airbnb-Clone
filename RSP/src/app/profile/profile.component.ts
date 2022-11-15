@@ -12,7 +12,7 @@ export class ProfileComponent implements OnInit {
   id: number = 1;
 
   edit: boolean = false;
-  constructor(private router: Router, private route: ActivatedRoute) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
@@ -24,16 +24,8 @@ export class ProfileComponent implements OnInit {
       this.editProfile = false;
       this.editProfileForm = true;
     }
-    // if (!this.edit) {
-    //   this.router.navigate([this.id, '/edit'], { relativeTo: this.route });
-    //   this.edit = true;
-    // } else {
-    //   this.router.navigate([this.id], { relativeTo: this.route});
-    //   this.edit = false;
-    // }
   }
   back(event: boolean) {
-    // console.log(event);
     this.editProfileForm = event;
     this.editProfile = false;
   }
