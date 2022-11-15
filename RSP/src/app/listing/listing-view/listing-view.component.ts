@@ -1,5 +1,5 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ServiceService } from 'src/app/service.service';
 import { List } from '../listing.module';
 
@@ -15,7 +15,7 @@ export class ListingViewComponent implements OnInit {
   listView!: List;
   id!: number;
 
-  constructor(private service: ServiceService, private route: ActivatedRoute) { }
+  constructor(private service: ServiceService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(
@@ -25,5 +25,10 @@ export class ListingViewComponent implements OnInit {
         this.coordinates = this.listView.coordinates;
       }
     );
+  }
+
+  onclick(i: number) {
+    this.service.addToWatchListId(i);
+    this.router.navigate(['/watch-list']);
   }
 }
