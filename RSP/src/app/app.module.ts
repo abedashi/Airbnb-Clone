@@ -19,6 +19,7 @@ import { ListComponent } from './listing/list/list.component';
 import { ProfileComponent } from './profile/profile.component';
 import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
 import { EditProfileFormComponent } from './profile/edit-profile-form/edit-profile-form.component';
+import { WatshListComponent } from './watsh-list/watsh-list.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { EditProfileFormComponent } from './profile/edit-profile-form/edit-profi
     ListComponent,
     ProfileComponent,
     EditProfileComponent,
-    EditProfileFormComponent
+    EditProfileFormComponent,
+    WatshListComponent
   ],
   imports: [
     BrowserModule,
