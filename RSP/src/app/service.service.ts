@@ -51,6 +51,15 @@ export class ServiceService {
     )
   ]
 
+  watchList: List[] = [];
+
+  getWatchlist() {
+    return this.watchList;
+  }
+  addToWatchListId(index: number) {
+    this.watchList.push(this.listing[index]);
+  }
+
   getList() {
     return this.listing;
   }
