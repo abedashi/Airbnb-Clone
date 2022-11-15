@@ -21,11 +21,7 @@ export class ListingComponent implements OnInit {
     this.listing = this.service.getList();
   }
 
-  // onListingView(i: number) {
-  //   this.router.navigate([i], { relativeTo: this.route})
-  // }
-
-  // onClick() {
-  //   this.router.navigate(['/maps']);
-  // }
+  onListingView(i: number) {
+    this.router.navigate([i], { relativeTo: this.route})
+  }
 }
