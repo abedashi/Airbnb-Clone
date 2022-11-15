@@ -15,7 +15,7 @@
                 
             </div>
         </div>
-        <div class="col mt-5 me-5">
+        <div class="col-lg mt-5 me-5">
             <div>
                 <div class="row">
                     <div class="col">
@@ -32,9 +32,8 @@
                         <button class="btn btn-danger" (click)="onclick()">Edit profile</button>
                     </div>
                 </div>
-                <!-- <app-edit-profile [hidden]="editProfile"></app-edit-profile>
-                <app-edit-profile-form [hidden]="editProfileForm"></app-edit-profile-form> -->
-                <router-outlet></router-outlet>
+                <app-edit-profile [hidden]="editProfile"></app-edit-profile>
+                <app-edit-profile-form [hidden]="editProfileForm" [bool]="editProfileForm" (out)="back($event)"></app-edit-profile-form>
             </div>
             <hr>
 
