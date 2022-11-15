@@ -10,7 +10,6 @@ export class List {
     beds: number;
     bath: number;
     address: string;
-    apartmentName: string;
 
 
     constructor(name: string,
@@ -23,8 +22,7 @@ export class List {
         bedrooms: number,
         beds: number,
         bath: number,
-        address: string,
-        apartmentName: string
+        address: string
 
     ) {
         this.name = name;
@@ -38,11 +36,10 @@ export class List {
         this.beds = beds;
         this.bath = bath;
         this.address = address;
-        this.apartmentName = apartmentName;
     }
 }
 
 class Coordinates {
-    lat!: number;
-    lng!: number;
+    lat: number;
+    lng: number;
 }
