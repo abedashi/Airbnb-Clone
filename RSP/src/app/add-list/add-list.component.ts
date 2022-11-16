@@ -56,6 +56,11 @@ export class AddListComponent implements OnInit {
   addMarker(event: google.maps.MapMouseEvent) {
     if (event.latLng != null && this.markerPositions.length < 1) {
       this.markerPositions.push(event.latLng.toJSON());
+      this.addList.get('map.lat').setValue(event.latLng.lat());
+      this.addList.get('map.lng').setValue(event.latLng.lng());
+      this.addList.get('map.lat').disable();
+      this.addList.get('map.lng').disable();
+       console.log();
     }
   }
 
