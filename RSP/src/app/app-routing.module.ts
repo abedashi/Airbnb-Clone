@@ -25,8 +25,7 @@ const appRoutes: Routes = [
     ]},
     { path: 'maps', component: MapsComponent },
     { path: 'watch-list', component: WatshListComponent},
-    { path: 'not-found', component: PageNotFoundComponent },
-    { path: '**', redirectTo: '/not-found' }
+    { path: '**', component: PageNotFoundComponent }
 ]
 
 @NgModule( {
