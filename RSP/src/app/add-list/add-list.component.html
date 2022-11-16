@@ -1,160 +1,153 @@
 <div class="container-fluid">
     <form [formGroup]="addList" (ngSubmit)="onSubmit()">
-    <div class="row mt-2">
-        <div class="col-6">
-            <h2>Inputs</h2>
-        </div>  
-        <div class="col-6 text-end">
-            <input type="submit" class="btn btn-primary" [disabled]="addList.valid" value="Submit">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-9">
-            <div class="mb-3">
-                <input type="text" class="form-control" id="name" placeholder="Appartment Name"
-                    formControlName="name">
+        <div class="row mt-2">
+            <div class="col">
+                <h2>Inputs</h2>
             </div>
         </div>
-        <div class="col-3">
-            <div class="mb-3">
-                <input type="number" class="form-control" id="address" placeholder="Price"
-                    formControlName="price">
+        <div class="row">
+            <div class="col-9">
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="name" placeholder="Appartment Name"
+                        formControlName="name">
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="mb-3">
+                    <input type="number" class="form-control" id="address" placeholder="Price" formControlName="price">
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-3">
-            <div class="mb-3">
-                <input type="number" class="form-control" placeholder="Bedroom"
-                formControlName="bedroom">
+        <div class="row">
+            <div class="col-3">
+                <div class="mb-3">
+                    <input type="number" class="form-control" placeholder="Bedroom" formControlName="bedroom">
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="mb-3">
+                    <input type="number" class="form-control" placeholder="Bed" formControlName="bed">
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="mb-3">
+                    <input type="number" class="form-control" placeholder="Bath" formControlName="bath">
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="mb-3">
+                    <input type="number" class="form-control" placeholder="Number Of Guests" formControlName="guest">
+                </div>
             </div>
         </div>
-        <div class="col-3">
-            <div class="mb-3">
-                <input type="number" class="form-control" placeholder="Bed"
-                    formControlName="bed">
+        <div class="row mb-4">
+            <div class="col">
+                <div class="mb-3">
+                    <input type="text" class="form-control" placeholder="Address" formControlName="address">
+                </div>
             </div>
         </div>
-        <div class="col-3">
-            <div class="mb-3">
-                <input type="number" class="form-control" placeholder="Bath"
-                    formControlName="bath">
-            </div>
-        </div>
-        <div class="col-3">
-            <div class="mb-3">
-                <input type="number" class="form-control" placeholder="Number Of Guests"
-                    formControlName="guest">
-            </div>
-        </div>
-    </div>
-    <div class="row mb-4">
-        <div class="col">
-            <div class="mb-3">
-                <input type="text" class="form-control" placeholder="Address"
-                    formControlName="address">
-            </div>
-        </div>
-    </div>
 
-    <h2>Maps</h2>
-    <div class="row mb-5">
-        <div class="col">
-            <google-map height="60vh" width="100%" [center]="center" [zoom]="zoom" (mapClick)="addMarker($event)">
-                <map-marker *ngFor="let markerPosition of markerPositions" [position]="markerPosition"
-                    [options]="markerOpitions" (mapClick)="deleteMarker()">
-                    <div formGroupName="map">
-                        <div class="row mt-3 align-items-center">
-                            <div class="col-lg-4">
-                                <input type="number" [readonly]="true" placeholder="Enter Lat coordinates" class="form-control" formControlName="lat">
-                            </div>
-                            <div class="col-lg-4">
-                                <input type="number" placeholder="Enter Lat coordinates" class="form-control" formControlName="lng">
+        <h2>Maps</h2>
+        <div class="row mb-5">
+            <div class="col">
+                <google-map height="60vh" width="100%" [center]="center" [zoom]="zoom" (mapClick)="addMarker($event)">
+                    <map-marker *ngFor="let markerPosition of markerPositions" [position]="markerPosition"
+                        [options]="markerOpitions" (mapClick)="deleteMarker()">
+                        <div formGroupName="map">
+                            <div class="row mt-3 align-items-center">
+                                <div class="col-lg-4">
+                                    <input type="number" [readonly]="true" placeholder="Enter Lat coordinates"
+                                        class="form-control" formControlName="lat">
+                                </div>
+                                <div class="col-lg-4">
+                                    <input type="number" placeholder="Enter Lat coordinates" class="form-control"
+                                        formControlName="lng">
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </map-marker>
-            </google-map>
+                    </map-marker>
+                </google-map>
+            </div>
         </div>
-    </div>
-    <!-- <p>{{ markerPositions[0] }}</p> -->
 
-    <h2>Images</h2>
-    <div class="row mb-3">
-        <div class="col">
-            <input class="form-control" type="file" formControlName="image1">
+        <h2>Images</h2>
+        <div class="row mb-3">
+            <div class="col">
+                <input class="form-control" type="file" formControlName="image1">
+            </div>
         </div>
-    </div>
-    <div class="row mb-3">
-        <div class="col">
-            <input class="form-control" type="file" formControlName="image2">
+        <div class="row mb-3">
+            <div class="col">
+                <input class="form-control" type="file" formControlName="image2">
+            </div>
         </div>
-    </div>
-    <div class="row mb-3">
-        <div class="col">
-            <input class="form-control" type="file" formControlName="image3">
+        <div class="row mb-3">
+            <div class="col">
+                <input class="form-control" type="file" formControlName="image3">
+            </div>
         </div>
-    </div>
-    <div class="row mb-3">
-        <div class="col">
-            <input class="form-control" type="file" formControlName="image4">
+        <div class="row mb-3">
+            <div class="col">
+                <input class="form-control" type="file" formControlName="image4">
+            </div>
         </div>
-    </div>
-    <div class="row mb-5">
-        <div class="col">
-            <input class="form-control" type="file" formControlName="image5">
+        <div class="row mb-5">
+            <div class="col">
+                <input class="form-control" type="file" formControlName="image5">
+            </div>
         </div>
-    </div>
 
-    <h2>Offers</h2>
-    <section formGroupName="section">
-        <div class="title">
-            <input type="checkbox" name="offers" id="offer1" formControlName="wifi">
-            <label for="offer1">
-                <i class="fas fa-wifi"></i>
-                <h6>WIFI</h6>
-            </label>
+        <h2>Offers</h2>
+        <section formGroupName="section">
+            <div class="title">
+                <input type="checkbox" name="offers" id="offer1" formControlName="wifi">
+                <label for="offer1">
+                    <i class="fas fa-wifi"></i>
+                    <h6>WIFI</h6>
+                </label>
+            </div>
+            <div class="title">
+                <input type="checkbox" name="offers" id="offer2" formControlName="park">
+                <label for="offer2">
+                    <i class="fas fa-car"></i>
+                    <h6>Parking</h6>
+                </label>
+            </div>
+            <div class="title">
+                <input type="checkbox" name="offers" id="offer3" formControlName="tv">
+                <label for="offer3">
+                    <i class="fas fa-tv"></i>
+                    <h6>TV</h6>
+                </label>
+            </div>
+            <div class="title">
+                <input type="checkbox" name="offers" id="offer4" formControlName="ac">
+                <label for="offer4">
+                    <i class="fas fa-snowflake"></i>
+                    <h6>Air Conditioning</h6>
+                </label>
+            </div>
+            <div class="title">
+                <input type="checkbox" name="offers" id="offer5" formControlName="smoke">
+                <label for="offer5">
+                    <i class="fas fa-smoking-ban"></i>
+                    <h6>Smoke Alarm</h6>
+                </label>
+            </div>
+            <div class="title">
+                <input type="checkbox" name="offers" id="offer6" formControlName="electricity">
+                <label for="offer6">
+                    <i class="fas fa-bolt"></i>
+                    <h6>Electricity 24/7</h6>
+                </label>
+            </div>
+        </section>
+        <div class="text-center mb-5 mt-5">
+            <div class="d-grid col-6 mx-auto">
+                <input type="submit" class="btn btn-primary" [disabled]="!addList.valid" value="Submit">
+            </div>
         </div>
-        <div class="title">
-            <input type="checkbox" name="offers" id="offer2" formControlName="park">
-            <label for="offer2">
-                <i class="fas fa-car"></i>
-                <h6>Parking</h6>
-            </label>
-        </div>
-        <div class="title">
-            <input type="checkbox" name="offers" id="offer3" formControlName="tv">
-            <label for="offer3">
-                <i class="fas fa-tv"></i>
-                <h6>TV</h6>
-            </label>
-        </div>
-        <div class="title">
-            <input type="checkbox" name="offers" id="offer4" formControlName="ac">
-            <label for="offer4">
-                <i class="fas fa-snowflake"></i>
-                <h6>Air Conditioning</h6>
-            </label>
-        </div>
-        <div class="title">
-            <input type="checkbox" name="offers" id="offer5" formControlName="smoke">
-            <label for="offer5">
-                <i class="fas fa-smoking-ban"></i>
-                <h6>Smoke Alarm</h6>
-            </label>
-        </div>
-        <div class="title">
-            <input type="checkbox" name="offers" id="offer6" formControlName="electricity">
-            <label for="offer6">
-                <i class="fas fa-bolt"></i>
-                <h6>Electricity 24/7</h6>
-            </label>
-        </div>
-    </section>
-    <div class="text-end mb-5 mt-5">
-        <!-- <input type="submit" class="btn btn-primary" [disabled]="!addList.valid" value="Submit"> -->
-    </div>
-    
+
     </form>
 </div>
-<!-- price bed bedroom bath address appName guest  -->
