@@ -7,6 +7,7 @@
         [position]="markerPosition.coordinates"
         [options]="markerOptions"
         [label]="'$'+markerPosition.price"
+        (mapClick)="goTo(markerPositions.indexOf(markerPosition))"
         #marker="mapMarker">
     </map-marker>
 </google-map>
