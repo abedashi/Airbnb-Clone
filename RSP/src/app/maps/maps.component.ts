@@ -33,7 +33,7 @@ export class MapsComponent implements OnInit {
   }
 
   goTo(index: number) {
-
+    this.router.navigate(['/listing/', index]);
   }
 
   onClick() {
