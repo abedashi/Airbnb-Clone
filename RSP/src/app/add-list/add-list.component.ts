@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { List } from '../listing/listing.module';
 import { ServiceService } from '../service.service';
 
@@ -22,7 +23,10 @@ export class AddListComponent implements OnInit {
   markerOpitions: google.maps.MarkerOptions = { draggable: false }
   markerPositions: google.maps.LatLngLiteral[] = [];
 
-  constructor(private service: ServiceService) { }
+  constructor(
+    private service: ServiceService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.addList = new FormGroup({
@@ -104,6 +108,7 @@ export class AddListComponent implements OnInit {
       )
       this.service.addList(this.newlist);
     // console.log(this.newlist);
-    // this.addList.reset();
+    this.router.navigate(['/listing']);
+    this.addList.reset();
   }
 }
