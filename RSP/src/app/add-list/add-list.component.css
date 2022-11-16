@@ -1,7 +1,7 @@
 section {
     width: 95%;
-    height: 100vh;
-    position: absolute;
+    /* height: 100vh; */
+    /* position: absolute; */
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
