@@ -16,6 +16,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
 import { EditProfileFormComponent } from './profile/edit-profile-form/edit-profile-form.component';
 import { WatshListComponent } from './watsh-list/watsh-list.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { WatshListComponent } from './watsh-list/watsh-list.component';
     ReactiveFormsModule,
     GoogleMapsModule,
     AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
