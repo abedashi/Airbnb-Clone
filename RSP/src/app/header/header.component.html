@@ -52,7 +52,7 @@
                     </div>
                     <div class="form-floating mb-3">
                         <input type="password" class="form-control" name="passLogIn" id="passwordLogIn"
-                            placeholder="Enter your password" autocomplete="off" required ngModel #passLogIn>
+                            placeholder="Enter your password" autocomplete="off" required ngModel minlength="6" #passLogIn>
                         <label for="passwordLogIn">Password</label>
                     </div>
                     <div class="d-grid gap-2">
@@ -77,6 +77,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
+                <p class="allert alert-danger text-center">{{error}}</p>
                 <h5 class="pt-3 pb-3 pe-3">Welcome to Airbnb</h5>
                 <form (ngSubmit)="onSubmitF2(f2)" #f2="ngForm">
                     <div class="form-floating mb-2">
@@ -86,12 +87,12 @@
                     </div>
                     <div class="form-floating mb-2">
                         <input type="password" class="form-control" name="passSignUp" id="passwordSignUp"
-                            placeholder="Enter your password" autocomplete="off" ngModel required #passSignUp>
+                            placeholder="Enter your password" autocomplete="off" ngModel minlength="6" required #passSignUp>
                         <label for="passwordSignUp">Password</label>
                     </div>
                     <div class="form-floating mb-2">
-                        <input type="password" class="form-control" name="passsConfrim" id="passwordConfirmation"
-                            placeholder="Enter your confirmation password" autocomplete="off" ngModel required
+                        <input type="password" class="form-control" name="passConfrim" id="passwordConfirmation"
+                            placeholder="Enter your confirmation password" autocomplete="off" minlength="6" ngModel required
                             #passConfirm>
                         <label for="passwordConfirmation">Confirn Password</label>
                     </div>
