@@ -24,10 +24,10 @@ export class AuthService {
         {
           username: username,
           password: password
-        })
-        // ).pipe(
-        //   catchError(this.handleError),
-        // );
+        }
+        ).pipe(
+          catchError(this.handleError),
+        );
   };
 
   signup(username: string, password: string, passwordConfirm: string) {
@@ -38,27 +38,27 @@ export class AuthService {
           password: password,
           passwordConfirm: passwordConfirm
         })
-      // ).pipe(
-      //   catchError(this.handleError),
-      // );
+        .pipe(
+        catchError(this.handleError),
+      );
   }
 
-  // private handleError(errorRes: HttpErrorResponse) {
-  //   let errorMessage = 'An unkown error occured!';
-  //   if (!errorRes.error || !errorRes.error.error) {
-  //     throwError(errorMessage);
-  //   }
-  //   switch (errorRes.error.error.message) {
-  //     case 'EMAIL_EXISTS':
-  //       errorMessage = 'This email already exists';
-  //       break;
-  //     case 'INVALID_PASSWORD':
-  //       errorMessage = 'Invalid Password';
-  //       break;
-  //     case 'EMAIL_NOT_FOUND':
-  //       errorMessage = 'This email not found';
-  //       break;
-  //   }
-  //   return throwError(errorMessage);
-  // }
+  private handleError(errorRes: HttpErrorResponse) {
+    let errorMessage = 'An unkown error occured!';
+    if (!errorRes.error || !errorRes.error.error) {
+      throwError(errorMessage);
+    }
+    switch (errorRes.error.error.message) {
+      case 'EMAIL_EXISTS':
+        errorMessage = 'This email already exists';
+        break;
+      case 'INVALID_PASSWORD':
+        errorMessage = 'Invalid Password';
+        break;
+      case 'EMAIL_NOT_FOUND':
+        errorMessage = 'This email not found';
+        break;
+    }
+    return throwError(errorMessage);
+  }
 }
