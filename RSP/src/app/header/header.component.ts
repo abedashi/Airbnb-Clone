@@ -28,7 +28,7 @@ export class HeaderComponent implements OnInit {
     this.authService.login(usernameLogIn, passwordLogin)
       .subscribe(resData => {
         console.log(resData);
-        this.router.navigate(['/listing']);
+        // this.router.navigate(['/listing']);
       });
     form.reset();
   }
@@ -44,12 +44,12 @@ export class HeaderComponent implements OnInit {
     this.authService.signup(usernameSignUp, passwordSignUp, passwordConfirm)
       .subscribe(resData => {
         console.log(resData);
-        this.router.navigate(['/listing']);
+        // this.router.navigate(['/listing']);
       });
       // , errorMessage => {
-        // console.log(errorMessage);
-        // this.error = errorMessage;
-        // this.isLoading = false;
+      //   console.log(errorMessage);
+      //   this.error = errorMessage;
+      //   this.isLoading = false;
       // });
     form.reset();
   }
