@@ -1,6 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthToken } from '../header/auth.service';
 import { List } from '../listing/listing.module';
 import { ServiceService } from '../service.service';
 
@@ -15,6 +17,8 @@ export class AddListComponent implements OnInit {
   image1; image2; image3; image4; image5;
   lat; lng;
 
+  wifi; parking; tv; ac; smoke; electricity;
+
   newlist: List;
 
 
@@ -25,6 +29,7 @@ export class AddListComponent implements OnInit {
 
   constructor(
     private service: ServiceService,
+    private http: HttpClient,
     private router: Router
   ) { }
 
@@ -46,9 +51,9 @@ export class AddListComponent implements OnInit {
         'lat': new FormControl('', Validators.required),
         'lng': new FormControl('', Validators.required),
       }),
-      'section': new FormGroup({
+      'offers': new FormGroup({
         'wifi': new FormControl(false),
-        'park': new FormControl(false),
+        'parking': new FormControl(false),
         'tv': new FormControl(false),
         'ac': new FormControl(false),
         'smoke': new FormControl(false),
@@ -64,7 +69,7 @@ export class AddListComponent implements OnInit {
       this.addList.get('map.lng').setValue(event.latLng.lng());
       this.addList.get('map.lat').disable();
       this.addList.get('map.lng').disable();
-       console.log();
+      console.log();
     }
   }
 
@@ -72,6 +77,7 @@ export class AddListComponent implements OnInit {
     this.markerPositions.pop();
   }
   onSubmit() {
+    // inputs
     this.address = this.addList.get('address').value;
     this.bath = this.addList.get('bath').value;
     this.name = this.addList.get('name').value;
@@ -79,20 +85,30 @@ export class AddListComponent implements OnInit {
     this.bedroom = this.addList.get('bedroom').value;
     this.guest = this.addList.get('guest').value;
     this.bed = this.addList.get('bed').value;
+
+    //map coordinates
     this.lat = this.addList.get('map.lat').value;
     this.lng = this.addList.get('map.lng').value;
+
+    // images
     this.image1 = this.addList.get('image1').value;
     this.image2 = this.addList.get('image2').value;
     this.image3 = this.addList.get('image3').value;
     this.image4 = this.addList.get('image4').value;
     this.image5 = this.addList.get('image5').value;
 
+    // offers
+    this.wifi = this.addList.get('offers.wifi').value;
+    this.parking = this.addList.get('offers.parking').value;
+    this.tv = this.addList.get('offers.tv').value;
+    this.ac = this.addList.get('offers.ac').value;
+    this.smoke = this.addList.get('offers.smoke').value;
+    this.electricity = this.addList.get('offers.electricity').value;
+
     this.newlist = new List(
-      this.name, 
-      new Date(),
+      this.name,
       this.price,
-      4.9,
-      { lat: this.lat, lng: this.lng},
+      { lat: this.lat, lng: this.lng },
       [
         this.image1,
         this.image2,
@@ -105,8 +121,24 @@ export class AddListComponent implements OnInit {
       this.bed,
       this.bath,
       this.address,
-      )
-      this.service.addList(this.newlist);
+      {
+        wifi: this.wifi,
+        parking: this.parking,
+        tv: this.tv,
+        ac: this.ac,
+        smoke: this.smoke,
+        electricity: this.electricity
+      }
+    )
+    this.service.addList(this.newlist);
+    this.http
+      .post<AuthToken>('http://localhost:80/Airbnb-Clone-API/api/appartments-list/create.php',
+        {
+          newAppartment: this.newlist
+        }
+      ).subscribe(resData => {
+        console.log(resData);
+      });
     // console.log(this.newlist);
     this.router.navigate(['/listing']);
     this.addList.reset();
