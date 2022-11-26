@@ -26,7 +26,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
   changeImg(form: NgForm) {
     console.log(form.value.url);
     const image = form.value.url;
-    this.profileService.updateImage(image).subscribe(resData => {
+    this.sub = this.profileService.updateImage(image).subscribe(resData => {
       this.profileService.getProfileData()
       .subscribe(resData => {
         this.res = resData;
