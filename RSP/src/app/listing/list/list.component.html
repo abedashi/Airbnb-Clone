@@ -5,20 +5,20 @@
     <div>
         <img style="height: 283px;" src="{{ lis['image1'] }}" class="d-block w-100 rounded-4" alt="..."><!--list["image1"]-->
     </div>
-    <div class="row my-2">
+    <div class="row mt-2">
         <div class="col-9" style="text-align: start;">
-            <strong>{{ lis['appName'] }}</strong>
+            <span style="font-weight: 550;">{{ lis['appName'] }}</span>
         </div>
         <div class="col-3" style="text-align: end;">
             <i class="bi bi-star-fill" style="font-size: 13px;"></i>
-            <span class="ms-1"></span>
+            <span style="font-weight: 260;" class="ms-1 text-secondary">5.0</span>
         </div>
     </div>
-    <div class="row">
-        <span></span>
+    <div class="row mb-2">
+        <span style="font-weight: 260;" class="text-secondary">Added {{ list['created_at'] | date: 'mediumDate' }}</span>
     </div>
     <div class="row">
-        <strong>${{ list['price'] }} Night</strong>
+        <p><span>${{ list['price'] }} </span><span style="font-weight: 260;" class="text-secondary">night</span></p>
     </div>
 </div>
 <!-- </div> -->
