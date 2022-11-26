@@ -4,36 +4,146 @@
             <div class="border p-4 rounded-3" style="width: 19rem;">
                 <div class="row">
                     <div class="col d-flex justify-content-center">
-                        <img src="https://pbs.twimg.com/media/EFIv5HzUcAAdjhl.png" width="120" height="120" alt="">
+                        <img *ngIf="!res['image']" src="https://pbs.twimg.com/media/EFIv5HzUcAAdjhl.png" width="120" height="120" alt="">
+                        <img *ngIf="res['image']" src="{{ res['image'] }}" style="border-radius: 50%" width="120" height="120" alt="">
                     </div>
                 </div>
-                <div class="row mt-2">
-                    <div class="col d-flex justify-content-center">
-                        <a href="" style="color: black">Update photo</a>
+                <div class="row mt-2" style="text-align: center;">
+                    <div class="col">
+                        <a style="cursor: pointer; color: blue;" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">update photo</a>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Change Image</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <form (ngSubmit)="changeImg(img)" #img="ngForm">
+                                        <div class="modal-body">
+
+                                            <div class="mb-3">
+                                                <label for="url" class="form-label">URL Image</label>
+                                                <input type="url" class="form-control" id="url" name="url" ngModel
+                                                    required #url>
+                                            </div>
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                
+
             </div>
         </div>
         <div class="col-lg mt-5 me-5">
             <div>
                 <div class="row">
                     <div class="col">
-                        <h2>Hi, I'm Habib</h2>
+                        <h2>Hi, I'm {{ res['username'] }}</h2>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
-                        <p style="color: gray; font-size: 14px;">Joined in 2022</p>
+                        <p style="color: gray; font-size: 14px;">{{ res['joined_in'] }}</p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
-                        <button class="btn btn-danger" (click)="onclick()">Edit profile</button>
+                        <button class="btn btn-danger" (click)="onClick()">Edit profile</button>
                     </div>
                 </div>
-                <app-edit-profile [hidden]="editProfile"></app-edit-profile>
-                <app-edit-profile-form [hidden]="editProfileForm" [bool]="editProfileForm" (out)="back($event)"></app-edit-profile-form>
+
+                <div [hidden]="view">
+                    <div class="row mt-5">
+                        <div class="col">
+                            <h4>About</h4>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col">
+                            {{ res['about'] }}
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col">
+                            <i class="bi bi-house-door-fill"></i>
+                            Lives in {{ res['location'] }}
+                        </div>
+                    </div>
+                    <div class="row mt-1">
+                        <div class="col">
+                            <i class="bi bi-chat-square-fill"></i>
+                            Speaks: {{ res['language'] }}
+                        </div>
+                    </div>
+                    <div class="row mt-1">
+                        <div class="col">
+                            <i class="bi bi-briefcase-fill"></i>
+                            Work: {{ res['job'] }}
+                        </div>
+                    </div>
+                </div>
+
+                <form (ngSubmit)="onSubmit(profile)" [hidden]="!view" #profile="ngForm">
+                    <div class="row mt-5">
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="about" class="form-label">About</label>
+                                <textarea class="form-control" name="about" id="about" rows="3" autocomplete="off"
+                                    ngModel="{{ res['about'] }}" required #about></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="location" class="form-label">Location</label>
+                                <input type="text" class="form-control" name="location" id="location" autocomplete="off"
+                                    ngModel="{{ res['location'] }}" required #location>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="Languages" class="form-label">Languages I speak</label>
+                                <input type="text" class="form-control" name="language" id="Languages"
+                                    autocomplete="off" ngModel="{{res['language']}}" required #languages>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="work" class="form-label">Work</label>
+                                <input type="text" class="form-control" name="job" id="job" autocomplete="off"
+                                    ngModel="{{ res['job'] }}" required #work>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-6">
+                            <button type="button" class="btn btn-light" (click)="onBack()">Cancel</button>
+                        </div>
+                        <div class="col-6 text-end">
+                            <button type="submit" class="btn btn-dark px-3 py-2"
+                                [disabled]="!profile.valid">Save</button>
+                        </div>
+                    </div>
+                </form>
             </div>
             <hr>
 
