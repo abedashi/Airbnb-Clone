@@ -1,8 +1,6 @@
 export class List {
-    name: string;
-    // date: Date;
+    appName: string;
     price: number;
-    // rate: number;
     coordinates: Coordinates;
     images: string[];
     guests: number;
@@ -11,12 +9,12 @@ export class List {
     bath: number;
     address: string;
     offers: Offers;
+    id?: number;
+    created_at: Date;
 
-
-    constructor(name: string,
-        // date: Date,
+    constructor(
+        appName: string,
         price: number,
-        // rate: number,
         coordinates: Coordinates,
         images: string[],
         guests: number,
@@ -26,10 +24,8 @@ export class List {
         address: string,
         offers: Offers
     ) {
-        this.name = name;
-        // this.date = date;
+        this.appName = appName;
         this.price = price;
-        // this.rate = rate;
         this.coordinates = coordinates;
         this.images = images;
         this.guests = guests;
@@ -40,7 +36,6 @@ export class List {
         this.offers = offers
     }
 }
-
 class Coordinates {
     lat: number;
     lng: number;
