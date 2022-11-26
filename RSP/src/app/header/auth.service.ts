@@ -24,8 +24,7 @@ export class AuthService {
         {
           username: username,
           password: password
-        }
-        ).pipe(
+        }).pipe(
           catchError(this.handleError),
         );
   };
@@ -37,8 +36,8 @@ export class AuthService {
           username: username,
           password: password,
           passwordConfirm: passwordConfirm
-        })
-        .pipe(
+        }
+      ).pipe(
         catchError(this.handleError),
       );
   }
