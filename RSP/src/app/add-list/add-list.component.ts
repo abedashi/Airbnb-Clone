@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -13,29 +13,19 @@ import { ServiceService } from '../service.service';
 })
 export class AddListComponent implements OnInit {
   addList: FormGroup;
-  name; price; bedroom; bed; bath; guest; address;
-  image1; image2; image3; image4; image5;
-  lat; lng;
-
-  wifi; parking; tv; ac; smoke; electricity;
-
-  newlist: List;
-
-
   center: google.maps.LatLngLiteral = { lat: 33.8938, lng: 35.5018 };
   zoom = 14;
   markerOpitions: google.maps.MarkerOptions = { draggable: false }
   markerPositions: google.maps.LatLngLiteral[] = [];
 
   constructor(
-    private service: ServiceService,
     private http: HttpClient,
     private router: Router
   ) { }
 
   ngOnInit(): void {
     this.addList = new FormGroup({
-      'name': new FormControl('', Validators.required),
+      'appName': new FormControl('', Validators.required),
       'price': new FormControl('', Validators.required),
       'bedroom': new FormControl('', Validators.required),
       'bed': new FormControl('', Validators.required),
@@ -77,69 +67,39 @@ export class AddListComponent implements OnInit {
     this.markerPositions.pop();
   }
   onSubmit() {
-    // inputs
-    this.address = this.addList.get('address').value;
-    this.bath = this.addList.get('bath').value;
-    this.name = this.addList.get('name').value;
-    this.price = this.addList.get('price').value;
-    this.bedroom = this.addList.get('bedroom').value;
-    this.guest = this.addList.get('guest').value;
-    this.bed = this.addList.get('bed').value;
-
-    //map coordinates
-    this.lat = this.addList.get('map.lat').value;
-    this.lng = this.addList.get('map.lng').value;
-
-    // images
-    this.image1 = this.addList.get('image1').value;
-    this.image2 = this.addList.get('image2').value;
-    this.image3 = this.addList.get('image3').value;
-    this.image4 = this.addList.get('image4').value;
-    this.image5 = this.addList.get('image5').value;
-
-    // offers
-    this.wifi = this.addList.get('offers.wifi').value;
-    this.parking = this.addList.get('offers.parking').value;
-    this.tv = this.addList.get('offers.tv').value;
-    this.ac = this.addList.get('offers.ac').value;
-    this.smoke = this.addList.get('offers.smoke').value;
-    this.electricity = this.addList.get('offers.electricity').value;
-
-    this.newlist = new List(
-      this.name,
-      this.price,
-      { lat: this.lat, lng: this.lng },
-      [
-        this.image1,
-        this.image2,
-        this.image3,
-        this.image4,
-        this.image5,
-      ],
-      this.guest,
-      this.bedroom,
-      this.bed,
-      this.bath,
-      this.address,
-      {
-        wifi: this.wifi,
-        parking: this.parking,
-        tv: this.tv,
-        ac: this.ac,
-        smoke: this.smoke,
-        electricity: this.electricity
-      }
-    )
-    this.service.addList(this.newlist);
     this.http
-      .post<AuthToken>('http://localhost:80/Airbnb-Clone-API/api/appartments-list/create.php',
-        {
-          newAppartment: this.newlist
-        }
-      ).subscribe(resData => {
-        console.log(resData);
-      });
-    // console.log(this.newlist);
+      .post('http://localhost:80/Airbnb-Clone-API/api/appartments-list/create.php', {
+        appName: this.addList.get('appName').value,
+        address: this.addList.get('address').value,
+        price: this.addList.get('price').value,
+        guests: this.addList.get('guest').value,
+        bedroom: this.addList.get('bedroom').value,
+        bed: this.addList.get('bed').value,
+        bath: this.addList.get('bath').value,
+        coordinates: {
+          lat: this.addList.get('map.lat').value,
+          lng: this.addList.get('map.lng').value
+        },
+        offers: {
+          wifi: this.addList.get('offers.wifi').value,
+          parking: this.addList.get('offers.parking').value,
+          tv: this.addList.get('offers.tv').value,
+          ac: this.addList.get('offers.ac').value,
+          smoke: this.addList.get('offers.smoke').value,
+          electricity: this.addList.get('offers.electricity').value
+        },
+        images: [
+          this.addList.get('image1').value,
+          this.addList.get('image2').value,
+          this.addList.get('image3').value,
+          this.addList.get('image4').value,
+          this.addList.get('image5').value
+        ]
+      }, {
+        headers: new HttpHeaders().set('Authorization',
+          'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJsb2NhbGhvc3QiLCJpYXQiOjE2NjkyMDU5MTMsIm5iZiI6MTY2OTIwNTkxMywiZXhwIjoxOTI4NDA1OTEzLCJkYXRhIjp7ImlkIjo1fX0.cDiX9P1GeOu46WcNR4irRLpb8bMfSTtDZJ4xvwN0VJc')
+      }).subscribe();
+
     this.router.navigate(['/listing']);
     this.addList.reset();
   }
