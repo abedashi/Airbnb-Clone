@@ -1,13 +1,13 @@
 <!-- <div class="container-fluid" style="padding-left: 40px; padding-right: 40px"> -->
 <div class="row">
-<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3" style="margin-top: 40px; cursor: pointer;" *ngFor="let list of listing; 
-        let i = index" (click)="onListingView(i)">
+<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3" style="margin-top: 40px; cursor: pointer;" *ngFor="let list of res; let lis in list;
+        let i = index;" (click)="onListingView(lis['id'])"><!--replace i = index to i = list.id--> <!-- let list in listing-->
     <div>
-        <img style="height: 283px;" src="{{ list.images[0] }}" class="d-block w-100 rounded-4" alt="...">
+        <img style="height: 283px;" src="{{ lis['image1'] }}" class="d-block w-100 rounded-4" alt="..."><!--list["image1"]-->
     </div>
     <div class="row my-2">
         <div class="col-9" style="text-align: start;">
-            <strong>{{ list.name }}</strong>
+            <strong>{{ lis['appName'] }}</strong>
         </div>
         <div class="col-3" style="text-align: end;">
             <i class="bi bi-star-fill" style="font-size: 13px;"></i>
@@ -18,7 +18,7 @@
         <span></span>
     </div>
     <div class="row">
-        <strong>${{ list.price }} Night</strong>
+        <strong>${{ list['price'] }} Night</strong>
     </div>
 </div>
 <!-- </div> -->
