@@ -18,335 +18,256 @@
 
     <div class="row mt-4">
         <div class="col-6 p-0 d-none d-xl-block">
-            <a target="_blank"
-                href="{{ res['image1'] }}"><img id="myImg"
-                    class="" style="max-height: 50vh; width: 100%; border-radius: 20px 0 0 20px;"
-                    src="{{ res['image1'] }}">
+            <a target="_blank" href="{{ res['image1'] }}"><img id="myImg" class=""
+                    style="max-height: 50vh; width: 100%; border-radius: 20px 0 0 20px;" src="{{ res['image1'] }}">
             </a>
         </div>
 
         <div class="col-6">
             <div class="row">
                 <div class="col-6 d-none d-xl-block">
-                    <a target="_blank"
-                        href="{{ res['image2'] }}"><img id="myImg"
-                            class="" style="max-height: 25vh; width: 100%;"
-                            src="{{ res['image2'] }}">
+                    <a target="_blank" href="{{ res['image2'] }}"><img id="myImg" class=""
+                            style="max-height: 25vh; width: 100%;" src="{{ res['image2'] }}">
                     </a>
                 </div>
                 <div class="col-6 p-0 d-none d-xl-block">
-                    <a target="_blank"
-                        href="{{ res['image3'] }}"><img id="myImg"
-                            class="" style="max-height: 25vh; width: 100%; border-radius: 0 20px 0 0;"
-                            src="{{ res['image3'] }}">
+                    <a target="_blank" href="{{ res['image3'] }}"><img id="myImg" class=""
+                            style="max-height: 25vh; width: 100%; border-radius: 0 20px 0 0;" src="{{ res['image3'] }}">
                     </a>
                 </div>
             </div>
             <div class="row">
                 <div class="col-6 d-none d-xl-block">
-                    <a target="_blank"
-                        href="{{ res['image4'] }}"><img id="myImg"
-                            class="" style="max-height: 25vh; width: 100%;"
-                            src="{{ res['image4'] }}">
+                    <a target="_blank" href="{{ res['image4'] }}"><img id="myImg" class=""
+                            style="max-height: 25vh; width: 100%;" src="{{ res['image4'] }}">
                     </a>
                 </div>
                 <div class="col-6 p-0 d-none d-xl-block">
-                    <a target="_blank"
-                        href="{{ res['image5'] }}"><img id="myImg"
-                            class="" style="max-height: 25vh; width: 100%; border-radius: 0 0 20px 0;"
-                            src="{{ res['image5'] }}">
+                    <a target="_blank" href="{{ res['image5'] }}"><img id="myImg" class=""
+                            style="max-height: 25vh; width: 100%; border-radius: 0 0 20px 0;" src="{{ res['image5'] }}">
                     </a>
                 </div>
             </div>
 
-            <!-- <div class="col d-xl-none d-xxl-none">
-                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
-                    <div class="carousel-indicators">
-                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
-                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
-                    </div>
-                    <div class="carousel-inner">
-                      <div class="carousel-item active">
-                        <img src="{{listView.images[0]}}" class="d-block" style="width: 100%;" alt="...">
-                      </div>
-                      <div class="carousel-item">
-                        <img src="{{listView.images[1]}}" class="d-block" style="width: 100%;" alt="...">
-                      </div>
-                      <div class="carousel-item">
-                        <img src="{{listView.images[2]}}" class="d-block" style="width: 100%;" alt="...">
-                      </div>
-                      <div class="carousel-item">
-                        <img src="{{listView.images[3]}}" class="d-block" style="width: 100%;" alt="...">
-                      </div>
-                      <div class="carousel-item">
-                        <img src="{{listView.images[4]}}" class="d-block" style="width: 100%;" alt="...">
-                      </div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                      <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                      <span class="visually-hidden">Next</span>
-                    </button>
-                  </div>
-            </div>
-        </div> -->
-
-
-        <!-- <div class="col-6 p-1">
-            <a target="_blank"
-                href="{{ listView.images[0] }}"><img id="myImg"
-                    class="img-fluid" style="max-height: 390px; width: 100%; border-radius: 20px 0 0 20px;"
-                    src="{{ listView.images[0] }}"></a>
         </div>
 
-        <div class="col-6">
-            <div class="row">
-                <div class="col-6 p-1 pb-0">
-                    <a target="_blank"
-                        href="{{ listView.images[1] }}"><img id="myImg"
-                            style="max-height: 198px; width: 280px;"
-                            src="{{ listView.images[1] }}"
-                            class="img-fluid"></a>
-                </div>
-                <div class="col-6 p-1 pb-0">
-                    <a target="_blank"
-                        href="{{ listView.images[2] }}"><img id="myImg"
-                            style="max-height: 198px; width: 280px; border-radius: 0 20px 0 0;"
-                            src="{{ listView.images[2] }}"
-                            class="img-fluid"></a>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-6 p-1">
-                    <a target="_blank"
-                        href="{{ listView.images[3] }}"><img id="myImg"
-                            style="max-height: 187px; width: 280px;"
-                            src="{{ listView.images[3] }}"
-                            class="img-fluid d-block"></a>
-                </div>
-                <div class="col-6 p-1">
-                    <a target="_blank"
-                        href="{{ listView.images[4] }}"><img id="myImg"
-                            style="max-height: 187px; width: 280px; border-radius: 0 0 20px 0;"
-                            src="{{ listView.images[4] }}"
-                            class="img-fluid"></a>
-                </div>
-            </div>
-        </div> -->
-    </div>
-
-    <div class="row  mt-5">
-        <div class="col-8">
-            <div class="row">
-                <div class="col-9 ">
-                    <h4>Tiny home hosted by {{ res['username'] }}</h4>
-                    <span>{{ res['guests'] }} guests · {{ res['bedroom'] }} bedroom · {{ res['bed'] }} bed · {{ res['bath'] }} bath</span>
-                </div>
-                <div class="col-3  ">
-                    <span><img class="rounded-5"
-                            src="https://images.pexels.com/photos/14099311/pexels-photo-14099311.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
-                            width="60" height="60" alt=""></span>
-                </div>
-            </div>
-            <div class="row mt-2">
-                <div class="col-10">
-                    <hr class="text-secondary" />
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div class="row">
-                        <div class="col">
-                            <h3>What this place offers</h3>
-                        </div>
+        <div class="row  mt-5">
+            <div class="col-8">
+                <div class="row">
+                    <div class="col-9 ">
+                        <h4>Tiny home hosted by {{ res['username'] }}</h4>
+                        <span>{{ res['guests'] }} guests · {{ res['bedroom'] }} bedroom · {{ res['bed'] }} bed · {{
+                            res['bath'] }} bath</span>
                     </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-5 d-flex gap-3 align-items-center ">
-                            <i class="bi bi-wifi" style="font-size: 25px;"></i>
-                            <span>Wifi</span>
-                        </div>
-                        <div class="col-7 d-flex gap-3 align-items-center ">
-                            <i class="bi bi-car-front" style="font-size: 25px;"></i>
-                            <span>Free parking on premises</span>
-                        </div>
+                    <div class="col-3">
+                        <span><img class="rounded-5" src="{{res['image']}}" *ngIf="res['image']" width="60" height="60"
+                                alt="">
+                        </span>
+                        <span><img class="rounded-5" *ngIf="!res['image']"
+                                src="https://pbs.twimg.com/media/EFIv5HzUcAAdjhl.png" width="60" height="60" alt="">
+                        </span>
                     </div>
-                    <div class="row">
-                        <div class="col-5 d-flex gap-3 align-items-center ">
-                            <i class="bi bi-tv" style="font-size: 25px;"></i>
-                            <span>TV</span>
-                        </div>
-                        <div class="col-7 d-flex gap-3 align-items-center ">
-                            <i class="bi bi-snow" style="font-size: 25px;"></i>
-                            <span>Air conditioning</span>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-5 d-flex gap-3 align-items-center ">
-                            <i class="bi bi-slash-circle" style="font-size: 25px;"></i>
-                            <span>Smoke alarm</span>
-                        </div>
-                        <div class="col-7 d-flex gap-3 align-items-center ">
-                            <i class="bi bi-lamp" style="font-size: 25px;"></i>
-                            <span>Electricity 24/7</span>
-                        </div>
-                    </div>
-
                 </div>
-            </div>
-        </div>
-        <div class="col-4">
-            <div class="row">
-                <div class="col p-4">
-                    <div class="border rounded-4 shadow p-4 d-none d-xl-block">
-                        <div class="row mb-4">
-                            <div class="col-6">
-                                <span><strong>${{ res['price'] }}</strong> night</span>
+                <div class="row mt-2">
+                    <div class="col-10">
+                        <hr class="text-secondary" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="row">
+                            <div class="col">
+                                <h3>What this place offers</h3>
                             </div>
-                            <div class="col-6 text-end">
-                                <i class="bi bi-star-fill" style="font-size: 13px;"></i>
-                                <span class="ms-1"></span>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-5 d-flex gap-3 align-items-center ">
+                                <i class="bi bi-wifi" style="font-size: 25px;"></i>
+                                <span *ngIf="res['wifi'] == '1'">Wifi</span>
+                                <span *ngIf="res['wifi'] == ''"><del>Wifi</del></span>
+                            </div>
+                            <div class="col-7 d-flex gap-3 align-items-center ">
+                                <i class="bi bi-car-front" style="font-size: 25px;"></i>
+                                <span *ngIf="res['parking'] == '1'">Free parking on premises</span>
+                                <span *ngIf="res['parking'] == ''"><del>Free parking on premises</del></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-5 d-flex gap-3 align-items-center ">
+                                <i class="bi bi-tv" style="font-size: 25px;"></i>
+                                <span *ngIf="res['tv'] == '1'">TV</span>
+                                <span *ngIf="res['tv'] == ''"><del>TV</del></span>
+                            </div>
+                            <div class="col-7 d-flex gap-3 align-items-center ">
+                                <i class="bi bi-snow" style="font-size: 25px;"></i>
+                                <span *ngIf="res['ac'] == '1'">Air conditioning</span>
+                                <span *ngIf="res['ac'] == ''"><del>Air conditioning</del></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-5 d-flex gap-3 align-items-center ">
+                                <i class="bi bi-slash-circle" style="font-size: 25px;"></i>
+                                <span *ngIf="res['smoke'] == '1'">Smoke alarm</span>
+                                <span *ngIf="res['smoke'] == ''"><del>Smoke alarm</del></span>
+                            </div>
+                            <div class="col-7 d-flex gap-3 align-items-center ">
+                                <i class="bi bi-lamp" style="font-size: 25px;"></i>
+                                <span *ngIf="res['electricity'] == '1'">Electricity 24/7</span>
+                                <span *ngIf="res['electricity'] == ''"><del>Electricity 24/7</del></span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="row">
+                    <div class="col p-4">
+                        <div class="border rounded-4 shadow p-4 d-none d-xl-block">
+                            <div class="row mb-4">
+                                <div class="col-6">
+                                    <span><strong>${{ res['price'] }}</strong> night</span>
+                                </div>
+                                <div class="col-6 text-end">
+                                    <i class="bi bi-star-fill" style="font-size: 13px;"></i>
+                                    <span class="ms-1"></span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, ea, consectetur
+                                    praesentium
+                                    aperiam optio numquam sed iste est eligendi explicabo consequatur vitae maiores
+                                    dolor
+                                    quia
+                                    distinctio. Aspernatur ipsa minus culpa! Lorem ipsum dolor, sit amet consectetur
+                                    adipisicing
+                                    elit. Porro, repudiandae necessitatibus! Deserunt quaerat ipsa corporis sapiente
+                                    expedita
+                                    maxime, debitis voluptatibus. Mollitia quia commodi soluta minima, e
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="d-grid">
+                                    <button class="btn btn-danger" style="padding: 12px;" type="button">Check
+                                        availability</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr class="my-5">
+
+        <div class="row">
+            <div class="col">
+                <h4>Where you’ll be</h4>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col">
+                {{ res['address'] }}
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col">
+                <div>
+                    <google-map height="50vh" [center]="{lat: +res['lat'], lng: +res['lng']}" [zoom]="zoom"
+                        width="100%">
+                        <map-marker [position]="{lat: +res['lat'], lng: +res['lng']}" [options]="markerOptions">
+                        </map-marker>
+                    </google-map>
+                </div>
+            </div>
+        </div>
+        <hr class="mt-5">
+        <div class="row mt-5">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-2 col-lg-1 col-xl-1 d-flex align-items-center">
+                        <span>
+                            <img class="rounded-5" *ngIf="!res['image']"
+                                src="https://images.pexels.com/photos/14099311/pexels-photo-14099311.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+                                width="70" height="70" alt="">
+                        </span>
+                        <span>
+                            <img class="rounded-5" *ngIf="res['image']"
+                                src="{{ res['image'] }}"
+                                width="70" height="70" alt="">
+                        </span>
+                    </div>
+                    <div class="col">
+                        <div class="row">
+                            <div class="col">
+                                <h4> Hosted by {{ res['username'] }}</h4>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, ea, consectetur
-                                praesentium
-                                aperiam optio numquam sed iste est eligendi explicabo consequatur vitae maiores dolor
-                                quia
-                                distinctio. Aspernatur ipsa minus culpa! Lorem ipsum dolor, sit amet consectetur
-                                adipisicing
-                                elit. Porro, repudiandae necessitatibus! Deserunt quaerat ipsa corporis sapiente
-                                expedita
-                                maxime, debitis voluptatibus. Mollitia quia commodi soluta minima, e
-                            </div>
-                        </div>
-                        <div class="row mt-2">
-                            <div class="d-grid">
-                                <button class="btn btn-danger" style="padding: 12px;" type="button">Check
-                                    availability</button>
+                                joind in {{ res['created_at'] | date: 'mediumDate' }}
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <hr class="my-5">
-
-    <div class="row">
-        <div class="col">
-            <h4>Where you’ll be</h4>
-        </div>
-    </div>
-    <div class="row mt-3">
-        <div class="col">
-            {{ res['address'] }}
-        </div>
-    </div>
-    <div class="row mt-3">
-        <div class="col">
-            <div>
-                <google-map
-                    height="50vh"
-                    [center]="{lat: +res['lat'], lng: +res['lng']}"
-                    [zoom]="zoom"
-                    width="100%">
-                    <map-marker
-                        [position]="{lat: +res['lat'], lng: +res['lng']}"
-                        [options]="markerOptions">
-                    </map-marker>
-                </google-map>
+        <div class="row mt-4">
+            <div class="col">
+                <h3><strong>Still have questions? Message the Host</strong></h3>
             </div>
         </div>
-    </div>
-    <hr class="mt-5">
-    <div class="row mt-5">
-        <div class="col-12">
-            <div class="row">
-                <div class="col-2 col-lg-1 col-xl-1 d-flex align-items-center">
-                    <span>
-                        <img class="rounded-5"
-                            src="https://images.pexels.com/photos/14099311/pexels-photo-14099311.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
-                            width="70" height="70" alt="">
-                    </span>
-                </div>
-                <div class="col">
-                    <div class="row">
-                        <div class="col">
-                            <h4> Hosted by {{ res['username'] }}</h4>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            joind in {{ res['created_at'] | date: 'mediumDate' }}
-                        </div>
-                    </div>
+        <div class="row my-5">
+            <div class="col">
+                <div class="form-floating">
+                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                        style="height: 100px"></textarea>
+                    <label for="floatingTextarea2">Comment Host</label>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row mt-4">
-        <div class="col">
-            <h3><strong>Still have questions? Message the Host</strong></h3>
-        </div>
-    </div>
-    <div class="row my-5">
-        <div class="col">
-            <div class="form-floating">
-                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
-                    style="height: 100px"></textarea>
-                <label for="floatingTextarea2">Comment Host</label>
+        <div class="row">
+            <div class="col">
+                <button type="button" class="btn btn-outline-secondary" style="padding: 13px 30px 13px 30px;">send
+                    message</button>
             </div>
         </div>
+
+
+
+
+
+
+
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <hr>
+        <hr>
+
+
     </div>
-    <div class="row">
-        <div class="col">
-            <button type="button" class="btn btn-outline-secondary" style="padding: 13px 30px 13px 30px;">send message</button>
-        </div>
+    <div class="sticky-bottom bg-white d-xl-none">
+        <nav class="container-fluid shadow py-3">
+            <div class="row ">
+                <div class="col-6 d-flex align-items-center">
+                    <strong class="ps-3">${{res['price']}} night</strong>
+                </div>
+                <div class="col-6 text-end">
+                    <button class="btn btn-danger">Reserve</button>
+                </div>
+            </div>
+        </nav>
     </div>
-
-
-
-
-
-
-
-
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <hr>
-    <hr>
-
-
-</div>
-<div class="sticky-bottom bg-white d-xl-none">
-    <nav class="container-fluid shadow py-3"> 
-        <div class="row ">
-            <div class="col-6 d-flex align-items-center">
-                <strong class="ps-3">${{res['price']}} night</strong>
-            </div>
-            <div class="col-6 text-end">
-                <button class="btn btn-danger">Reserve</button>
-            </div>
-        </div>
-    </nav>
-</div>
