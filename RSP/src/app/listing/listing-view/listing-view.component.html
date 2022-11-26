@@ -1,13 +1,13 @@
 <div class="container pt-4">
     <!-- Description -->
     <div class="row">
-        <h3>{{ listView.name }}</h3>
+        <h3>{{ res['appName'] }}</h3>
     </div>
     <div class="row">
         <div class="col-8">
             <i class="bi bi-star-fill" style="font-size: 13px;"></i>
             <span class="ms-1">4.9</span>
-            <span><strong> ·</strong> {{ listView.address }}</span>
+            <span><strong> ·</strong> {{ res['address'] }}</span>
         </div>
         <div class="col-4 text-end" (click)="onclick(id)">
             <button type="button" class="btn btn-light">
@@ -19,9 +19,9 @@
     <div class="row mt-4">
         <div class="col-6 p-0 d-none d-xl-block">
             <a target="_blank"
-                href="{{ listView.images[0] }}"><img id="myImg"
+                href="{{ res['image1'] }}"><img id="myImg"
                     class="" style="max-height: 50vh; width: 100%; border-radius: 20px 0 0 20px;"
-                    src="{{ listView.images[1] }}">
+                    src="{{ res['image1'] }}">
             </a>
         </div>
 
@@ -29,32 +29,32 @@
             <div class="row">
                 <div class="col-6 d-none d-xl-block">
                     <a target="_blank"
-                        href="{{ listView.images[1] }}"><img id="myImg"
+                        href="{{ res['image2'] }}"><img id="myImg"
                             class="" style="max-height: 25vh; width: 100%;"
-                            src="{{ listView.images[1] }}">
+                            src="{{ res['image2'] }}">
                     </a>
                 </div>
                 <div class="col-6 p-0 d-none d-xl-block">
                     <a target="_blank"
-                        href="{{ listView.images[2] }}"><img id="myImg"
+                        href="{{ res['image3'] }}"><img id="myImg"
                             class="" style="max-height: 25vh; width: 100%; border-radius: 0 20px 0 0;"
-                            src="{{ listView.images[2] }}">
+                            src="{{ res['image3'] }}">
                     </a>
                 </div>
             </div>
             <div class="row">
                 <div class="col-6 d-none d-xl-block">
                     <a target="_blank"
-                        href="{{ listView.images[3] }}"><img id="myImg"
+                        href="{{ res['image4'] }}"><img id="myImg"
                             class="" style="max-height: 25vh; width: 100%;"
-                            src="{{ listView.images[3] }}">
+                            src="{{ res['image4'] }}">
                     </a>
                 </div>
                 <div class="col-6 p-0 d-none d-xl-block">
                     <a target="_blank"
-                        href="{{ listView.images[4] }}"><img id="myImg"
+                        href="{{ res['image5'] }}"><img id="myImg"
                             class="" style="max-height: 25vh; width: 100%; border-radius: 0 0 20px 0;"
-                            src="{{ listView.images[4] }}">
+                            src="{{ res['image5'] }}">
                     </a>
                 </div>
             </div>
@@ -146,8 +146,8 @@
         <div class="col-8">
             <div class="row">
                 <div class="col-9 ">
-                    <h4>Tiny home hosted by abed</h4>
-                    <span>{{ listView.guests }} guests · {{ listView.bedrooms }} bedroom · {{ listView.beds }} bed · {{ listView.bath }} bath</span>
+                    <h4>Tiny home hosted by {{ res['username'] }}</h4>
+                    <span>{{ res['guests'] }} guests · {{ res['bedroom'] }} bedroom · {{ res['bed'] }} bed · {{ res['bath'] }} bath</span>
                 </div>
                 <div class="col-3  ">
                     <span><img class="rounded-5"
@@ -208,7 +208,7 @@
                     <div class="border rounded-4 shadow p-4 d-none d-xl-block">
                         <div class="row mb-4">
                             <div class="col-6">
-                                <span><strong>${{ listView.price }}</strong> night</span>
+                                <span><strong>${{ res['price'] }}</strong> night</span>
                             </div>
                             <div class="col-6 text-end">
                                 <i class="bi bi-star-fill" style="font-size: 13px;"></i>
@@ -249,7 +249,7 @@
     </div>
     <div class="row mt-3">
         <div class="col">
-            {{ listView.address }}
+            {{ res['address'] }}
         </div>
     </div>
     <div class="row mt-3">
@@ -257,11 +257,11 @@
             <div>
                 <google-map
                     height="50vh"
-                    [center]="coordinates"
+                    [center]="{lat: +res['lat'], lng: +res['lng']}"
                     [zoom]="zoom"
                     width="100%">
                     <map-marker
-                        [position]="coordinates"
+                        [position]="{lat: +res['lat'], lng: +res['lng']}"
                         [options]="markerOptions">
                     </map-marker>
                 </google-map>
@@ -282,12 +282,12 @@
                 <div class="col">
                     <div class="row">
                         <div class="col">
-                            <h4> Hosted by Habib</h4>
+                            <h4> Hosted by {{ res['username'] }}</h4>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
-                            joind in October 2019
+                            joind in {{ res['created_at'] | date: 'mediumDate' }}
                         </div>
                     </div>
                 </div>
@@ -342,7 +342,7 @@
     <nav class="container-fluid shadow py-3"> 
         <div class="row ">
             <div class="col-6 d-flex align-items-center">
-                <strong class="ps-3">${{listView.price}} night</strong>
+                <strong class="ps-3">${{res['price']}} night</strong>
             </div>
             <div class="col-6 text-end">
                 <button class="btn btn-danger">Reserve</button>

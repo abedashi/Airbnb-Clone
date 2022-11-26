@@ -1,18 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { ServiceService } from 'src/app/service.service';
-import { List } from '../listing.module';
 
 @Component({
   selector: 'app-listing-view',
   templateUrl: './listing-view.component.html',
   styleUrls: ['./listing-view.component.css']
 })
-export class ListingViewComponent implements OnInit {
-  coordinates!: google.maps.LatLngLiteral;
-  zoom!: 12;
+export class ListingViewComponent implements OnInit, OnDestroy {
+  // coordinates: google.maps.LatLngLiteral;
+  zoom: 12;
   markerOptions: google.maps.MarkerOptions = { draggable: false }
-  listView!: List;
+  listView: Subscription;
+  res: Object;
   id!: number;
 
   constructor(private service: ServiceService, private router: Router, private route: ActivatedRoute) { }
@@ -21,8 +22,10 @@ export class ListingViewComponent implements OnInit {
     this.route.params.subscribe(
       (params: Params) => {
         this.id = +params['id'];
-        this.listView = this.service.getListId(this.id);
-        this.coordinates = this.listView.coordinates;
+        this.listView = this.service.getSingleData(this.id).subscribe(resData => {
+          this.res = resData;
+          console.log(resData);
+        });
       }
     );
   }
@@ -30,5 +33,9 @@ export class ListingViewComponent implements OnInit {
   onclick(i: number) {
     this.service.addToWatchListId(i);
     this.router.navigate(['/watch-list']);
+  }
+
+  ngOnDestroy(): void {
+    this.listView.unsubscribe();
   }
 }
