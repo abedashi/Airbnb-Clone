@@ -1,6 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MapInfoWindow, MapMarker } from '@angular/google-maps';
 import { ActivatedRoute, Route, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { List } from '../listing/listing.module';
 import { ServiceService } from '../service.service';
 
@@ -9,16 +10,12 @@ import { ServiceService } from '../service.service';
   templateUrl: './maps.component.html',
   styleUrls: ['./maps.component.css']
 })
-export class MapsComponent implements OnInit {
-  @ViewChild(MapInfoWindow) infoWindow: MapInfoWindow | undefined;
-
+export class MapsComponent implements OnInit, OnDestroy{
   center: google.maps.LatLngLiteral = {lat: 33.8938, lng: 35.5018};
   zoom = 14;
   markerOptions: google.maps.MarkerOptions = {draggable: false};
   markerPositions: List[] = [];
-
-  lists!: List[];
-  label!: string;
+  sub: Subscription;
 
   constructor(
     private service: ServiceService,
@@ -26,9 +23,10 @@ export class MapsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.lists = this.service.getList();
-    this.lists.forEach(list => {
-      return this.markerPositions.push(list);
+    this.sub = this.service.getData()
+      .subscribe((resData: List[]) => {
+        console.log(resData);
+        this.markerPositions = resData;
     });
   }
 
@@ -38,5 +36,9 @@ export class MapsComponent implements OnInit {
 
   onClick() {
     this.router.navigate(['/listing']);
+  }
+
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
   }
 }

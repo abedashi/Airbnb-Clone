@@ -3,11 +3,11 @@
     width="100vw"
     [center]="center"
     [zoom]="zoom">
-    <map-marker *ngFor="let markerPosition of markerPositions"
-        [position]="markerPosition.coordinates"
+    <map-marker *ngFor="let markerPosition of markerPositions; let mark in markerPosition"
+        [position]="{lat: +mark['lat'], lng: +mark['lng']}"
         [options]="markerOptions"
-        [label]="'$'+markerPosition.price"
-        (mapClick)="goTo(markerPositions.indexOf(markerPosition))"
+        [label]="'$'+mark['price']"
+        (mapClick)="goTo(+mark['id'])"
         #marker="mapMarker">
     </map-marker>
 </google-map>
