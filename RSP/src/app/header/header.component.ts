@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { PostProfileService } from '../profile/post-profile.service';
 import { AuthService } from './auth.service';
 
 @Component({
@@ -8,14 +9,21 @@ import { AuthService } from './auth.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
   error: string = null;
+  res: {};
+  sub: Subscription
   constructor(
     private authService: AuthService,
-    private router: Router  
+    private profileService: PostProfileService  
   ) { }
 
   ngOnInit(): void {
+    this.sub = this.profileService.getProfileData()
+      .subscribe(resData => {
+        this.res = resData;
+        console.log(this.res);
+    });
   }
 
   onSubmitF1(form: NgForm) {
@@ -45,5 +53,9 @@ export class HeaderComponent implements OnInit {
         console.log(resData);
       });
     form.reset();
+  }
+
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
   }
 }

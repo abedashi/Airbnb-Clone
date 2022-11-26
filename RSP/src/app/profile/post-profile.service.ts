@@ -26,6 +26,7 @@ export class PostProfileService {
         headers: new HttpHeaders().set(
           'Authorization',
           'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJsb2NhbGhvc3QiLCJpYXQiOjE2NjkyMDU5MTMsIm5iZiI6MTY2OTIwNTkxMywiZXhwIjoxOTI4NDA1OTEzLCJkYXRhIjp7ImlkIjo1fX0.cDiX9P1GeOu46WcNR4irRLpb8bMfSTtDZJ4xvwN0VJc'
+
         ),
       }
     );
@@ -40,6 +41,7 @@ export class PostProfileService {
         headers: new HttpHeaders().set(
           'Authorization',
           'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJsb2NhbGhvc3QiLCJpYXQiOjE2NjkyMDU5MTMsIm5iZiI6MTY2OTIwNTkxMywiZXhwIjoxOTI4NDA1OTEzLCJkYXRhIjp7ImlkIjo1fX0.cDiX9P1GeOu46WcNR4irRLpb8bMfSTtDZJ4xvwN0VJc'
+
         ),
       }
     );
@@ -52,6 +54,7 @@ export class PostProfileService {
         headers: new HttpHeaders().set(
           'Authorization',
           'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJsb2NhbGhvc3QiLCJpYXQiOjE2NjkyMDU5MTMsIm5iZiI6MTY2OTIwNTkxMywiZXhwIjoxOTI4NDA1OTEzLCJkYXRhIjp7ImlkIjo1fX0.cDiX9P1GeOu46WcNR4irRLpb8bMfSTtDZJ4xvwN0VJc'
+
         ),
       }
     );

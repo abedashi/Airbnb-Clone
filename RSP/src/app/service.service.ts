@@ -81,7 +81,7 @@ export class ServiceService {
     return this.http
       .get<List[]>('http://localhost/Airbnb-Clone-API/api/appartments-list/get.php', {
         headers: new HttpHeaders().set('Authorization',
-        'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJsb2NhbGhvc3QiLCJpYXQiOjE2NjkyMDU5MTMsIm5iZiI6MTY2OTIwNTkxMywiZXhwIjoxOTI4NDA1OTEzLCJkYXRhIjp7ImlkIjo1fX0.cDiX9P1GeOu46WcNR4irRLpb8bMfSTtDZJ4xvwN0VJc')
+        'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJsb2NhbGhvc3QiLCJpYXQiOjE2Njk0OTQ3OTQsIm5iZiI6MTY2OTQ5NDc5NCwiZXhwIjoxOTI4Njk0Nzk0LCJkYXRhIjp7ImlkIjoxMX19.Mp5EqyAosnvvOyLkdgZ7aOl3PohOWCD7hqiG2s0vngU')
       })
   }
 
@@ -108,7 +108,7 @@ export class ServiceService {
         params: new HttpParams().set('id', index)
       ,
         headers: new HttpHeaders().set('Authorization',
-        'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJsb2NhbGhvc3QiLCJpYXQiOjE2NjkyMDU5MTMsIm5iZiI6MTY2OTIwNTkxMywiZXhwIjoxOTI4NDA1OTEzLCJkYXRhIjp7ImlkIjo1fX0.cDiX9P1GeOu46WcNR4irRLpb8bMfSTtDZJ4xvwN0VJc')
+        'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJsb2NhbGhvc3QiLCJpYXQiOjE2Njk0OTQ3OTQsIm5iZiI6MTY2OTQ5NDc5NCwiZXhwIjoxOTI4Njk0Nzk0LCJkYXRhIjp7ImlkIjoxMX19.Mp5EqyAosnvvOyLkdgZ7aOl3PohOWCD7hqiG2s0vngU')
       });
   }
 }
