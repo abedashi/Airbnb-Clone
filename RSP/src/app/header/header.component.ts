@@ -10,8 +10,10 @@ import { AuthService } from './auth.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit, OnDestroy {
+  isAuthenticated: boolean = false;
   error: string = null;
   res: {};
+  userSub: Subscription;
   sub: Subscription
   constructor(
     private authService: AuthService,
@@ -19,6 +21,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
+    this.userSub = this.authService.user.subscribe(user => {
+      this.isAuthenticated = !!user;
+    });
+
     this.sub = this.profileService.getProfileData()
       .subscribe(resData => {
         this.res = resData;
@@ -55,7 +61,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
     form.reset();
   }
 
+  onLogout() {
+    this.authService.logout();
+  }
+
   ngOnDestroy(): void {
     this.sub.unsubscribe();
+    this.userSub.unsubscribe();
   }
 }
