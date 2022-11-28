@@ -1,11 +1,14 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, throwError } from 'rxjs';
+import { Router } from '@angular/router';
+import { BehaviorSubject, catchError, tap, throwError } from 'rxjs';
+import { User } from './user.model';
 
 export interface AuthToken {
   id: string;
   username: string;
   token: string;
+  exp: Date;
 }
 
 @Injectable({
@@ -13,9 +16,11 @@ export interface AuthToken {
 })
 
 export class AuthService {
+  user = new BehaviorSubject<User>(null);
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private router: Router
   ) { }
 
   login(username: string, password: string) {
@@ -25,7 +30,10 @@ export class AuthService {
           username: username,
           password: password
         }).pipe(
-          catchError(this.handleError),
+          // catchError(this.handleError),
+          tap(resData => {
+            this.handleAuthentication(resData.id, resData.username, resData.token, +resData.exp);
+          })
         );
   };
 
@@ -38,8 +46,27 @@ export class AuthService {
           passwordConfirm: passwordConfirm
         }
       ).pipe(
-        catchError(this.handleError),
+        // catchError(this.handleError),
+        tap(resData => {
+          this.handleAuthentication(resData.id, resData.username, resData.token, +resData.exp);
+        })
       );
+  }
+
+  logout() {
+    this.user.next(null);
+    this.router.navigate(['/listing']);
+  }
+
+  private handleAuthentication(id: string, username: string, token: string, exp: number) {
+    const expirationDate = new Date(new Date().getTime() + exp * 1000)
+    const user = new User(
+      id,
+      username,
+      token,
+      expirationDate
+    );
+    this.user.next(user);
   }
 
   private handleError(errorRes: HttpErrorResponse) {
