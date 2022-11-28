@@ -6,7 +6,15 @@ export class Watchlist {
     images: string[];
     created_at: Date;
     price: number;
-  constructor(id: number,appartment_id: number, userId: number, appName: string, images: string[], price: number) {
+
+  constructor(
+    id: number,
+    appartment_id: number,
+    userId: number,
+    appName: string,
+    images: string[],
+    price: number
+  ) {
     this.id = id;
     this.appartment_id = appartment_id;
     this.userId = userId;

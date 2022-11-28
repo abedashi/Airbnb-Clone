@@ -1,10 +1,8 @@
-import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { MapInfoWindow, MapMarker } from '@angular/google-maps';
-import { ActivatedRoute, Route, Router } from '@angular/router';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { List } from '../listing/listing.module';
 import { ServiceService } from '../service.service';
-
 @Component({
   selector: 'app-maps',
   templateUrl: './maps.component.html',

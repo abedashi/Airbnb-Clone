@@ -19,7 +19,6 @@ export class WatshListComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    // this.watchLists = this.service.getWatchlist();
     this.watchlist = this.service.getWatchlistData().subscribe((resData) => {
       this.watchLists = resData;
       console.log(resData);
