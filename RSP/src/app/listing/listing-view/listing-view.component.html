@@ -9,8 +9,8 @@
             <span class="ms-1">4.9</span>
             <span><strong> ·</strong> {{ res['address'] }}</span>
         </div>
-        <div class="col-4 text-end" (click)="onclick(id)">
-            <button type="button" class="btn btn-light">
+        <div class="col-4 text-end">
+            <button type="button" class="btn btn-light" [disabled]="!isAuthenticated" (click)="onclick(id)">
                 <i class="bi bi-heart" style="font-size: 16px;"> save</i>
             </button>
         </div>
@@ -150,7 +150,7 @@
                             </div>
                             <div class="row mt-2">
                                 <div class="d-grid">
-                                    <button class="btn btn-danger" style="padding: 12px;" type="button">Check
+                                    <button class="btn btn-danger" style="padding: 12px;" type="button" [disabled]="!isAuthenticated">Check
                                         availability</button>
                                 </div>
                             </div>
@@ -222,7 +222,7 @@
         <div class="row my-5">
             <div class="col">
                 <div class="form-floating">
-                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                    <textarea class="form-control" [disabled]="!isAuthenticated" placeholder="Leave a comment here" id="floatingTextarea2"
                         style="height: 100px"></textarea>
                     <label for="floatingTextarea2">Comment Host</label>
                 </div>
@@ -230,7 +230,7 @@
         </div>
         <div class="row">
             <div class="col">
-                <button type="button" class="btn btn-outline-secondary" style="padding: 13px 30px 13px 30px;">send
+                <button type="button" class="btn btn-outline-secondary" style="padding: 13px 30px 13px 30px;" [disabled]="!isAuthenticated">send
                     message</button>
             </div>
         </div>
@@ -266,7 +266,7 @@
                     <strong class="ps-3">${{res['price']}} night</strong>
                 </div>
                 <div class="col-6 text-end">
-                    <button class="btn btn-danger">Reserve</button>
+                    <button class="btn btn-danger" [disabled]="!isAuthenticated">Reserve</button>
                 </div>
             </div>
         </nav>

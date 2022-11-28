@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { AuthService } from 'src/app/header/auth.service';
 import { ServiceService } from 'src/app/service.service';
 
 @Component({
@@ -9,16 +10,26 @@ import { ServiceService } from 'src/app/service.service';
   styleUrls: ['./listing-view.component.css']
 })
 export class ListingViewComponent implements OnInit, OnDestroy {
-  // coordinates: google.maps.LatLngLiteral;
+  isAuthenticated: boolean = false;
+  userSub: Subscription;
   zoom: 12;
   markerOptions: google.maps.MarkerOptions = { draggable: false }
   listView: Subscription;
   res: Object;
-  id!: number;
+  id: number;
 
-  constructor(private service: ServiceService, private router: Router, private route: ActivatedRoute) { }
+  constructor(
+    private service: ServiceService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private authService: AuthService
+  ) { }
 
   ngOnInit(): void {
+    this.userSub = this.authService.user.subscribe(user => {
+      this.isAuthenticated = !!user;
+    });
+
     this.route.params.subscribe(
       (params: Params) => {
         this.id = +params['id'];
@@ -31,11 +42,12 @@ export class ListingViewComponent implements OnInit, OnDestroy {
   }
 
   onclick(i: number) {
-    this.service.addToWatchListId(i);
+    // this.service.addToWatchListId(i);
     this.router.navigate(['/watch-list']);
   }
 
   ngOnDestroy(): void {
     this.listView.unsubscribe();
+    this.userSub.unsubscribe();
   }
 }
