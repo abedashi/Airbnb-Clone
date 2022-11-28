@@ -25,23 +25,23 @@
                 <ul class="dropdown-menu">
                     <!-- Button trigger modal -->
                     <li *ngIf="!isAuthenticated">
-                        <a class="dropdown-item" type="button" data-bs-toggle="modal"
+                        <a class="dropdown-item" type="button" style="cursor: pointer;" data-bs-toggle="modal"
                             data-bs-target="#login">Log in
                         </a>
                     </li>
                     <li *ngIf="!isAuthenticated">
-                        <a class="dropdown-item text-secondary" type="button" data-bs-toggle="modal"
+                        <a class="dropdown-item text-secondary" style="cursor: pointer;" type="button" data-bs-toggle="modal"
                             data-bs-target="#signup" >Sign up
                         </a>
                     </li>
-                    <li *ngIf="isAuthenticated"><a class="dropdown-item text-secondary">Messages</a></li>
-                    <li *ngIf="isAuthenticated"><a class="dropdown-item text-secondary">Watchlist</a></li>
-                    <li *ngIf="isAuthenticated"><a class="dropdown-item text-secondary" routerLink="/add-list">Add List</a></li>
-                    <li *ngIf="isAuthenticated"><a class="dropdown-item text-secondary" routerLink="/profile">Profile</a></li>
+                    <li *ngIf="isAuthenticated"><a class="dropdown-item text-secondary" style="cursor: pointer;">Messages</a></li>
+                    <li *ngIf="isAuthenticated"><a class="dropdown-item text-secondary" style="cursor: pointer;" routerLink="/watch-list">Watchlist</a></li>
+                    <li *ngIf="isAuthenticated"><a class="dropdown-item text-secondary" style="cursor: pointer;" routerLink="/add-list">Add List</a></li>
+                    <li *ngIf="isAuthenticated"><a class="dropdown-item text-secondary" style="cursor: pointer;" routerLink="/profile">Profile</a></li>
                     <li *ngIf="isAuthenticated">
                         <hr class="dropdown-divider">
                     </li>
-                    <li *ngIf="isAuthenticated"><a class="dropdown-item text-secondary" (click)="onLogout()">Logout</a></li>
+                    <li *ngIf="isAuthenticated"><a class="dropdown-item text-secondary" style="cursor: pointer;" (click)="onLogout()">Logout</a></li>
                 </ul>
             </a>
         </div>
