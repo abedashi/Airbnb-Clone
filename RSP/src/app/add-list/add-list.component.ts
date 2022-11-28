@@ -1,10 +1,7 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthToken } from '../header/auth.service';
-import { List } from '../listing/listing.module';
-import { ServiceService } from '../service.service';
 
 @Component({
   selector: 'app-add-list',
@@ -95,9 +92,6 @@ export class AddListComponent implements OnInit {
           this.addList.get('image4').value,
           this.addList.get('image5').value
         ]
-      }, {
-        headers: new HttpHeaders().set('Authorization',
-          'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJsb2NhbGhvc3QiLCJpYXQiOjE2NjkyMDU5MTMsIm5iZiI6MTY2OTIwNTkxMywiZXhwIjoxOTI4NDA1OTEzLCJkYXRhIjp7ImlkIjo1fX0.cDiX9P1GeOu46WcNR4irRLpb8bMfSTtDZJ4xvwN0VJc')
       }).subscribe();
 
     this.router.navigate(['/listing']);
