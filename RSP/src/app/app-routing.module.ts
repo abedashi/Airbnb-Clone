@@ -8,6 +8,7 @@ import { PageNotFoundComponent } from "./page-not-found/page-not-found.component
 import { ListComponent } from "./listing/list/list.component"; 
 import { ProfileComponent } from "./profile/profile.component";
 import { WatshListComponent } from "./watsh-list/watsh-list.component";
+import { AuthGuard } from "./header/auth.guard";
 
 const appRoutes: Routes = [
     { path: '', redirectTo: 'listing', pathMatch: 'full' },
@@ -15,10 +16,10 @@ const appRoutes: Routes = [
         { path: '', component: ListComponent },
         { path: ':id', component: ListingViewComponent }
     ]},
-    { path: 'add-list', component: AddListComponent },
-    { path: 'profile', component: ProfileComponent },
+    { path: 'add-list', component: AddListComponent, canActivate: [AuthGuard] },
+    { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
     { path: 'maps', component: MapsComponent },
-    { path: 'watch-list', component: WatshListComponent},
+    { path: 'watch-list', component: WatshListComponent, canActivate: [AuthGuard] },
     { path: '**', component: PageNotFoundComponent }
 ]
 
