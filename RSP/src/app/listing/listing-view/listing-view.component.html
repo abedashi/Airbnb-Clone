@@ -10,9 +10,12 @@
             <span><strong> ·</strong> {{ res['address'] }}</span>
         </div>
         <div class="col-4 text-end">
-            <button type="button" class="btn btn-light" [disabled]="!isAuthenticated" (click)="onclick(id)">
+            <button type="button" class="btn btn-light" [disabled]="!isAuthenticated" (click)="onSave()">
                 <i class="bi bi-heart" style="font-size: 16px;"> save</i>
             </button>
+            <!-- <button *ngIf="appId" type="button" class="btn btn-danger" [disabled]="!isAuthenticated" (click)="onSave(res['id'])">
+                <i class="bi bi-heart" style="font-size: 16px;">  unsave</i>
+            </button> -->
         </div>
     </div>
 
