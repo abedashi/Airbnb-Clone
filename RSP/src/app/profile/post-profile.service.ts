@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -21,14 +21,7 @@ export class PostProfileService {
     };
     return this.http.put(
       'http://localhost:80/Airbnb-Clone-API/api/users/update_profile.php',
-      postData,
-      {
-        headers: new HttpHeaders().set(
-          'Authorization',
-          'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJsb2NhbGhvc3QiLCJpYXQiOjE2NjkyMDU5MTMsIm5iZiI6MTY2OTIwNTkxMywiZXhwIjoxOTI4NDA1OTEzLCJkYXRhIjp7ImlkIjo1fX0.cDiX9P1GeOu46WcNR4irRLpb8bMfSTtDZJ4xvwN0VJc'
-
-        ),
-      }
+      postData
     );
   }
 
@@ -36,27 +29,13 @@ export class PostProfileService {
     const upImage = { image: image };
     return this.http.put(
       'http://localhost:80/Airbnb-Clone-API/api/users/update_image.php',
-      upImage,
-      {
-        headers: new HttpHeaders().set(
-          'Authorization',
-          'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJsb2NhbGhvc3QiLCJpYXQiOjE2NjkyMDU5MTMsIm5iZiI6MTY2OTIwNTkxMywiZXhwIjoxOTI4NDA1OTEzLCJkYXRhIjp7ImlkIjo1fX0.cDiX9P1GeOu46WcNR4irRLpb8bMfSTtDZJ4xvwN0VJc'
-
-        ),
-      }
+      upImage
     );
   }
 
   getProfileData() {
     return this.http.get(
-      'http://localhost/Airbnb-Clone-API/api/users/get_profile.php',
-      {
-        headers: new HttpHeaders().set(
-          'Authorization',
-          'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJsb2NhbGhvc3QiLCJpYXQiOjE2NjkyMDU5MTMsIm5iZiI6MTY2OTIwNTkxMywiZXhwIjoxOTI4NDA1OTEzLCJkYXRhIjp7ImlkIjo1fX0.cDiX9P1GeOu46WcNR4irRLpb8bMfSTtDZJ4xvwN0VJc'
-
-        ),
-      }
+      'http://localhost/Airbnb-Clone-API/api/users/get_profile.php'
     );
   }
 }
