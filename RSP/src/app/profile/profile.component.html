@@ -4,14 +4,16 @@
             <div class="border p-4 rounded-3" style="width: 19rem;">
                 <div class="row">
                     <div class="col d-flex justify-content-center">
-                        <img *ngIf="!res['image']" src="https://pbs.twimg.com/media/EFIv5HzUcAAdjhl.png" width="120" height="120" alt="">
-                        <img *ngIf="res['image']" src="{{ res['image'] }}" style="border-radius: 50%" width="120" height="120" alt="">
+                        <!-- <img *ngIf="!res['image']" src="https://pbs.twimg.com/media/EFIv5HzUcAAdjhl.png" width="120" height="120" alt=""> -->
+                        <a target="_blank" href="{{ res['image'] }}">
+                            <img *ngIf="res['image']" src="{{ res['image'] }}" style="border-radius: 50%" width="120" height="120" alt="">
+                        </a>
                     </div>
                 </div>
-                <div class="row mt-2" style="text-align: center;">
+                <div class="row border mt-2" style="text-align: center;">
                     <div class="col">
-                        <a style="cursor: pointer; color: blue;" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">update photo</a>
+                        <a style="cursor: pointer; font-weight: 260; text-decoration: underline;" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">Update photo</a>
 
                         <!-- Modal -->
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -34,9 +36,7 @@
 
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+                                            <button type="submit" class="btn btn-primary" [disabled]="!img.valid" data-bs-dismiss="modal">Save changes</button>
                                         </div>
                                     </form>
                                 </div>

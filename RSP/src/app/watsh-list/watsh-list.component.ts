@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ServiceService } from '../service.service';
 import { Watchlist } from './watchlist.module';
@@ -12,10 +12,10 @@ import { Watchlist } from './watchlist.module';
 export class WatshListComponent implements OnInit, OnDestroy {
   watchlist: Subscription;
   watchLists: Watchlist[];
+
   constructor(
     private service: ServiceService,
-    private router: Router,
-    private route: ActivatedRoute
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -24,8 +24,8 @@ export class WatshListComponent implements OnInit, OnDestroy {
       console.log(resData);
     });
   }
-  onListingView(i: number) {
-    this.router.navigate([i], { relativeTo: this.route });
+  onListingView(index: number) {
+    this.router.navigate(['/listing/', index]);
   }
   ngOnDestroy(): void {
     this.watchlist.unsubscribe();
