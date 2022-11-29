@@ -1,5 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { List } from './listing/listing.module';
 import { Watchlist } from './watsh-list/watchlist.module';
 
@@ -11,16 +12,29 @@ export class ServiceService {
     private http: HttpClient
   ) { }
   
-  createWachlistData(index: number) {
+  createWatchlistData(index: number) {
     this.http
-      .get('http://localhost/Airbnb-Clone-API/api/watchlist/create.php', {
+      .get('http://localhost:80/Airbnb-Clone-API/api/watchlist/create.php', {
         params: new HttpParams().set('appartment_id', index)
-      }).subscribe();
+      })
+      .subscribe(resData => {
+        console.log(resData);
+      });
   }
 
   getWatchlistData() {
     return this.http
       .get<Watchlist[]>('http://localhost/Airbnb-Clone-API/api/watchlist/get.php')
+  }
+
+  deleteFromWatchist(index: number) {
+    this.http
+      .delete('http://localhost/Airbnb-Clone-API/api/watchlist/delete.php', {
+        params: new HttpParams().set('appartmentId', index)
+      })
+      .subscribe(resData => {
+        console.log(resData);
+      });
   }
 
   getData() {
