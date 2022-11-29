@@ -13,9 +13,9 @@
             <button type="button" class="btn btn-light" [disabled]="!isAuthenticated" (click)="onSave()">
                 <i class="bi bi-heart" style="font-size: 16px;"> save</i>
             </button>
-            <!-- <button *ngIf="appId" type="button" class="btn btn-danger" [disabled]="!isAuthenticated" (click)="onSave(res['id'])">
+            <button type="button" class="btn btn-danger" [disabled]="!isAuthenticated" (click)="onDelete()">
                 <i class="bi bi-heart" style="font-size: 16px;">  unsave</i>
-            </button> -->
+            </button>
         </div>
     </div>
 
@@ -63,11 +63,13 @@
                             res['bath'] }} bath</span>
                     </div>
                     <div class="col-3">
-                        <span><img class="rounded-5" src="{{res['image']}}" *ngIf="res['image']" width="60" height="60"
-                                alt="">
-                        </span>
-                        <span><img class="rounded-5" *ngIf="!res['image']"
-                                src="https://pbs.twimg.com/media/EFIv5HzUcAAdjhl.png" width="60" height="60" alt="">
+                        <span>
+                            <a routerLink="/profile">
+                                <img 
+                                    class="rounded-5" src="{{res['image']}}" *ngIf="res['image']" width="60" height="60"
+                                    alt=""
+                                >
+                            </a>
                         </span>
                     </div>
                 </div>
@@ -85,36 +87,36 @@
                         </div>
                         <br>
                         <div class="row">
-                            <div class="col-5 d-flex gap-3 align-items-center ">
+                            <div class="col-sm-5 d-flex gap-3 align-items-center ">
                                 <i class="bi bi-wifi" style="font-size: 25px;"></i>
                                 <span *ngIf="res['wifi'] == '1'">Wifi</span>
                                 <span *ngIf="res['wifi'] == ''"><del>Wifi</del></span>
                             </div>
-                            <div class="col-7 d-flex gap-3 align-items-center ">
+                            <div class="col-sm-7 d-flex gap-3 align-items-center ">
                                 <i class="bi bi-car-front" style="font-size: 25px;"></i>
                                 <span *ngIf="res['parking'] == '1'">Free parking on premises</span>
                                 <span *ngIf="res['parking'] == ''"><del>Free parking on premises</del></span>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-5 d-flex gap-3 align-items-center ">
+                            <div class="col-sm-5 d-flex gap-3 align-items-center ">
                                 <i class="bi bi-tv" style="font-size: 25px;"></i>
                                 <span *ngIf="res['tv'] == '1'">TV</span>
                                 <span *ngIf="res['tv'] == ''"><del>TV</del></span>
                             </div>
-                            <div class="col-7 d-flex gap-3 align-items-center ">
+                            <div class="col-sm-7 d-flex gap-3 align-items-center ">
                                 <i class="bi bi-snow" style="font-size: 25px;"></i>
                                 <span *ngIf="res['ac'] == '1'">Air conditioning</span>
                                 <span *ngIf="res['ac'] == ''"><del>Air conditioning</del></span>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-5 d-flex gap-3 align-items-center ">
+                            <div class="col-sm-5 d-flex gap-3 align-items-center ">
                                 <i class="bi bi-slash-circle" style="font-size: 25px;"></i>
                                 <span *ngIf="res['smoke'] == '1'">Smoke alarm</span>
                                 <span *ngIf="res['smoke'] == ''"><del>Smoke alarm</del></span>
                             </div>
-                            <div class="col-7 d-flex gap-3 align-items-center ">
+                            <div class="col-sm-7 d-flex gap-3 align-items-center ">
                                 <i class="bi bi-lamp" style="font-size: 25px;"></i>
                                 <span *ngIf="res['electricity'] == '1'">Electricity 24/7</span>
                                 <span *ngIf="res['electricity'] == ''"><del>Electricity 24/7</del></span>
@@ -130,11 +132,11 @@
                         <div class="border rounded-4 shadow p-4 d-none d-xl-block">
                             <div class="row mb-4">
                                 <div class="col-6">
-                                    <span><strong>${{ res['price'] }}</strong> night</span>
+                                    <span><strong>${{ res['price'] }}</strong><span class="text-secondary"> night</span></span>
                                 </div>
                                 <div class="col-6 text-end">
                                     <i class="bi bi-star-fill" style="font-size: 13px;"></i>
-                                    <span class="ms-1"></span>
+                                    <span class="ms-1">5.0</span>
                                 </div>
                             </div>
                             <div class="row">
@@ -194,19 +196,23 @@
                                 width="70" height="70" alt="">
                         </span>
                         <span>
-                            <img class="rounded-5" *ngIf="res['image']"
-                                src="{{ res['image'] }}"
-                                width="70" height="70" alt="">
+                            <a routerLink="/profile">
+                                <img 
+                                    class="rounded-5" *ngIf="res['image']"
+                                    src="{{ res['image'] }}"
+                                    width="70" height="70" alt=""
+                                >
+                            </a>
                         </span>
                     </div>
                     <div class="col">
                         <div class="row">
                             <div class="col">
-                                <h4> Hosted by {{ res['username'] }}</h4>
+                                <h4 class="ms-3"> Hosted by {{ res['username'] }}</h4>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col">
+                            <div class="col ms-3">
                                 joind in {{ res['created_at'] | date: 'mediumDate' }}
                             </div>
                         </div>

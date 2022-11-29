@@ -20,7 +20,6 @@ export class ListingViewComponent implements OnInit, OnDestroy {
   watchlist: Subscription;
   res: Object;
   id: number;
-  appId: number;
 
   constructor(
     private service: ServiceService,
@@ -46,8 +45,12 @@ export class ListingViewComponent implements OnInit, OnDestroy {
   }
 
   onSave() {
-    this.service.createWachlistData(this.id);
+    this.service.createWatchlistData(this.id);
+    this.router.navigate(['/watch-list']);
+  }
 
+  onDelete() {
+    this.service.deleteFromWatchist(this.id);
     this.router.navigate(['/watch-list']);
   }
 
