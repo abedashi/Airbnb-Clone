@@ -64,7 +64,7 @@
                     </div>
                     <div class="col-3">
                         <span>
-                            <a routerLink="/profile">
+                            <a [routerLink]="['/profile/', res['userId']]">
                                 <img 
                                     class="rounded-5" src="{{res['image']}}" *ngIf="res['image']" width="60" height="60"
                                     alt=""
@@ -132,7 +132,7 @@
                         <div class="border rounded-4 shadow p-4 d-none d-xl-block">
                             <div class="row mb-4">
                                 <div class="col-6">
-                                    <span><strong>${{ res['price'] }}</strong><span class="text-secondary"> night</span></span>
+                                    <span><strong style="font-size: x-large; font-weight: 500;">${{ res['price'] }}</strong><span class="text-secondary"> night</span></span>
                                 </div>
                                 <div class="col-6 text-end">
                                     <i class="bi bi-star-fill" style="font-size: 13px;"></i>
@@ -196,7 +196,7 @@
                                 width="70" height="70" alt="">
                         </span>
                         <span>
-                            <a routerLink="/profile">
+                            <a [routerLink]="['/profile/', res['userId']]">
                                 <img 
                                     class="rounded-5" *ngIf="res['image']"
                                     src="{{ res['image'] }}"
@@ -225,19 +225,12 @@
                 <h3><strong>Still have questions? Message the Host</strong></h3>
             </div>
         </div>
-        <div class="row my-5">
-            <div class="col">
-                <div class="form-floating">
-                    <textarea class="form-control" [disabled]="!isAuthenticated" placeholder="Leave a comment here" id="floatingTextarea2"
-                        style="height: 100px"></textarea>
-                    <label for="floatingTextarea2">Comment Host</label>
-                </div>
-            </div>
-        </div>
         <div class="row">
             <div class="col">
-                <button type="button" class="btn btn-outline-secondary" style="padding: 13px 30px 13px 30px;" [disabled]="!isAuthenticated">send
-                    message</button>
+                <button
+                    type="button" class="btn btn-outline-secondary mt-4" style="padding: 13px 30px 13px 30px;"
+                    [disabled]="!isAuthenticated">Contact Host
+                </button>
             </div>
         </div>
         <br>
