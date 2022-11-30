@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -33,9 +33,11 @@ export class PostProfileService {
     );
   }
 
-  getProfileData() {
-    return this.http.get(
-      'http://localhost/Airbnb-Clone-API/api/users/get_profile.php'
+  getProfileData(index: number) {
+    return this.http
+      .get('http://localhost/Airbnb-Clone-API/api/users/get_profile.php', {
+        params: new HttpParams().set('id', index)
+      }
     );
   }
 }

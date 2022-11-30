@@ -11,7 +11,7 @@
                 </div>
                 <div class="row mt-2" style="text-align: center;">
                     <div class="col">
-                        <a style="cursor: pointer; font-weight: 260; text-decoration: underline;" data-bs-toggle="modal"
+                        <a *ngIf="res['id'] == local" style="cursor: pointer; font-weight: 260; text-decoration: underline;" data-bs-toggle="modal"
                             data-bs-target="#exampleModal">Update photo</a>
 
                         <!-- Modal -->
@@ -60,7 +60,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <button class="btn btn-danger" (click)="onClick()">Edit profile</button>
+                        <button *ngIf="res['id'] == local" class="btn btn-danger" (click)="onClick()">Edit profile</button>
                     </div>
                 </div>
 

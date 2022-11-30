@@ -1,6 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { ServiceService } from '../service.service';
 import { PostProfileService } from './post-profile.service';
 
 @Component({
@@ -11,23 +13,33 @@ import { PostProfileService } from './post-profile.service';
 export class ProfileComponent implements OnInit, OnDestroy {
   view: boolean = false;
   sub: Subscription
+  id: number;
   res: {};
+
+  local: any;
   constructor(
-    private profileService: PostProfileService
+    private profileService: PostProfileService,
+    private service: ServiceService,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
-    this.sub = this.profileService.getProfileData()
-      .subscribe(resData => {
-        this.res = resData;
-        console.log(this.res);
-    });
+    this.route.params.subscribe(
+      (params: Params) => {
+        this.id = +params['id'];
+        this.sub = this.profileService.getProfileData(this.id).subscribe(resData => {
+          this.res = resData;
+          console.log(resData);  
+        });
+      }
+    );
+    this.local = JSON.parse(localStorage.getItem("userData")).id;
   }
   changeImg(form: NgForm) {
     console.log(form.value.url);
     const image = form.value.url;
     this.sub = this.profileService.updateImage(image).subscribe(resData => {
-      this.profileService.getProfileData()
+      this.profileService.getProfileData(this.id)
       .subscribe(resData => {
         this.res = resData;
         console.log(this.res);
@@ -44,7 +56,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
     const language = form.value.language;
     this.sub = this.profileService.updateProfile(about, language, location, job)
       .subscribe(resData => {
-        this.profileService.getProfileData()
+        this.profileService.getProfileData(this.id)
           .subscribe(resData => {
           this.res = resData;
           console.log(this.res);
