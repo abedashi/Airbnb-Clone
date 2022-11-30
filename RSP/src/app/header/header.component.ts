@@ -25,11 +25,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
       this.isAuthenticated = !!user;
     });
 
-    this.sub = this.profileService.getProfileData()
-      .subscribe(resData => {
-        this.res = resData;
-        console.log(this.res);
-    });
+    // this.sub = this.profileService.getProfileData()
+    //   .subscribe(resData => {
+    //     this.res = resData;
+    //     console.log(this.res);
+    // });
   }
 
   onSubmitF1(form: NgForm) {
