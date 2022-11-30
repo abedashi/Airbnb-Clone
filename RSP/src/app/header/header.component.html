@@ -15,7 +15,7 @@
                     class="d-flex justify-content-centerlign-items-baseline gap-1 border rounded rounded-5 p-1 px-3 shadow-sm">
                     <div><i class="bi bi-list fs-5 text-secondary"></i></div>
                     <div>
-                        <div><img *ngIf="!isAuthenticated" src="https://pbs.twimg.com/media/EFIv5HzUcAAdjhl.png" width="30"
+                        <div *ngIf="!isAuthenticated"><img src="https://pbs.twimg.com/media/EFIv5HzUcAAdjhl.png" width="30"
                              height="30" alt=""></div> 
                         <div><img *ngIf="isAuthenticated" src="{{ res['image'] }}" style="border-radius: 50%" width="30"
                             height="30" alt=""></div>
