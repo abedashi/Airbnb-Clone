@@ -15,7 +15,6 @@ export class ProfileComponent implements OnInit, OnDestroy {
   sub: Subscription
   id: number;
   res: {};
-
   local: any;
   constructor(
     private profileService: PostProfileService,
