@@ -44,6 +44,10 @@ export class ListingViewComponent implements OnInit, OnDestroy {
     );
   }
 
+  onContact(index: number) {
+    this.service.createContact(index)
+  }
+
   onSave() {
     this.service.createWatchlistData(this.id);
     this.router.navigate(['/watch-list']);
