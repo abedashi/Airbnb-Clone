@@ -14,12 +14,8 @@ export class ProfileComponent implements OnInit, OnDestroy {
   sub: Subscription
   id: number;
   res: {};
-<<<<<<< HEAD
-
   local: {};
-=======
-  local: any;
->>>>>>> refs/remotes/origin/main
+
   constructor(
     private profileService: PostProfileService,
     private route: ActivatedRoute
