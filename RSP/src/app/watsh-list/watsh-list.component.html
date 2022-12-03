@@ -1,6 +1,9 @@
 <div class="container-fluid" style="padding-left: 40px; padding-right: 40px">
     <div class="row">
         <h2 class="pt-5"><strong>Watchlists</strong></h2>
+        <div *ngIf="watchLists.length == 0" class="d-flex align-items-center justify-content-center">
+            <img src="../../assets/empty image.jpeg">
+        </div>
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3" style="margin-top: 40px; cursor: pointer;"
             *ngFor="let watchList of watchLists let el in watchList" (click)="onListingView(el['appartment_id'])">
             <div>
