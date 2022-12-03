@@ -60,6 +60,10 @@ export class ListingViewComponent implements OnInit, OnDestroy {
     this.getReservationsDates();
   }
 
+  onContact(index: number) {
+    this.service.createContact(index)
+  }
+
   onSave() {
     this.service.createWatchlistData(this.id);
     this.router.navigate(['/watch-list']);

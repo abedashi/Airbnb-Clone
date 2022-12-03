@@ -1,6 +1,5 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
 import { List } from './listing/listing.module';
 import { Watchlist } from './watsh-list/watchlist.module';
 
@@ -11,6 +10,33 @@ export class ServiceService {
   constructor(
     private http: HttpClient
   ) { }
+
+  createContact(index: number) {
+    this.http.get('http://localhost:80/Airbnb-Clone-API/api/contact/create.php', {
+      params: new HttpParams().set('hostId', index)
+    }).subscribe(resData => {
+      console.log(resData)
+    });
+  }
+
+  // getSingeleContact(index: number) {
+  //   this.http.get('http://localhost:80/Airbnb-Clone-API/api/contact/get_single.php', {
+  //     params: new HttpParams().set('hostId', index)
+  //   });
+  // }
+
+  // createChat(message: string, index: number) {
+  //   const postData = {message: message}
+  //   this.http.post('http://localhost:80/Airbnb-Clone-API/api/contact/create.php', postData, {
+  //     params: new HttpParams().set('hostId', index)
+  //   });
+  // }
+
+  // getChat(index: number) {
+  //   this.http.get('http://localhost:80/Airbnb-Clone-API/api/contact/getChat.php', {
+  //     params: new HttpParams().set('contactId', index)
+  //   });
+  // }
   
   createWatchlistData(index: number) {
     this.http
@@ -67,3 +93,4 @@ export class ServiceService {
     });
   }
 }
+

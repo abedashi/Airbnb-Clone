@@ -251,7 +251,7 @@
             <div class="col">
                 <button
                     type="button" class="btn btn-outline-secondary mt-4" style="padding: 13px 30px 13px 30px;"
-                    [disabled]="!isAuthenticated">Contact Host
+                    [disabled]="!isAuthenticated" (click)="onContact(res['userId'])" >Contact Host
                 </button>
             </div>
         </div>

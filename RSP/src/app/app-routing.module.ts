@@ -9,12 +9,19 @@ import { ListComponent } from "./listing/list/list.component";
 import { ProfileComponent } from "./profile/profile.component";
 import { WatshListComponent } from "./watsh-list/watsh-list.component";
 import { AuthGuard } from "./header/auth.guard";
+import { MessagesComponent } from "./messages/messages.component";
+import { StartComponent } from "./messages/start/start.component";
+import { ChatComponent } from "./messages/chat/chat.component";
 
 const appRoutes: Routes = [
     { path: '', redirectTo: 'listing', pathMatch: 'full' },
     { path: 'listing', component: ListingComponent, children: [
         { path: '', component: ListComponent },
         { path: ':id', component: ListingViewComponent }
+    ]},
+    { path: 'chat', component: MessagesComponent, children: [
+        // { path: '', component: StartComponent },
+        { path: '', component: ChatComponent}
     ]},
     { path: 'add-list', component: AddListComponent, canActivate: [AuthGuard] },
     { path: 'profile/:id', component: ProfileComponent, canActivate: [AuthGuard] },
