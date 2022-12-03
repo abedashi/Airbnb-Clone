@@ -22,6 +22,7 @@ export class ListingViewComponent implements OnInit, OnDestroy {
   zoom: 12;
   markerOptions: google.maps.MarkerOptions = { draggable: false }
   listView: Subscription;
+  subReservation: Subscription;
   res: Object;
   id: number;
 
@@ -77,6 +78,7 @@ export class ListingViewComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.listView.unsubscribe();
     this.userSub.unsubscribe();
+    this.subReservation.unsubscribe();
   }
 
   min = new Date();
@@ -106,7 +108,7 @@ export class ListingViewComponent implements OnInit, OnDestroy {
 
   getReservationsDates() {
     setTimeout(() => {
-      this.service.getAllReservations(this.res['id']).subscribe((resData) => {
+      this.subReservation = this.service.getAllReservations(this.res['id']).subscribe((resData) => {
           this.invalid = [];
           for (let i = 0; i < resData.length; i++) {
             let start = +resData[i]['check_in'].substring(3, 5);
