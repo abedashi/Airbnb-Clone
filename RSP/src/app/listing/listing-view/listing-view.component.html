@@ -54,7 +54,7 @@
 
         </div>
 
-        <div class="row  mt-5">
+        <div class="row mt-5">
             <div class="col-8">
                 <div class="row">
                     <div class="col-9 ">
@@ -126,10 +126,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-4">
+            <div class="col col-md-12 col-lg-4">
                 <div class="row">
                     <div class="col p-4">
-                        <div class="border rounded-4 shadow p-4 d-none d-xl-block">
+                        <div class="border rounded-4 shadow p-4">
                             <div class="row mb-4">
                                 <div class="col-6">
                                     <span><strong style="font-size: x-large; font-weight: 500;">${{ res['price'] }}</strong><span class="text-secondary"> night</span></span>
@@ -139,23 +139,45 @@
                                     <span class="ms-1">5.0</span>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, ea, consectetur
-                                    praesentium
-                                    aperiam optio numquam sed iste est eligendi explicabo consequatur vitae maiores
-                                    dolor
-                                    quia
-                                    distinctio. Aspernatur ipsa minus culpa! Lorem ipsum dolor, sit amet consectetur
-                                    adipisicing
+                            <form [formGroup]="reservation" (ngSubmit)="onSubmit()">
+                                <div class="row">
+                                    <mbsc-datepicker
+                                            [min]="min" [max]="max"
+                                            [controls]="['calendar']"
+                                            select="range" [pages]="2"
+                                            [startInput]="start" [endInput]="end"
+                                            [invalid]="invalid" [inRangeInvalid]="false"
+                                            [touchUi]="true">
+                                    </mbsc-datepicker>
+                                    <div class="col-6">
+                                        <mbsc-input #start placeholder="Start Date" formControlName="check_in" [disabled]="!isAuthenticated">Outbound</mbsc-input>
+                                    </div>
+                                    <div class="col-6">
+                                        <mbsc-input #end placeholder="End Date" formControlName="check_out" [disabled]="!isAuthenticated">Return</mbsc-input>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row mt-2">
-                                <div class="d-grid">
-                                    <button class="btn btn-danger" style="padding: 12px;" type="button" [disabled]="!isAuthenticated">Check
-                                        availability</button>
+                                <div *ngIf="+(end.value | date: 'd') - +(start.value | date: 'd') > 0" class="mt-2">
+                                    <div class="row">
+                                        <div class="col d-flex align-items-center justify-content-between" style="font-weight: 260;">
+                                            <input type="hidden" formControlName="totalPrice" ngModel="{{ res['price'] * (+(end.value | date: 'd') - +(start.value | date: 'd')) }}" />
+                                            <input type="hidden" formControlName="nbDays" ngModel="{{ +(end.value | date: 'd') - +(start.value | date: 'd') }}" />
+                                            <div>${{ res['price']}} x  {{ +(end.value | date: 'd') - +(start.value | date: 'd') }}  nights </div>
+                                            <div>${{res['price'] * (+(end.value | date: 'd') - +(start.value | date: 'd')) }}</div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                                <div class="row mt-3">
+                                    <div class="d-grid">
+                                        <button *ngIf="+(end.value | date: 'd') - +(start.value | date: 'd') <= 0"
+                                            class="btn btn-danger" style="padding: 12px;" type="button" [disabled]="!isAuthenticated" (click)="rest()">
+                                            Check availability
+                                        </button>
+                                        <button *ngIf="+(end.value | date: 'd') - +(start.value | date: 'd') > 0" class="btn btn-danger" style="padding: 12px;" type="submit" [disabled]="!isAuthenticated">
+                                            Reserve
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -241,7 +263,7 @@
         <hr>
         <hr>
     </div>
-    <div class="sticky-bottom bg-white d-xl-none">
+    <!-- <div class="sticky-bottom bg-white d-xl-none">
         <nav class="container-fluid shadow py-3">
             <div class="row ">
                 <div class="col-6 d-flex align-items-center">
@@ -250,6 +272,12 @@
                 <div class="col-6 text-end">
                     <button class="btn btn-danger" [disabled]="!isAuthenticated">Reserve</button>
                 </div>
+                <div class="col-6">
+                    <mbsc-input #start placeholder="Start Date" formControlName="check_in" [disabled]="!isAuthenticated">Outbound</mbsc-input>
+                </div>
+                <div class="col-6">
+                    <mbsc-input #end placeholder="End Date" formControlName="check_out" [disabled]="!isAuthenticated">Return</mbsc-input>
+                </div>
             </div>
         </nav>
-    </div>
+    </div> -->
