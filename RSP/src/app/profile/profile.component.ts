@@ -2,7 +2,6 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { ServiceService } from '../service.service';
 import { PostProfileService } from './post-profile.service';
 
 @Component({
@@ -16,10 +15,9 @@ export class ProfileComponent implements OnInit, OnDestroy {
   id: number;
   res: {};
 
-  local: any;
+  local: {};
   constructor(
     private profileService: PostProfileService,
-    private service: ServiceService,
     private route: ActivatedRoute
   ) { }
 
@@ -29,11 +27,13 @@ export class ProfileComponent implements OnInit, OnDestroy {
         this.id = +params['id'];
         this.sub = this.profileService.getProfileData(this.id).subscribe(resData => {
           this.res = resData;
-          console.log(resData);  
+          console.log(resData);
         });
       }
-    );
-    this.local = JSON.parse(localStorage.getItem("userData")).id;
+      );
+      this.sub = this.profileService.getProfile().subscribe(resData => {
+        this.local = resData;
+      });
   }
   changeImg(form: NgForm) {
     console.log(form.value.url);

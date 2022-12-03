@@ -1,5 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -31,6 +32,11 @@ export class PostProfileService {
       'http://localhost:80/Airbnb-Clone-API/api/users/update_image.php',
       upImage
     );
+  }
+
+  getProfile() {
+    return this.http
+      .get('http://localhost/Airbnb-Clone-API/api/users/getProfile.php');
   }
 
   getProfileData(index: number) {
