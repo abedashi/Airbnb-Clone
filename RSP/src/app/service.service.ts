@@ -48,4 +48,22 @@ export class ServiceService {
         params: new HttpParams().set('id', index)
       });
   }
+
+  createReservation(check_in: string, check_out: string, totalPrice: number, nbDays: number, appartment_id: number) {
+    this.http.post('http://localhost/Airbnb-Clone-API/api/reservations/create.php', {
+      check_in: check_in,
+      check_out: check_out,
+      totalPrice: totalPrice,
+      nbDays: nbDays
+    }, {
+      params: new HttpParams().set('appartment_id', appartment_id)
+    })
+    .subscribe();
+  }
+
+  getAllReservations(index: number) {
+    return this.http.get<[{check_in: string, check_out: string}]>('http://localhost/Airbnb-Clone-API/api/reservations/get.php', {
+      params: new HttpParams().set('appartment_id', index)
+    });
+  }
 }

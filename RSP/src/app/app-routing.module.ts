@@ -10,11 +10,6 @@ import { ProfileComponent } from "./profile/profile.component";
 import { WatshListComponent } from "./watsh-list/watsh-list.component";
 import { AuthGuard } from "./header/auth.guard";
 
-let id: any = '';
-if (localStorage.getItem("userData")) {
-    id = JSON.parse(localStorage.getItem("userData"));
-}
-
 const appRoutes: Routes = [
     { path: '', redirectTo: 'listing', pathMatch: 'full' },
     { path: 'listing', component: ListingComponent, children: [
@@ -22,7 +17,6 @@ const appRoutes: Routes = [
         { path: ':id', component: ListingViewComponent }
     ]},
     { path: 'add-list', component: AddListComponent, canActivate: [AuthGuard] },
-    { path: 'profile', redirectTo: `/profile/${id['id']}`, pathMatch: 'full' },
     { path: 'profile/:id', component: ProfileComponent, canActivate: [AuthGuard] },
     { path: 'maps', component: MapsComponent },
     { path: 'watch-list', component: WatshListComponent, canActivate: [AuthGuard] },

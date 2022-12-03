@@ -1,3 +1,4 @@
+import { MbscModule } from '@mobiscroll/angular';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GoogleMapsModule } from '@angular/google-maps';
@@ -14,7 +15,7 @@ import { AddListComponent } from './add-list/add-list.component';
 import { ListComponent } from './listing/list/list.component';
 import { ProfileComponent } from './profile/profile.component';
 import { WatshListComponent } from './watsh-list/watsh-list.component';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS, HttpClientJsonpModule } from '@angular/common/http';
 import { AuthIntercetoprService } from './header/auth-intercetors.service';
 
 @NgModule({
@@ -30,13 +31,15 @@ import { AuthIntercetoprService } from './header/auth-intercetors.service';
     ProfileComponent,
     WatshListComponent
   ],
-  imports: [
+  imports: [ 
+    MbscModule, 
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     GoogleMapsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    HttpClientJsonpModule
   ],
   providers: [
     {
