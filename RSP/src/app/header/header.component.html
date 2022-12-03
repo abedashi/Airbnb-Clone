@@ -36,7 +36,7 @@
                     <li *ngIf="isAuthenticated"><a class="dropdown-item text-secondary" style="cursor: pointer;">Messages</a></li>
                     <li *ngIf="isAuthenticated"><a class="dropdown-item text-secondary" style="cursor: pointer;" routerLink="/watch-list">Watchlist</a></li>
                     <li *ngIf="isAuthenticated"><a class="dropdown-item text-secondary" style="cursor: pointer;" routerLink="/add-list">Add List</a></li>
-                    <li *ngIf="isAuthenticated"><a class="dropdown-item text-secondary" style="cursor: pointer;" routerLink="/profile">Profile</a></li>
+                    <li *ngIf="isAuthenticated"><a class="dropdown-item text-secondary" style="cursor: pointer;" (click)="onP()">Profile</a></li>
                     <li *ngIf="isAuthenticated">
                         <hr class="dropdown-divider">
                     </li>

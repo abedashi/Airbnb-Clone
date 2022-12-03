@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { PostProfileService } from '../profile/post-profile.service';
 import { AuthService } from './auth.service';
@@ -15,21 +16,18 @@ export class HeaderComponent implements OnInit, OnDestroy {
   res: {};
   userSub: Subscription;
   sub: Subscription
+
+  // local: Object;
   constructor(
     private authService: AuthService,
-    private profileService: PostProfileService
+    private profileService: PostProfileService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
     this.userSub = this.authService.user.subscribe(user => {
       this.isAuthenticated = !!user;
     });
-
-    // this.sub = this.profileService.getProfileData()
-    //   .subscribe(resData => {
-    //     this.res = resData;
-    //     console.log(this.res);
-    // });
   }
 
   onSubmitF1(form: NgForm) {
@@ -63,6 +61,14 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   onLogout() {
     this.authService.logout();
+  }
+
+  onP() {
+    this.sub = this.profileService.getProfile().subscribe(resData => {
+      // this.local = resData;
+      this.router.navigate(['/profile/', resData['id']]);
+    });
+    // this.router.navigate(['/profile/', this.local['id']]);
   }
 
   ngOnDestroy(): void {
