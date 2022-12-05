@@ -17,7 +17,6 @@ export class ListComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.listing = this.service.getData().subscribe(resData => {
       this.res = resData;
-      console.log(resData);
     });
   }
   onClick() {

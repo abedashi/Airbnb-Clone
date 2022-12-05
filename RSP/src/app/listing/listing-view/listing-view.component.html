@@ -14,7 +14,7 @@
                 <i class="bi bi-heart" style="font-size: 16px;"> save</i>
             </button>
             <button type="button" class="btn btn-danger" [disabled]="!isAuthenticated" (click)="onDelete()">
-                <i class="bi bi-heart" style="font-size: 16px;">  unsave</i>
+                <i class="bi bi-heart" style="font-size: 16px;"> unsave</i>
             </button>
         </div>
     </div>
@@ -65,10 +65,8 @@
                     <div class="col-3">
                         <span>
                             <a [routerLink]="['/profile/', res['userId']]">
-                                <img 
-                                    class="rounded-5" src="{{res['image']}}" *ngIf="res['image']" width="60" height="60"
-                                    alt=""
-                                >
+                                <img class="rounded-5" src="{{res['image']}}" *ngIf="res['image']" width="60"
+                                    height="60" alt="">
                             </a>
                         </span>
                     </div>
@@ -126,13 +124,14 @@
                     </div>
                 </div>
             </div>
-            <div class="col col-md-12 col-lg-4">
+            <div class="col col-md-12 col-lg-4" *ngIf="res['userId'] != userId">
                 <div class="row">
                     <div class="col p-4">
                         <div class="border rounded-4 shadow p-4">
                             <div class="row mb-4">
                                 <div class="col-6">
-                                    <span><strong style="font-size: x-large; font-weight: 500;">${{ res['price'] }}</strong><span class="text-secondary"> night</span></span>
+                                    <span><strong style="font-size: x-large; font-weight: 500;">${{ res['price']
+                                            }}</strong><span class="text-secondary"> night</span></span>
                                 </div>
                                 <div class="col-6 text-end">
                                     <i class="bi bi-star-fill" style="font-size: 13px;"></i>
@@ -141,38 +140,44 @@
                             </div>
                             <form [formGroup]="reservation" (ngSubmit)="onSubmit()">
                                 <div class="row">
-                                    <mbsc-datepicker
-                                            [min]="min" [max]="max"
-                                            [controls]="['calendar']"
-                                            select="range" [pages]="2"
-                                            [startInput]="start" [endInput]="end"
-                                            [invalid]="invalid" [inRangeInvalid]="false"
-                                            [touchUi]="true">
+                                    <mbsc-datepicker [min]="min" [max]="max" [controls]="['calendar']" select="range"
+                                        [pages]="2" [startInput]="start" [endInput]="end" [invalid]="invalid"
+                                        [inRangeInvalid]="false" [touchUi]="true">
                                     </mbsc-datepicker>
                                     <div class="col-6">
-                                        <mbsc-input #start placeholder="Start Date" formControlName="check_in" [disabled]="!isAuthenticated">Outbound</mbsc-input>
+                                        <mbsc-input #start placeholder="Start Date" formControlName="check_in"
+                                            [disabled]="!isAuthenticated">Outbound</mbsc-input>
                                     </div>
                                     <div class="col-6">
-                                        <mbsc-input #end placeholder="End Date" formControlName="check_out" [disabled]="!isAuthenticated">Return</mbsc-input>
+                                        <mbsc-input #end placeholder="End Date" formControlName="check_out"
+                                            [disabled]="!isAuthenticated">Return</mbsc-input>
                                     </div>
                                 </div>
                                 <div *ngIf="+(end.value | date: 'd') - +(start.value | date: 'd') > 0" class="mt-2">
                                     <div class="row">
-                                        <div class="col d-flex align-items-center justify-content-between" style="font-weight: 260;">
-                                            <input type="hidden" formControlName="totalPrice" ngModel="{{ res['price'] * (+(end.value | date: 'd') - +(start.value | date: 'd')) }}" />
-                                            <input type="hidden" formControlName="nbDays" ngModel="{{ +(end.value | date: 'd') - +(start.value | date: 'd') }}" />
-                                            <div>${{ res['price']}} x  {{ +(end.value | date: 'd') - +(start.value | date: 'd') }}  nights </div>
-                                            <div>${{res['price'] * (+(end.value | date: 'd') - +(start.value | date: 'd')) }}</div>
+                                        <div class="col d-flex align-items-center justify-content-between"
+                                            style="font-weight: 260;">
+                                            <input type="hidden" formControlName="totalPrice"
+                                                ngModel="{{ res['price'] * (+(end.value | date: 'd') - +(start.value | date: 'd')) }}" />
+                                            <input type="hidden" formControlName="nbDays"
+                                                ngModel="{{ +(end.value | date: 'd') - +(start.value | date: 'd') }}" />
+                                            <div>${{ res['price']}} x {{ +(end.value | date: 'd') - +(start.value |
+                                                date: 'd') }} nights </div>
+                                            <div>${{res['price'] * (+(end.value | date: 'd') - +(start.value | date:
+                                                'd')) }}</div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row mt-3">
                                     <div class="d-grid">
                                         <button *ngIf="+(end.value | date: 'd') - +(start.value | date: 'd') <= 0"
-                                            class="btn btn-danger" style="padding: 12px;" type="button" [disabled]="!isAuthenticated" (click)="rest()">
+                                            class="btn btn-danger" style="padding: 12px;" type="button"
+                                            [disabled]="!isAuthenticated" (click)="rest()">
                                             Check availability
                                         </button>
-                                        <button *ngIf="+(end.value | date: 'd') - +(start.value | date: 'd') > 0" class="btn btn-danger" style="padding: 12px;" type="submit" [disabled]="!isAuthenticated">
+                                        <button *ngIf="+(end.value | date: 'd') - +(start.value | date: 'd') > 0"
+                                            class="btn btn-danger" style="padding: 12px;" type="submit"
+                                            [disabled]="!isAuthenticated">
                                             Reserve
                                         </button>
                                     </div>
@@ -219,11 +224,8 @@
                         </span>
                         <span>
                             <a [routerLink]="['/profile/', res['userId']]">
-                                <img 
-                                    class="rounded-5" *ngIf="res['image']"
-                                    src="{{ res['image'] }}"
-                                    width="70" height="70" alt=""
-                                >
+                                <img class="rounded-5" *ngIf="res['image']" src="{{ res['image'] }}" width="70"
+                                    height="70" alt="">
                             </a>
                         </span>
                     </div>
@@ -249,9 +251,8 @@
         </div>
         <div class="row">
             <div class="col">
-                <button
-                    type="button" class="btn btn-outline-secondary mt-4" style="padding: 13px 30px 13px 30px;"
-                    [disabled]="!isAuthenticated" (click)="onContact(res['userId'])" >Contact Host
+                <button type="button" class="btn btn-outline-secondary mt-4" style="padding: 13px 30px 13px 30px;"
+                    [disabled]="!isAuthenticated" (click)="onContact(res['userId'])">Contact Host
                 </button>
             </div>
         </div>
@@ -263,21 +264,3 @@
         <hr>
         <hr>
     </div>
-    <!-- <div class="sticky-bottom bg-white d-xl-none">
-        <nav class="container-fluid shadow py-3">
-            <div class="row ">
-                <div class="col-6 d-flex align-items-center">
-                    <strong class="ps-3">${{res['price']}} night</strong>
-                </div>
-                <div class="col-6 text-end">
-                    <button class="btn btn-danger" [disabled]="!isAuthenticated">Reserve</button>
-                </div>
-                <div class="col-6">
-                    <mbsc-input #start placeholder="Start Date" formControlName="check_in" [disabled]="!isAuthenticated">Outbound</mbsc-input>
-                </div>
-                <div class="col-6">
-                    <mbsc-input #end placeholder="End Date" formControlName="check_out" [disabled]="!isAuthenticated">Return</mbsc-input>
-                </div>
-            </div>
-        </nav>
-    </div> -->
