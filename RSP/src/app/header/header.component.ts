@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -11,13 +11,16 @@ import { AuthService } from './auth.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit, OnDestroy {
+  @ViewChild('closeBtnLogin') closeBtnLogin: ElementRef;
+  @ViewChild('closeBtnSignUp') closeBtnSignUp: ElementRef;
+
   isAuthenticated: boolean = false;
-  error: string = null;
+  errorLogin: string = null;
+  errorSignUp: string = null;
   res: {};
   userSub: Subscription;
-  sub: Subscription
+  sub: Subscription;
 
-  // local: Object;
   constructor(
     private authService: AuthService,
     private profileService: PostProfileService,
@@ -31,44 +34,56 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   onSubmitF1(form: NgForm) {
-    if (!form.valid) {
-      return;
-    }
     const usernameLogIn = form.value.usernameLogIn;
     const passwordLogin = form.value.passLogIn;
-    
+
     this.authService.login(usernameLogIn, passwordLogin)
-      .subscribe(resData => {
-        console.log(resData);
+      .subscribe(() => {
+
+      }, errorMessage => {
+        this.errorLogin = errorMessage;
       });
     form.reset();
+    setTimeout(() => {
+      if (this.isAuthenticated) {
+        this.closeBtnLogin.nativeElement.click();
+      }
+    }, 500);
   }
 
   onSubmitF2(form: NgForm) {
-    if (!form.valid) {
-      return;
-    }
     const usernameSignUp = form.value.usernameSignUp;
     const passwordSignUp = form.value.passSignUp;
     const passwordConfirm = form.value.passConfrim;
 
     this.authService.signup(usernameSignUp, passwordSignUp, passwordConfirm)
-      .subscribe(resData => {
-        console.log(resData);
+      .subscribe(() => {
+        
+      }, errorMessage => {
+        this.errorSignUp = errorMessage;
       });
     form.reset();
+    setTimeout(() => {
+      if (this.isAuthenticated) {
+        this.closeBtnSignUp.nativeElement.click();
+      }
+    }, 500);
   }
 
   onLogout() {
     this.authService.logout();
+    this.errorLogin = null;
+    this.errorSignUp = null;
   }
 
   onP() {
     this.sub = this.profileService.getProfile().subscribe(resData => {
-      // this.local = resData;
       this.router.navigate(['/profile/', resData['id']]);
     });
-    // this.router.navigate(['/profile/', this.local['id']]);
+  }
+
+  list() {
+    this.router.navigate(['/listing']);
   }
 
   ngOnDestroy(): void {

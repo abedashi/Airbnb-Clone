@@ -15,10 +15,7 @@ export class AddListComponent implements OnInit {
   markerOpitions: google.maps.MarkerOptions = { draggable: false }
   markerPositions: google.maps.LatLngLiteral[] = [];
 
-  constructor(
-    private http: HttpClient,
-    private router: Router
-  ) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
     this.addList = new FormGroup({
@@ -93,8 +90,9 @@ export class AddListComponent implements OnInit {
           this.addList.get('image5').value
         ]
       }).subscribe();
-
-    this.router.navigate(['/listing']);
     this.addList.reset();
+    setTimeout(() => {
+      this.router.navigate(['/listing']);
+    }, 500);
   }
 }

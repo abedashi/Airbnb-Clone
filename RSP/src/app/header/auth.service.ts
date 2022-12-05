@@ -1,7 +1,8 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject, tap, throwError } from 'rxjs';
+import { BehaviorSubject, throwError } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
 import { User } from './user.model';
 
 export interface AuthToken {
@@ -31,7 +32,7 @@ export class AuthService {
           username: username,
           password: password
         }).pipe(
-          // catchError(this.handleError),
+          catchError(this.handleError),
           tap(resData => {
             this.handleAuthentication(resData.id, resData.username, resData.token, +resData.exp);
           })
@@ -47,7 +48,7 @@ export class AuthService {
           passwordConfirm: passwordConfirm
         }
       ).pipe(
-        // catchError(this.handleError),
+        catchError(this.handleError),
         tap(resData => {
           this.handleAuthentication(resData.id, resData.username, resData.token, +resData.exp);
         })
@@ -108,15 +109,15 @@ export class AuthService {
     if (!errorRes.error || !errorRes.error.error) {
       throwError(errorMessage);
     }
-    switch (errorRes.error.error.message) {
-      case 'EMAIL_EXISTS':
-        errorMessage = 'This email already exists';
+    switch (errorRes.error.message) {
+      case 'Invalid credentials':
+        errorMessage = 'Invalid Credentials';
         break;
-      case 'INVALID_PASSWORD':
-        errorMessage = 'Invalid Password';
+      case 'Username already exists':
+        errorMessage = 'Username already exists';
         break;
-      case 'EMAIL_NOT_FOUND':
-        errorMessage = 'This email not found';
+      case "Password and Password Confirmation didn't matched":
+        errorMessage = "Password and Password Confirmation didn't matched";
         break;
     }
     return throwError(errorMessage);

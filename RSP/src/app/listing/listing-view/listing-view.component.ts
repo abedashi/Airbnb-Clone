@@ -4,7 +4,12 @@ import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/header/auth.service';
 import { ServiceService } from 'src/app/service.service';
 import { setOptions } from '@mobiscroll/angular';
+<<<<<<< HEAD
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+=======
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { PostProfileService } from 'src/app/profile/post-profile.service';
+>>>>>>> refs/remotes/origin/main
 
 setOptions({
   theme: 'ios',
@@ -25,15 +30,19 @@ export class ListingViewComponent implements OnInit, OnDestroy {
   subReservation: Subscription;
   res: Object;
   id: number;
+  userId: number;
 
   reservation: FormGroup;
   appartment_id: number;
+
+  shi: any;
 
   constructor(
     private service: ServiceService,
     private router: Router,
     private route: ActivatedRoute,
-    private authService: AuthService
+    private authService: AuthService,
+    private profileService: PostProfileService
   ) { }
 
   ngOnInit(): void {
@@ -46,7 +55,6 @@ export class ListingViewComponent implements OnInit, OnDestroy {
         this.id = +params['id'];
         this.listView = this.service.getSingleData(this.id).subscribe(resData => {
           this.res = resData;
-          console.log(resData);
         });
       }
     );
@@ -56,7 +64,12 @@ export class ListingViewComponent implements OnInit, OnDestroy {
       'check_out': new FormControl('', Validators.required),
       'totalPrice': new FormControl('', Validators.required),
       'nbDays': new FormControl('', Validators.required)
-    })
+    });
+
+    this.profileService.getProfile()
+      .subscribe(resData => {
+        this.userId = resData['id'];
+      });
 
     this.getReservationsDates();
   }
@@ -117,8 +130,8 @@ export class ListingViewComponent implements OnInit, OnDestroy {
           for (let i = 0; i < resData.length; i++) {
             let start = +resData[i]['check_in'].substring(3, 5);
             let end = +resData[i]['check_out'].substring(3, 5);
-            for (let j = start; j < end; j++) {
-              this.invalid.push(new Date(this.now.getFullYear(), this.now.getMonth(), j));
+            for (let day = start; day < end; day++) {
+              this.invalid.push(new Date(this.now.getFullYear(), this.now.getMonth(), day));
             }
           }
       });
