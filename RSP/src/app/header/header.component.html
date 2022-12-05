@@ -1,25 +1,12 @@
 <header class="sticky-top bg-white">
     <nav class="container-fluid navbar shadow-sm py-3">
         <div class="container">
-            <a routerLink="/listing" class="navbar-brand" style="color: rgb(235, 76, 96); cursor: pointer;"><strong>Trip In</strong></a>
-            <form class="d-flex" role="search">
-                <div class="d-flex align-items-center">
-                    <input type="text" class="form-control me-2 rounded-5 p-2 px-3 shadow-sm"
-                        placeholder="Start your search" autocomplete="off" aria-label="Search" size="42" #search>
-                    <i class="bi bi-search text-secondary" style="margin-left: -40px;"></i>
-                </div>
-            </form>
+            <a (click)="list()" class="navbar-brand" style="color: rgb(235, 76, 96); cursor: pointer;"><strong>Trip
+                    In</strong></a>
             <a class="btn-group dropstart">
                 <div id="profile-menu" type="button" data-bs-toggle="dropdown" aria-expanded="false"
                     class="d-flex justify-content-centerlign-items-baseline gap-1 border rounded rounded-5 p-1 px-3 shadow-sm">
                     <div><i class="bi bi-list fs-5 text-secondary"></i></div>
-                    <!-- <div>
-                        <div *ngIf="!isAuthenticated"><img src="https://pbs.twimg.com/media/EFIv5HzUcAAdjhl.png" width="30"
-                             height="30" alt=""></div> 
-                        <div><img *ngIf="isAuthenticated" src="{{ res['image'] }}" style="border-radius: 50%" width="30"
-                            height="30" alt=""></div>
-                    </div> -->
-                    <!-- <div><i class="bi bi-person-circle fs-4 text-secondary"></i></div> -->
                 </div>
                 <ul class="dropdown-menu">
                     <!-- Button trigger modal -->
@@ -29,18 +16,23 @@
                         </a>
                     </li>
                     <li *ngIf="!isAuthenticated">
-                        <a class="dropdown-item text-secondary" style="cursor: pointer;" type="button" data-bs-toggle="modal"
-                            data-bs-target="#signup" >Sign up
+                        <a class="dropdown-item text-secondary" style="cursor: pointer;" type="button"
+                            data-bs-toggle="modal" data-bs-target="#signup">Sign up
                         </a>
                     </li>
-                    <li *ngIf="isAuthenticated"><a class="dropdown-item text-secondary" style="cursor: pointer;" routerLink="/chat">Messages</a></li>
-                    <li *ngIf="isAuthenticated"><a class="dropdown-item text-secondary" style="cursor: pointer;" routerLink="/watch-list">Watchlist</a></li>
-                    <li *ngIf="isAuthenticated"><a class="dropdown-item text-secondary" style="cursor: pointer;" routerLink="/add-list">Add List</a></li>
-                    <li *ngIf="isAuthenticated"><a class="dropdown-item text-secondary" style="cursor: pointer;" (click)="onP()">Profile</a></li>
+                    <li *ngIf="isAuthenticated"><a class="dropdown-item text-secondary" style="cursor: pointer;"
+                            routerLink="/chat">Messages</a></li>
+                    <li *ngIf="isAuthenticated"><a class="dropdown-item text-secondary" style="cursor: pointer;"
+                            routerLink="/watch-list">Watchlist</a></li>
+                    <li *ngIf="isAuthenticated"><a class="dropdown-item text-secondary" style="cursor: pointer;"
+                            routerLink="/add-list">Add List</a></li>
+                    <li *ngIf="isAuthenticated"><a class="dropdown-item text-secondary" style="cursor: pointer;"
+                            (click)="onP()">Profile</a></li>
                     <li *ngIf="isAuthenticated">
                         <hr class="dropdown-divider">
                     </li>
-                    <li *ngIf="isAuthenticated"><a class="dropdown-item text-secondary" style="cursor: pointer;" (click)="onLogout()">Logout</a></li>
+                    <li *ngIf="isAuthenticated"><a class="dropdown-item text-secondary" style="cursor: pointer;"
+                            (click)="onLogout()">Logout</a></li>
                 </ul>
             </a>
         </div>
@@ -54,11 +46,12 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="loginLabel">Log In</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                    #closeBtnLogin></button>
             </div>
             <div class="modal-body">
                 <form (ngSubmit)="onSubmitF1(f1)" #f1="ngForm">
-                    <h5 class="pt-3 pb-3 pe-3">Welcome to Airbnb</h5>
+                    <h5 class="pt-3 pb-3 pe-3">Welcome to Trip In</h5>
                     <div class="form-floating mb-2">
                         <input type="text" class="form-control" name="usernameLogIn" id="usernameLogIn"
                             placeholder="Enter your username" required ngModel #usernameLogIn>
@@ -70,13 +63,13 @@
                             #passLogIn>
                         <label for="passwordLogIn">Password</label>
                     </div>
+                    <div *ngIf="errorLogin">
+                        <p class="alert alert-danger text-center">{{errorLogin}}</p>
+                    </div>
                     <div class="d-grid gap-2">
                         <button class="btn btn-primary" type="submit" [disabled]="!f1.valid">Log In</button>
                     </div>
                 </form>
-                <span class="d-flex align-items-center justify-content-center mt-2">or</span>
-                <hr class="text-secondary m-0" />
-                <span class="d-flex align-items-center justify-content-center mt-2">To Be Continued</span>
             </div>
         </div>
     </div>
@@ -89,11 +82,11 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="signupLabel">Sign Up</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                    #closeBtnSignUp></button>
             </div>
             <div class="modal-body">
-                <p class="allert alert-danger text-center">{{error}}</p>
-                <h5 class="pt-3 pb-3 pe-3">Welcome to Airbnb</h5>
+                <h5 class="pt-3 pb-3 pe-3">Welcome to Trip In</h5>
                 <form (ngSubmit)="onSubmitF2(f2)" #f2="ngForm">
                     <div class="form-floating mb-2">
                         <input type="text" class="form-control" name="usernameSignUp" id="usernameSignUp"
@@ -118,14 +111,14 @@
                         <label class="form-check-label" for="flexSwitchCheckDefault">Agree to terms and
                             conditions</label>
                     </div>
+                    <div *ngIf="errorSignUp">
+                        <p class="alert alert-danger text-center">{{errorSignUp}}</p>
+                    </div>
                     <div class="d-grid gap-2">
                         <button type="submit" class="btn btn-primary" [disabled]="!f2.valid">
                             Sign Up</button>
                     </div>
                 </form>
-                <span class="d-flex align-items-center justify-content-center mt-2">or</span>
-                <hr class="text-secondary m-0" />
-                <span class="d-flex align-items-center justify-content-center mt-2">To Be Continued</span>
             </div>
         </div>
     </div>
