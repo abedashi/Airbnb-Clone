@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { ServiceService } from '../service.service';
 import { PostProfileService } from './post-profile.service';
 
 @Component({
@@ -13,11 +14,14 @@ export class ProfileComponent implements OnInit, OnDestroy {
   view: boolean = false;
   sub: Subscription
   id: number;
+  userList: [];
+  subUserList: Subscription;
   res: {};
   local: {};
 
   constructor(
     private profileService: PostProfileService,
+    private service: ServiceService,
     private route: ActivatedRoute
   ) { }
 
@@ -29,26 +33,30 @@ export class ProfileComponent implements OnInit, OnDestroy {
           this.res = resData;
           console.log(resData);
         });
+        this.subUserList = this.service.getAllListsForOneUser(this.id).subscribe((resData: []) => {
+          this.userList = resData;
+          console.log("this", resData)
+        });
       }
-      );
-      this.sub = this.profileService.getProfile().subscribe(resData => {
-        this.local = resData;
-      });
+    );
+    this.sub = this.profileService.getProfile().subscribe(resData => {
+      this.local = resData;
+    });
   }
   changeImg(form: NgForm) {
     console.log(form.value.url);
     const image = form.value.url;
     this.sub = this.profileService.updateImage(image).subscribe(resData => {
       this.profileService.getProfileData(this.id)
-      .subscribe(resData => {
-        this.res = resData;
-        console.log(this.res);
-      })
+        .subscribe(resData => {
+          this.res = resData;
+          console.log(this.res);
+        })
     });
     form.reset();
   }
-  
-  onSubmit(form: NgForm){
+
+  onSubmit(form: NgForm) {
     console.log(form.value.about)
     const about = form.value.about;
     const job = form.value.job;
@@ -58,11 +66,11 @@ export class ProfileComponent implements OnInit, OnDestroy {
       .subscribe(resData => {
         this.profileService.getProfileData(this.id)
           .subscribe(resData => {
-          this.res = resData;
-          console.log(this.res);
-      });
+            this.res = resData;
+            console.log(this.res);
+          });
       }
-    );
+      );
     this.view = !this.view;
   }
 
@@ -76,5 +84,6 @@ export class ProfileComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.sub.unsubscribe();
+    this.subUserList.unsubscribe();
   }
 }
