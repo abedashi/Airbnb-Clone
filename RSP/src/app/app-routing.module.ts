@@ -17,7 +17,7 @@ const appRoutes: Routes = [
         { path: '', component: ListComponent },
         { path: ':id', component: ListingViewComponent }
     ]},
-    { path: 'chat', component: MessagesComponent},
+    { path: 'messages', component: MessagesComponent},
     { path: 'add-list', component: AddListComponent, canActivate: [AuthGuard] },
     { path: 'profile/:id', component: ProfileComponent, canActivate: [AuthGuard] },
     { path: 'maps', component: MapsComponent },
