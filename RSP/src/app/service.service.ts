@@ -25,19 +25,6 @@ export class ServiceService {
       params: new HttpParams().set('contactId', index)
     });
   }
-
-  // createChat(message: string, index: number) {
-  //   const postData = {message: message}
-  //   this.http.post('http://localhost:80/Airbnb-Clone-API/api/contact/create.php', postData, {
-  //     params: new HttpParams().set('hostId', index)
-  //   });
-  // }
-
-  // getChat(index: number) {
-  //   this.http.get('http://localhost:80/Airbnb-Clone-API/api/contact/getChat.php', {
-  //     params: new HttpParams().set('contactId', index)
-  //   });
-  // }
   
   createWatchlistData(index: number) {
     this.http
