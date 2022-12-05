@@ -53,7 +53,6 @@ export class AddListComponent implements OnInit {
       this.addList.get('map.lng').setValue(event.latLng.lng());
       this.addList.get('map.lat').disable();
       this.addList.get('map.lng').disable();
-      console.log();
     }
   }
 

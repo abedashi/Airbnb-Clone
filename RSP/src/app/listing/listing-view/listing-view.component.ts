@@ -54,7 +54,6 @@ export class ListingViewComponent implements OnInit, OnDestroy {
           this.res = resData;
           this.service.getWatchlistSingle(this.id)
             .subscribe(resData => {
-              // console.log(resData);
               this.watchlistId = resData['appartment_id'];
             });
         });
@@ -72,13 +71,6 @@ export class ListingViewComponent implements OnInit, OnDestroy {
       .subscribe(resData => {
         this.userId = resData['id'];
       });
-
-    // setTimeout(() => {
-    // this.service.getWatchlistSingle(this.id)
-    //   .subscribe((resData) => {
-    //       console.log(resData);
-    //   });
-    // }, 500);
 
     this.getReservationsDates();
   }
