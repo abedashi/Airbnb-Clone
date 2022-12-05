@@ -40,6 +40,12 @@ export class ServiceService {
     return this.http
       .get<Watchlist[]>('http://localhost/Airbnb-Clone-API/api/watchlist/get.php')
   }
+  getWatchlistSingle(index: number) {
+    return this.http
+      .get('http://localhost/Airbnb-Clone-API/api/watchlist/get_single.php', {
+        params: new HttpParams().set('appartment_id', index)
+      })
+  }
 
   deleteFromWatchist(index: number) {
     this.http

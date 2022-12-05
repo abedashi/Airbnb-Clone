@@ -31,7 +31,8 @@ export class ListingViewComponent implements OnInit, OnDestroy {
   reservation: FormGroup;
   appartment_id: number;
 
-  shi: any;
+  watchlistId: number;
+
 
   constructor(
     private service: ServiceService,
@@ -51,6 +52,11 @@ export class ListingViewComponent implements OnInit, OnDestroy {
         this.id = +params['id'];
         this.listView = this.service.getSingleData(this.id).subscribe(resData => {
           this.res = resData;
+          this.service.getWatchlistSingle(this.id)
+            .subscribe(resData => {
+              // console.log(resData);
+              this.watchlistId = resData['appartment_id'];
+            });
         });
       }
     );
@@ -66,6 +72,13 @@ export class ListingViewComponent implements OnInit, OnDestroy {
       .subscribe(resData => {
         this.userId = resData['id'];
       });
+
+    // setTimeout(() => {
+    // this.service.getWatchlistSingle(this.id)
+    //   .subscribe((resData) => {
+    //       console.log(resData);
+    //   });
+    // }, 500);
 
     this.getReservationsDates();
   }
@@ -122,14 +135,14 @@ export class ListingViewComponent implements OnInit, OnDestroy {
   getReservationsDates() {
     setTimeout(() => {
       this.subReservation = this.service.getAllReservations(this.res['id']).subscribe((resData) => {
-          this.invalid = [];
-          for (let i = 0; i < resData.length; i++) {
-            let start = +resData[i]['check_in'].substring(3, 5);
-            let end = +resData[i]['check_out'].substring(3, 5);
-            for (let day = start; day < end; day++) {
-              this.invalid.push(new Date(this.now.getFullYear(), this.now.getMonth(), day));
-            }
+        this.invalid = [];
+        for (let i = 0; i < resData.length; i++) {
+          let start = +resData[i]['check_in'].substring(3, 5);
+          let end = +resData[i]['check_out'].substring(3, 5);
+          for (let day = start; day < end; day++) {
+            this.invalid.push(new Date(this.now.getFullYear(), this.now.getMonth(), day));
           }
+        }
       });
     }, 1000);
   }
