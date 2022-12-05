@@ -19,10 +19,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS, HttpClientJsonpModule } from '@ang
 import { AuthIntercetoprService } from './header/auth-intercetors.service';
 import { FooterComponent } from './footer/footer.component';
 import { MessagesComponent } from './messages/messages.component';
-import { ContactComponent } from './messages/contact/contact.component';
-import { ChatComponent } from './messages/chat/chat.component';
-import { StartComponent } from './messages/start/start.component';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,12 +33,9 @@ import { StartComponent } from './messages/start/start.component';
     WatshListComponent,
     FooterComponent,
     MessagesComponent,
-    ContactComponent,
-    ChatComponent,
-    StartComponent
   ],
   imports: [ 
-    MbscModule, 
+    MbscModule,  
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,

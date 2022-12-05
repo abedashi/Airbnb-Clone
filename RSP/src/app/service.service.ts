@@ -11,19 +11,20 @@ export class ServiceService {
     private http: HttpClient
   ) { }
 
-  createContact(index: number) {
-    this.http.get('http://localhost:80/Airbnb-Clone-API/api/contact/create.php', {
+  createContact(index: number, message: string) {
+    const postData = {message: message}
+    this.http.post('http://localhost:80/Airbnb-Clone-API/api/contact/create.php', postData, {
       params: new HttpParams().set('hostId', index)
     }).subscribe(resData => {
       console.log(resData)
     });
   }
 
-  // getSingeleContact(index: number) {
-  //   this.http.get('http://localhost:80/Airbnb-Clone-API/api/contact/get_single.php', {
-  //     params: new HttpParams().set('hostId', index)
-  //   });
-  // }
+  getSingeleContact(index: number) {
+    return this.http.get('http://localhost:80/Airbnb-Clone-API/api/contact/get_single.php', {
+      params: new HttpParams().set('contactId', index)
+    });
+  }
 
   // createChat(message: string, index: number) {
   //   const postData = {message: message}
