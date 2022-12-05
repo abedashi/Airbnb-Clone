@@ -67,6 +67,11 @@ export class ServiceService {
     return this.http
       .get<List[]>('http://localhost/Airbnb-Clone-API/api/appartments-list/get.php')
   }
+  getAllListsForOneUser(index: number) {
+    return this.http.get('http://localhost/Airbnb-Clone-API/api/appartments-list/get_single_user.php', {
+      params: new HttpParams().set('userId', index)
+    })
+  }
 
   getSingleData(index: number){
     return this.http
