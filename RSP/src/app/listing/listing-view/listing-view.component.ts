@@ -4,12 +4,8 @@ import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/header/auth.service';
 import { ServiceService } from 'src/app/service.service';
 import { setOptions } from '@mobiscroll/angular';
-<<<<<<< HEAD
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
-=======
-import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { PostProfileService } from 'src/app/profile/post-profile.service';
->>>>>>> refs/remotes/origin/main
 
 setOptions({
   theme: 'ios',
