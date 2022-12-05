@@ -4,7 +4,7 @@ import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/header/auth.service';
 import { ServiceService } from 'src/app/service.service';
 import { setOptions } from '@mobiscroll/angular';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 
 setOptions({
   theme: 'ios',
@@ -61,8 +61,12 @@ export class ListingViewComponent implements OnInit, OnDestroy {
     this.getReservationsDates();
   }
 
-  onContact(index: number) {
-    this.service.createContact(index)
+  onContact(index: number, form: NgForm) {
+    // this.service.createContact(index)
+    console.log(form.value.message);
+    const message = form.value.message;
+    this.service.createContact(index, message);
+    form.reset();
   }
 
   onSave() {
