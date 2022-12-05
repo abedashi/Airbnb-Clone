@@ -1,10 +1,16 @@
-<div class="container-fluid">
-  <div class="row" style="height: 90vh;">
-    <div class="col-md-3 border-top border-start border-end">
-      <app-contact></app-contact>
-    </div>
-    <div class="col-md-9 border-top border-start border-end">
-        <router-outlet></router-outlet>
-    </div>
+<div class="row my-3" *ngFor="let result of res; let ress in result">
+  <div class="col d-flex justify-content-center">
+      <div class="list-group w-auto">
+          <div class="list-group-item d-flex gap-3 py-3">
+            <img src="{{ ress['image'] }}" alt="twbs" width="32" height="32" class="rounded-circle flex-shrink-0">
+            <div class="d-flex gap-2 w-100 justify-content-between">
+              <div>
+                <h6 class="mb-0">{{ ress['username'] }}</h6>
+                <p style="width: 650px;" class="mb-0 opacity-75">{{ ress['message'] }}</p>
+              </div>
+              <small class="opacity-50 text-nowrap">{{ ress['created_at'] }}</small>
+            </div>
+          </div>
+        </div>
   </div>
 </div>
