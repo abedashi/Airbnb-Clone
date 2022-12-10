@@ -27,6 +27,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
     
 ## Preview
 ### Login
-<img width="1440" height="400" alt="Screenshot 2022-12-10 at 9 05 08 PM" src="https://user-images.githubusercontent.com/58772174/206871477-7741b671-2cb5-49db-936f-24081fbdc925.png">
-
+<div style="width: 1200px; margin: auto">
+<img width="1440" height="600" alt="Screenshot 2022-12-10 at 9 05 08 PM" src="https://user-images.githubusercontent.com/58772174/206871477-7741b671-2cb5-49db-936f-24081fbdc925.png">
+</div>
 ### Signup
