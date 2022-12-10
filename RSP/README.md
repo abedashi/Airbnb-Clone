@@ -27,6 +27,4 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
     
 ## Preview
 # Login
-![login](https://user-images.githubusercontent.com/58772174/206871254-d424dc03-bddd-4c78-a3b2-00b4b99fa45b.gif)
-
-
+![signup](https://user-images.githubusercontent.com/58772174/206871409-dcb294ac-9864-4466-b99d-fa103a91d93b.gif)
