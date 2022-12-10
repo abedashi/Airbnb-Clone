@@ -9,7 +9,6 @@ import { ListComponent } from "./listing/list/list.component";
 import { ProfileComponent } from "./profile/profile.component";
 import { WatshListComponent } from "./watsh-list/watsh-list.component";
 import { AuthGuard } from "./header/auth.guard";
-import { MessagesComponent } from "./messages/messages.component";
 
 const appRoutes: Routes = [
     { path: '', redirectTo: 'listing', pathMatch: 'full' },
@@ -17,7 +16,6 @@ const appRoutes: Routes = [
         { path: '', component: ListComponent },
         { path: ':id', component: ListingViewComponent }
     ]},
-    { path: 'messages', component: MessagesComponent},
     { path: 'add-list', component: AddListComponent, canActivate: [AuthGuard] },
     { path: 'profile/:id', component: ProfileComponent, canActivate: [AuthGuard] },
     { path: 'maps', component: MapsComponent },

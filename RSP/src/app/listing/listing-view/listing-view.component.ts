@@ -32,6 +32,7 @@ export class ListingViewComponent implements OnInit, OnDestroy {
   appartment_id: number;
 
   watchlistId: number;
+  username: string;
 
 
   constructor(
@@ -71,24 +72,9 @@ export class ListingViewComponent implements OnInit, OnDestroy {
     this.profileService.getProfile()
       .subscribe(resData => {
         this.userId = resData['id'];
+        this.username = resData['username']
       });
-
-    // setTimeout(() => {
-    // this.service.getWatchlistSingle(this.id)
-    //   .subscribe((resData) => {
-    //       console.log(resData);
-    //   });
-    // }, 500);
-
     this.getReservationsDates();
-  }
-
-  onContact(index: number, form: NgForm) {
-    // this.service.createContact(index)
-    console.log(form.value.message);
-    const message = form.value.message;
-    this.service.createContact(index, message);
-    form.reset();
   }
 
   onSave() {

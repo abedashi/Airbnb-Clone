@@ -17,8 +17,6 @@ import { ProfileComponent } from './profile/profile.component';
 import { WatshListComponent } from './watsh-list/watsh-list.component';
 import { HttpClientModule, HTTP_INTERCEPTORS, HttpClientJsonpModule } from '@angular/common/http';
 import { AuthIntercetoprService } from './header/auth-intercetors.service';
-import { FooterComponent } from './footer/footer.component';
-import { MessagesComponent } from './messages/messages.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,8 +29,6 @@ import { MessagesComponent } from './messages/messages.component';
     ListComponent,
     ProfileComponent,
     WatshListComponent,
-    FooterComponent,
-    MessagesComponent,
   ],
   imports: [ 
     MbscModule,  
