@@ -34,3 +34,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ### Add post
 ![Add postt](https://user-images.githubusercontent.com/58772174/206879706-81d35f26-41d2-4da9-b289-23bfbfe78cb2.gif)
 
+### View profile
+![View profile](https://user-images.githubusercontent.com/58772174/206879800-049a97d0-60a0-45db-9e29-12a056d206f2.gif)
+
+### 
+
+
