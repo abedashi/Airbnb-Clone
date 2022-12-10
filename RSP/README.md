@@ -1,4 +1,4 @@
-# RSP
+# Trip In
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.5.
 
@@ -27,7 +27,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
     
 ## Preview
 ### Login
-<img width="1440" alt="Screenshot 2022-12-10 at 9 05 08 PM" src="https://user-images.githubusercontent.com/58772174/206871477-7741b671-2cb5-49db-936f-24081fbdc925.png">
+<img width="1440" height="600" alt="Screenshot 2022-12-10 at 9 05 08 PM" src="https://user-images.githubusercontent.com/58772174/206871477-7741b671-2cb5-49db-936f-24081fbdc925.png">
 
 ### Signup
-![signup](https://user-images.githubusercontent.com/58772174/206879026-14c60a45-a3c6-442f-ac42-000526a9458f.gif)
