@@ -31,11 +31,9 @@ export class ProfileComponent implements OnInit, OnDestroy {
         this.id = +params['id'];
         this.sub = this.profileService.getProfileData(this.id).subscribe(resData => {
           this.res = resData;
-          console.log(resData);
         });
         this.subUserList = this.service.getAllListsForOneUser(this.id).subscribe((resData: []) => {
           this.userList = resData;
-          console.log("this", resData)
         });
       }
     );
@@ -50,7 +48,6 @@ export class ProfileComponent implements OnInit, OnDestroy {
       this.profileService.getProfileData(this.id)
         .subscribe(resData => {
           this.res = resData;
-          console.log(this.res);
         })
     });
     form.reset();
@@ -63,11 +60,10 @@ export class ProfileComponent implements OnInit, OnDestroy {
     const location = form.value.location;
     const language = form.value.language;
     this.sub = this.profileService.updateProfile(about, language, location, job)
-      .subscribe(resData => {
+      .subscribe(() => {
         this.profileService.getProfileData(this.id)
           .subscribe(resData => {
             this.res = resData;
-            console.log(this.res);
           });
       }
       );

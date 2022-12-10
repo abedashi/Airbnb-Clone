@@ -55,7 +55,6 @@ export class ListingViewComponent implements OnInit, OnDestroy {
           this.res = resData;
           this.service.getWatchlistSingle(this.id)
             .subscribe(resData => {
-              // console.log(resData);
               this.watchlistId = resData['appartment_id'];
             });
         });

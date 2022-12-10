@@ -23,7 +23,6 @@ export class MapsComponent implements OnInit, OnDestroy{
   ngOnInit(): void {
     this.sub = this.service.getData()
       .subscribe((resData: List[]) => {
-        console.log(resData);
         this.markerPositions = resData;
     });
   }

@@ -12,7 +12,11 @@ import { List } from '../listing.module';
 export class ListComponent implements OnInit, OnDestroy {
   listing: Subscription;
   res: List[];
-  constructor(private service: ServiceService, private router: Router, private route: ActivatedRoute) { }
+  constructor(
+    private service: ServiceService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
     this.listing = this.service.getData().subscribe(resData => {
