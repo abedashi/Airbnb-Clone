@@ -32,6 +32,5 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 <img width="1440" alt="Screenshot 2022-12-11 at 1 26 31 AM" src="https://user-images.githubusercontent.com/58772174/206879375-6994d1e7-94d4-4aa7-902a-563c59e6e7a7.png">
 
 ### Add post
-![Add post](https://user-images.githubusercontent.com/58772174/206879643-df063af1-00d3-4fd1-9a75-f2b87ac26b20.gif)
-
+![Add postt](https://user-images.githubusercontent.com/58772174/206879706-81d35f26-41d2-4da9-b289-23bfbfe78cb2.gif)
 
