@@ -52,8 +52,5 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ### Make reservation
 ![make reservation](https://user-images.githubusercontent.com/58772174/206880117-5df0372e-b36c-4d4a-b39a-c964751885f7.gif)
 
-## Host profile
+### Host profile
 ![host profile](https://user-images.githubusercontent.com/58772174/206880150-47005b68-5d5c-40c6-87a4-cbe25e5b87e6.gif)
-st profile
-
-
