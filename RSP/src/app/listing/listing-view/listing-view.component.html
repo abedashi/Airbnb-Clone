@@ -10,11 +10,13 @@
             <span><strong> ·</strong> {{ res['address'] }}</span>
         </div>
         <div class="col-4 text-end">
-            <button type="button" class="btn btn-light" *ngIf="!watchlistId" [disabled]="!isAuthenticated" (click)="onSave()">
+            <button type="button" class="btn btn-light" *ngIf="!watchlistId" [disabled]="!isAuthenticated"
+                (click)="onSave()">
                 <i class="bi bi-heart" style="font-size: 16px;"> save</i>
             </button>
-            <button type="button" class="btn btn-danger" *ngIf="watchlistId" [disabled]="!isAuthenticated" (click)="onDelete()">
-                <i class="bi bi-heart" style="font-size: 16px;"> unsave</i>
+            <button type="button" class="btn btn-danger" *ngIf="watchlistId" [disabled]="!isAuthenticated"
+                (click)="onDelete()">
+                <i class="bi bi-heart" style="font-size: 14px;"> unsave</i>
             </button>
         </div>
     </div>
@@ -55,9 +57,9 @@
         </div>
 
         <div class="row mt-5">
-            <div class="col-8">
+            <div class="col-lg-8">
                 <div class="row">
-                    <div class="col-9 ">
+                    <div class="col-9">
                         <h4>Tiny home hosted by {{ res['username'] }}</h4>
                         <span>{{ res['guests'] }} guests · {{ res['bedroom'] }} bedroom · {{ res['bed'] }} bed · {{
                             res['bath'] }} bath</span>

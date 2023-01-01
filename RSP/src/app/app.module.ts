@@ -15,7 +15,11 @@ import { AddListComponent } from './add-list/add-list.component';
 import { ListComponent } from './listing/list/list.component';
 import { ProfileComponent } from './profile/profile.component';
 import { WatshListComponent } from './watsh-list/watsh-list.component';
-import { HttpClientModule, HTTP_INTERCEPTORS, HttpClientJsonpModule } from '@angular/common/http';
+import {
+  HttpClientModule,
+  HTTP_INTERCEPTORS,
+  HttpClientJsonpModule,
+} from '@angular/common/http';
 import { AuthIntercetoprService } from './header/auth-intercetors.service';
 @NgModule({
   declarations: [
@@ -30,23 +34,23 @@ import { AuthIntercetoprService } from './header/auth-intercetors.service';
     ProfileComponent,
     WatshListComponent,
   ],
-  imports: [ 
-    MbscModule,  
+  imports: [
+    MbscModule,
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     GoogleMapsModule,
     AppRoutingModule,
     HttpClientModule,
-    HttpClientJsonpModule
+    HttpClientJsonpModule,
   ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthIntercetoprService,
-      multi: true
-    }
+      multi: true,
+    },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
