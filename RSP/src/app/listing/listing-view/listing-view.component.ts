@@ -9,19 +9,19 @@ import { PostProfileService } from 'src/app/profile/post-profile.service';
 
 setOptions({
   theme: 'ios',
-  themeVariant: 'light'
+  themeVariant: 'light',
 });
 
 @Component({
   selector: 'app-listing-view',
   templateUrl: './listing-view.component.html',
-  styleUrls: ['./listing-view.component.css']
+  styleUrls: ['./listing-view.component.css'],
 })
 export class ListingViewComponent implements OnInit, OnDestroy {
   isAuthenticated: boolean = false;
   userSub: Subscription;
   zoom: 12;
-  markerOptions: google.maps.MarkerOptions = { draggable: false }
+  markerOptions: google.maps.MarkerOptions = { draggable: false };
   listView: Subscription;
   subReservation: Subscription;
   res: Object;
@@ -34,56 +34,57 @@ export class ListingViewComponent implements OnInit, OnDestroy {
   watchlistId: number;
   username: string;
 
-
   constructor(
     private service: ServiceService,
     private router: Router,
     private route: ActivatedRoute,
     private authService: AuthService,
     private profileService: PostProfileService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
-    this.userSub = this.authService.user.subscribe(user => {
+    this.userSub = this.authService.user.subscribe((user) => {
       this.isAuthenticated = !!user;
     });
 
-    this.route.params.subscribe(
-      (params: Params) => {
-        this.id = +params['id'];
-        this.listView = this.service.getSingleData(this.id).subscribe(resData => {
+    this.route.params.subscribe((params: Params) => {
+      this.id = +params['id'];
+      this.listView = this.service
+        .getSingleData(this.id)
+        .subscribe((resData) => {
           this.res = resData;
-          this.service.getWatchlistSingle(this.id)
-            .subscribe(resData => {
-              this.watchlistId = resData['appartment_id'];
-            });
+          this.service.getWatchlistSingle(this.id).subscribe((resData) => {
+            this.watchlistId = resData['appartment_id'];
+          });
         });
-      }
-    );
-
-    this.reservation = new FormGroup({
-      'check_in': new FormControl('', Validators.required),
-      'check_out': new FormControl('', Validators.required),
-      'totalPrice': new FormControl('', Validators.required),
-      'nbDays': new FormControl('', Validators.required)
     });
 
-    this.profileService.getProfile()
-      .subscribe(resData => {
-        this.userId = resData['id'];
-        this.username = resData['username']
-      });
+    this.reservation = new FormGroup({
+      check_in: new FormControl('', Validators.required),
+      check_out: new FormControl('', Validators.required),
+      totalPrice: new FormControl('', Validators.required),
+      nbDays: new FormControl('', Validators.required),
+    });
+
+    this.profileService.getProfile().subscribe((resData) => {
+      this.userId = resData['id'];
+      this.username = resData['username'];
+    });
     this.getReservationsDates();
   }
 
   onSave() {
     this.service.createWatchlistData(this.id);
-    this.router.navigate(['/watch-list']);
+    setTimeout(() => {
+      this.router.navigate(['/watch-list']);
+    }, 300);
   }
 
   onDelete() {
     this.service.deleteFromWatchist(this.id);
-    this.router.navigate(['/watch-list']);
+    setTimeout(() => {
+      this.router.navigate(['/watch-list']);
+    }, 300);
   }
 
   ngOnDestroy(): void {
@@ -93,7 +94,11 @@ export class ListingViewComponent implements OnInit, OnDestroy {
   }
 
   min = new Date();
-  max = new Date(this.min.getFullYear(), this.min.getMonth() + 6, this.min.getDate());
+  max = new Date(
+    this.min.getFullYear(),
+    this.min.getMonth() + 6,
+    this.min.getDate()
+  );
   // count
   now = new Date();
   invalid = [];
@@ -119,16 +124,20 @@ export class ListingViewComponent implements OnInit, OnDestroy {
 
   getReservationsDates() {
     setTimeout(() => {
-      this.subReservation = this.service.getAllReservations(this.res['id']).subscribe((resData) => {
-        this.invalid = [];
-        for (let i = 0; i < resData.length; i++) {
-          let start = +resData[i]['check_in'].substring(3, 5);
-          let end = +resData[i]['check_out'].substring(3, 5);
-          for (let day = start; day < end; day++) {
-            this.invalid.push(new Date(this.now.getFullYear(), this.now.getMonth(), day));
+      this.subReservation = this.service
+        .getAllReservations(this.res['id'])
+        .subscribe((resData) => {
+          this.invalid = [];
+          for (let i = 0; i < resData.length; i++) {
+            let start = +resData[i]['check_in'].substring(3, 5);
+            let end = +resData[i]['check_out'].substring(3, 5);
+            for (let day = start; day < end; day++) {
+              this.invalid.push(
+                new Date(this.now.getFullYear(), this.now.getMonth(), day)
+              );
+            }
           }
-        }
-      });
+        });
     }, 1000);
   }
 }
